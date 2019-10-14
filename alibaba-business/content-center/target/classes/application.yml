@@ -1,0 +1,64 @@
+spring:
+  application:
+    name: content-center
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/content_center?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
+      username: root
+      password: 123456
+      max-active: 10
+      initial-size: 5
+      min-idle: 2
+      max-wait: 60000
+      pool-prepared-statements: true
+      web-stat-filter:
+        enabled: true
+        url-pattern: /druid
+  # nacos 服务注册
+  cloud:
+    nacos:
+      discovery:
+        server-addr: guyawei.top:8848
+        #指定 namespace
+        #namespace: 1b3bc369-e9c8-4208-8f2e-63993378a986,
+        #指定 集群名称
+        cluster-name: lanswon
+        #ribbon 实现元数据版本控制
+        metadata:
+          # 当前版本
+          version: v1
+          # 允许调用的版本
+          target-version: v1
+
+#配置的方式使用负载均衡策略，比代码的方式优先级更高
+#user-center:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+
+ribbon:
+  #开启ribbon饥饿加载
+  eager-load:
+    enabled: true
+    clients: user-center
+
+server:
+  port: 8010
+
+
+logging:
+  level:
+    com.lanswon: debug
+    ribbonConfig: debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+mybatis:
+  mapper-locations: classpath:/mybatis-mapper/*.xml

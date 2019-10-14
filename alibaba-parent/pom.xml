@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>cloud-alibaba</artifactId>
+        <groupId>com.lanswon</groupId>
+        <version>${lanswon.cloud.version}</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>alibaba-parent</artifactId>
+    <packaging>pom</packaging>
+
+    <description>
+        项目的父工程，负责项目的依赖管理
+    </description>
+
+    <properties>
+
+        <!--dependency version-->
+        <SpringBoot.version>2.1.5.RELEASE</SpringBoot.version>
+        <springcloud.version>Greenwich.SR2</springcloud.version>
+        <cloud.alibaba.version>2.1.0.RELEASE</cloud.alibaba.version>
+
+        <springboot.mybatis.version>2.0.1</springboot.mybatis.version>
+        <springboot.druid.version>1.1.10</springboot.druid.version>
+        <springfox.swagger.version>2.9.2</springfox.swagger.version>
+
+        <apache.commons.pool2.version>2.5.0</apache.commons.pool2.version>
+        <aliyun.core.version>4.0.6</aliyun.core.version>
+        <aliyun.dysmsapi.version>1.1.0</aliyun.dysmsapi.version>
+
+        <zipkin.java.version>2.11.9</zipkin.java.version>
+        <lombok.versin>1.16.22</lombok.versin>
+
+        <!--plugins version-->
+        <jacoco.version>0.8.5-SNAPSHOT</jacoco.version>
+        <docker.version>1.4.10</docker.version>
+
+        <tk.mybatis>2.1.5</tk.mybatis>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--SpringBoot-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${SpringBoot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--springcloud-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${springcloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--cloud alibaba-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--springboot-mybatis-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${springboot.mybatis.version}</version>
+            </dependency>
+            <!--SpringBoot-druid支持-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${springboot.druid.version}</version>
+            </dependency>
+            <!--springfox-swagger2-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox.swagger.version}</version>
+            </dependency>
+            <!-- springfox-swagger-ui -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox.swagger.version}</version>
+            </dependency>
+
+            <!--Apache对象池-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${apache.commons.pool2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.versin}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>${tk.mybatis}</version>
+            </dependency>
+
+
+        </dependencies>
+
+    </dependencyManagement>
+
+</project>

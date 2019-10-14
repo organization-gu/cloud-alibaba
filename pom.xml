@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.lanswon</groupId>
+    <artifactId>cloud-alibaba</artifactId>
+    <version>${lanswon.cloud.version}</version>
+    <modules>
+        <module>alibaba-parent</module>
+        <module>alibaba-base</module>
+        <module>alibaba-commons</module>
+        <module>alibaba-business</module>
+        <module>alibaba-feign</module>
+    </modules>
+
+    <packaging>pom</packaging>
+    <name>lanswon-cloud-alibaba</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <lanswon.cloud.version>1.0.0.SNAPSHOT</lanswon.cloud.version>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>lanswon_project</id>
+            <name>Lanswon Project</name>
+            <url>http://192.168.10.56:9081/nexus/content/repositories/lanswon_project/</url>
+        </repository>
+    </distributionManagement>
+
+</project>

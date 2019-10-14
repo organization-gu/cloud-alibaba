@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: user-center
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/user_center?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
+      username: root
+      password: 123456
+      max-active: 10
+      initial-size: 5
+      min-idle: 2
+      max-wait: 60000
+      pool-prepared-statements: true
+      web-stat-filter:
+        enabled: true
+        url-pattern: /druid
+  # nacos 服务注册
+  cloud:
+    nacos:
+      discovery:
+        server-addr: guyawei.top:8848  #不需要协议
+        #namespace: 1b3bc369-e9c8-4208-8f2e-63993378a986
+        cluster-name: china
+        metadata:
+          version: v1
+
+server:
+  port: 8011
+
+
+logging:
+  level:
+    com.lanswon: debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+mybatis:
+  mapper-locations: classpath:/mybatis-mapper/*.xml
+
