@@ -32,13 +32,14 @@
         <aliyun.dysmsapi.version>1.1.0</aliyun.dysmsapi.version>
 
         <zipkin.java.version>2.11.9</zipkin.java.version>
-        <lombok.versin>1.16.22</lombok.versin>
+        <lombok.version>1.16.22</lombok.version>
 
         <!--plugins version-->
         <jacoco.version>0.8.5-SNAPSHOT</jacoco.version>
         <docker.version>1.4.10</docker.version>
 
         <tk.mybatis>2.1.5</tk.mybatis>
+        <rocketmq.version>2.0.3</rocketmq.version>
     </properties>
 
     <dependencyManagement>
@@ -102,13 +103,19 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>${lombok.versin}</version>
+                <version>${lombok.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>tk.mybatis</groupId>
                 <artifactId>mapper-spring-boot-starter</artifactId>
                 <version>${tk.mybatis}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq.version}</version>
             </dependency>
 
 

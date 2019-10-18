@@ -7,6 +7,7 @@ import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import ribbonConfig.CusTomizeIruleConfig;
 import tk.mybatis.spring.annotation.MapperScan;
 
@@ -20,6 +21,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @RibbonClient(name = "user-center",configuration = CusTomizeIruleConfig.class)
 @ComponentScan(basePackages={"com.lanswon.contentcenter","ribbonConfig","com.lanswon.feign"})
 @EnableFeignClients(basePackages = "com.lanswon.feign")
+@EnableTransactionManagement
 public class ContentcenterApplication {
     public static void main(String[] args) {
         SpringApplication.run(ContentcenterApplication.class);

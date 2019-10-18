@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  *
+ * @Author GU-YW
+ * @Date 2019/10/10 16:18
  */
 @RestController
 @RequestMapping("/shares")

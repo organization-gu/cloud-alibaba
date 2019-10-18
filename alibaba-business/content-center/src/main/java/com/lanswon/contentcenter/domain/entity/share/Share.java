@@ -2,14 +2,16 @@ package com.lanswon.contentcenter.domain.entity.share;
 
 import java.util.Date;
 import javax.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+
+import lombok.*;
 
 @Getter
 @Setter
 @ToString
 @Table(name = "share")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Share {
     /**
      * id

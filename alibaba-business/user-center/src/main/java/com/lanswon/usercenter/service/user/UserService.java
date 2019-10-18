@@ -2,6 +2,8 @@ package com.lanswon.usercenter.service.user;
 
 import com.lanswon.usercenter.dao.bonus.BonusEventLogMapper;
 import com.lanswon.usercenter.dao.user.UserMapper;
+import com.lanswon.usercenter.domain.dto.messaging.UserAddBonusMsgDTO;
+import com.lanswon.usercenter.domain.entity.bonus.BonusEventLog;
 import com.lanswon.usercenter.domain.entity.user.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,28 +25,28 @@ public class UserService {
         return this.userMapper.selectByPrimaryKey(id);
     }
 
-//    @Transactional(rollbackFor = Exception.class)
-//    public void addBonus(UserAddBonusMsgDTO msgDTO) {
-//        // 1. 为用户加积分
-//        Integer userId = msgDTO.getUserId();
-//        Integer bonus = msgDTO.getBonus();
-//        User user = this.userMapper.selectByPrimaryKey(userId);
-//
-//        user.setBonus(user.getBonus() + bonus);
-//        this.userMapper.updateByPrimaryKeySelective(user);
-//
-//        // 2. 记录日志到bonus_event_log表里面
-//        this.bonusEventLogMapper.insert(
-//            BonusEventLog.builder()
-//                .userId(userId)
-//                .value(bonus)
-//                .event(msgDTO.getEvent())
-//                .createTime(new Date())
-//                .description(msgDTO.getDescription())
-//                .build()
-//        );
-//        log.info("积分添加完毕...");
-//    }
+    @Transactional(rollbackFor = Exception.class)
+    public void addBonus(UserAddBonusMsgDTO msgDTO) {
+        // 1. 为用户加积分
+        Integer userId = msgDTO.getUserId();
+        Integer bonus = msgDTO.getBonus();
+        User user = this.userMapper.selectByPrimaryKey(userId);
+
+        user.setBonus(user.getBonus() + bonus);
+        this.userMapper.updateByPrimaryKeySelective(user);
+
+        // 2. 记录日志到bonus_event_log表里面
+        this.bonusEventLogMapper.insert(
+            BonusEventLog.builder()
+                .userId(userId)
+                .value(bonus)
+                .event(msgDTO.getEvent())
+                .createTime(new Date())
+                .description(msgDTO.getDescription())
+                .build()
+        );
+        log.info("积分添加完毕...");
+    }
 //
 //    public User login(UserLoginDTO loginDTO, String openId){
 //        User user = this.userMapper.selectOne(
