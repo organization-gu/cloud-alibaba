@@ -1,4 +1,4 @@
-package com.lanswon.contentcenter.domain.dto.messaging;
+package com.lanswon.feign.domain.dto.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,16 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
-public class UserAddBonusMsgDTO {
-    /**
-     * 为谁加积分
-     */
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserAddBonseDTO {
     private Integer userId;
     /**
-     * 加多少积分
+     * 积分
      */
     private Integer bonus;
 }

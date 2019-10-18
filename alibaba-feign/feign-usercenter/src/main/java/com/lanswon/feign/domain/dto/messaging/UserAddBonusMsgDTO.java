@@ -1,4 +1,4 @@
-package com.lanswon.usercenter.domain.dto.messaging;
+package com.lanswon.feign.domain.dto.messaging;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

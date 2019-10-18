@@ -1,6 +1,7 @@
 spring:
   application:
     name: user-center
+  # ****************************数据源
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -15,7 +16,7 @@ spring:
       web-stat-filter:
         enabled: true
         url-pattern: /druid
-  # nacos 服务注册
+  # *****************************服务注册*****************************
   cloud:
     nacos:
       discovery:
@@ -24,22 +25,32 @@ spring:
         cluster-name: china
         metadata:
           version: v1
+    # *****************************消费者配置stream-rocketMQ*****************************
+    stream:
+      rocketmq:
+        binder:
+          name-server: 192.168.44.78:9876
+      bindings:
+        intput:
+          destination: stream-add-bonus
+          group: stream-user-group #如果用的是rocketMQ必须要设置，其他的MQ可以留空
 
-
+# ****************************消费者rocketMQ配置,使用stream可以不配置****************************
 rocketmq:
   name-server: 192.168.44.78:9876
 
 
-
+# ****************************服务端口****************************
 server:
   port: 8011
 
-
+# ****************************系统日志****************************
 logging:
   level:
-    com.lanswon: debug
+    com.lanswon.*: debug
   path: /log/spring-alibaba/usercnter
 
+# ****************************系统端口管理****************************
 management:
   endpoints:
     web:
@@ -49,6 +60,7 @@ management:
     health:
       show-details: always
 
+# ****************************mybatis映射****************************
 mybatis:
   mapper-locations: classpath:/mybatis-mapper/*.xml
 

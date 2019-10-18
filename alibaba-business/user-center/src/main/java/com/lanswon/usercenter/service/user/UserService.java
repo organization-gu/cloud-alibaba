@@ -1,8 +1,8 @@
 package com.lanswon.usercenter.service.user;
 
+import com.lanswon.feign.domain.dto.messaging.UserAddBonusMsgDTO;
 import com.lanswon.usercenter.dao.bonus.BonusEventLogMapper;
 import com.lanswon.usercenter.dao.user.UserMapper;
-import com.lanswon.usercenter.domain.dto.messaging.UserAddBonusMsgDTO;
 import com.lanswon.usercenter.domain.entity.bonus.BonusEventLog;
 import com.lanswon.usercenter.domain.entity.user.User;
 import lombok.RequiredArgsConstructor;

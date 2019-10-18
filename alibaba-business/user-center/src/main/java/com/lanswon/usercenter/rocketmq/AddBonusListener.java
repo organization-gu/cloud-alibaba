@@ -1,8 +1,8 @@
 package com.lanswon.usercenter.rocketmq;
 
+import com.lanswon.feign.domain.dto.messaging.UserAddBonusMsgDTO;
 import com.lanswon.usercenter.dao.bonus.BonusEventLogMapper;
 import com.lanswon.usercenter.dao.user.UserMapper;
-import com.lanswon.usercenter.domain.dto.messaging.UserAddBonusMsgDTO;
 import com.lanswon.usercenter.domain.entity.bonus.BonusEventLog;
 import com.lanswon.usercenter.domain.entity.user.User;
 import lombok.RequiredArgsConstructor;
@@ -15,12 +15,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Date;
 import java.util.Objects;
 
-/**
+/** rocketMQ消费端
  * @Author GU-YW
  * @Date 2019/10/17 17:12
  */
 @Component
-@RocketMQMessageListener(consumerGroup = "usr-group",topic = "add-bonus")
+@RocketMQMessageListener(consumerGroup = "user-group",topic = "add-bonus")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class AddBonusListener implements RocketMQListener<UserAddBonusMsgDTO> {
 

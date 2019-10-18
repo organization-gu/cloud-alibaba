@@ -40,6 +40,7 @@
 
         <tk.mybatis>2.1.5</tk.mybatis>
         <rocketmq.version>2.0.3</rocketmq.version>
+        <stream.rocketmq.version>0.9.0.RELEASE</stream.rocketmq.version>
     </properties>
 
     <dependencyManagement>
@@ -116,6 +117,12 @@
                 <groupId>org.apache.rocketmq</groupId>
                 <artifactId>rocketmq-spring-boot-starter</artifactId>
                 <version>${rocketmq.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-stream-rocketmq</artifactId>
+                <version>${stream.rocketmq.version}</version>
             </dependency>
 
 

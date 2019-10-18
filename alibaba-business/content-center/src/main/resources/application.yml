@@ -1,6 +1,7 @@
 spring:
   application:
     name: content-center
+  # ******************************数据源******************************
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -15,13 +16,13 @@ spring:
       web-stat-filter:
         enabled: true
         url-pattern: /druid
-  # nacos 服务注册
+  # *****************************服务注册*****************************
   cloud:
     nacos:
       discovery:
         server-addr: 192.168.44.78:8848
         #指定 namespace
-        #namespace: 1b3bc369-e9c8-4208-8f2e-63993378a986,
+        #namespace: 1b3bc369-e9c8-4208-8f2e-63993378a986
         #指定 集群名称
         cluster-name: lanswon
         #ribbon 实现元数据版本控制
@@ -30,6 +31,7 @@ spring:
           version: v1
           # 允许调用的版本
           target-version: v1
+    # *****************************服务容错限流*****************************
     sentinel:
       transport:
         # 连接sentinel控制台
@@ -41,33 +43,43 @@ spring:
         port: 8720
       log:
         dir: /log/spring-alibaba/content-center/csp
-        #提前触发 Sentinel 初始化
+      #提前触发 Sentinel 初始化
       eager: true
+    # *****************************生产者配置stream-rocketMQ*****************************
+    stream:
+      rocketmq:
+        binder:
+          name-server: 192.168.44.78:9876
+      bindings:
+        output:
+          # topic 目的地
+          destination: stream-add-bonus
 
+# *****************************注解@sentinelRestTemplate功能开关****************************
 resttemplate:
   sentinel:
-    # @sentinelRestTemplate 注解功能开关
     enabled: true
 
+# ****************************生产者rocketMQ配置,使用stream可以不配置****************************
 rocketmq:
   name-server: 192.168.44.78:9876
   producer:
     # 必须指定group
     group: content-group
 
-
-# 配置的方式使用负载均衡策略，比代码的方式优先级更高
+# ****************************配置的方式使用负载均衡策略，比代码的方式优先级更高****************************
 #user-center:
 #  ribbon:
 #    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
 
+
+# ****************************开启ribbon饥饿加载****************************
 ribbon:
-  #开启ribbon饥饿加载
   eager-load:
     enabled: true
     clients: user-center
 
-#开启feign日志级别
+# ****************************开启feign日志级别及配置****************************
 feign:
   #整合sentinel
   sentinel:
@@ -89,16 +101,19 @@ feign:
     response:
       enabled: true
 
+# ****************************服务端口****************************
 server:
   port: 8010
 
-
+# ****************************系统日志****************************
 logging:
   level:
     com.lanswon.*: debug
     ribbonConfig.*: debug
+    com.alibaba.nacos.*: error #使用Stream-rocketmq包时会一致打印naocs心跳日志，所以调整日志级别
   path: /log/spring-alibaba/content-center
 
+# ****************************系统端口管理****************************
 management:
   endpoints:
     web:
@@ -108,6 +123,7 @@ management:
     health:
       show-details: always
 
+# ****************************mybatis映射****************************
 mybatis:
   mapper-locations: classpath:/mybatis-mapper/*.xml
 
