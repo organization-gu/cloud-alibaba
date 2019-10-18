@@ -2,7 +2,7 @@ package com.lanswon.usercenter.controller.user;
 
 
 import com.lanswon.usercenter.domain.entity.user.User;
-import com.lanswon.usercenter.service.user.UserService;
+import com.lanswon.usercenter.service.user.UserCenterService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class UserController {
 
-    private final UserService userService;
+    private final UserCenterService userService;
 
     @GetMapping("/{id}")
 //    @CheckLogin

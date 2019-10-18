@@ -22,7 +22,7 @@ spring:
       discovery:
         server-addr: 192.168.44.78:8848  #不需要协议
         #namespace: 1b3bc369-e9c8-4208-8f2e-63993378a986
-        cluster-name: china
+        cluster-name: lanswon
         metadata:
           version: v1
     # *****************************消费者配置stream-rocketMQ*****************************
@@ -31,9 +31,9 @@ spring:
         binder:
           name-server: 192.168.44.78:9876
       bindings:
-        intput:
+        input:
+          group: stream-user-group      #如果用的是rocketMQ必须要设置，其他的MQ可以留空
           destination: stream-add-bonus
-          group: stream-user-group #如果用的是rocketMQ必须要设置，其他的MQ可以留空
 
 # ****************************消费者rocketMQ配置,使用stream可以不配置****************************
 rocketmq:
@@ -42,7 +42,7 @@ rocketmq:
 
 # ****************************服务端口****************************
 server:
-  port: 8011
+  port: 8012
 
 # ****************************系统日志****************************
 logging:

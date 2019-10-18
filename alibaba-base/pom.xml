@@ -16,8 +16,10 @@
         - 服务注册/发现模块
         - 服务中心配置模块
         - 服务网关
-        - 权限模块
     </description>
+    <modules>
+        <module>alibaba-gateway</module>
+    </modules>
 
     <dependencyManagement>
         <dependencies>
