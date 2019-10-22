@@ -10,25 +10,22 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.44.78:8848
+        server-addr: guyawei.top:8848
 
     # *****************************网关*****************************
     gateway:
       discovery:
         locator:
           lower-case-service-id: true
+          # 让网关通过服务发现组件找到其他微服务
           enabled: true
       routes:
-        - id: content-center
-          uri: lb://content-center
+        - id: CLOUD-UUM
+          uri: lb://CLOUD-UUM
           predicates:
           - Path=/way/**
           filters:
           - StripPrefix= 1
-          - name: Hystrix
-            args:
-              name: fallbackcmd
-              fallbackuri: forward:/fallback
 
 # *****************************开启所有请求端点*****************************
 management:

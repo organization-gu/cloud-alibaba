@@ -20,7 +20,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.44.78:8848  #不需要协议
+        server-addr: guyawei.top:8848  #不需要协议
         #namespace: 1b3bc369-e9c8-4208-8f2e-63993378a986
         cluster-name: lanswon
         metadata:
@@ -29,7 +29,7 @@ spring:
     stream:
       rocketmq:
         binder:
-          name-server: 192.168.44.78:9876
+          name-server: guyawei.top:9876
       bindings:
         input:
           group: stream-user-group      #如果用的是rocketMQ必须要设置，其他的MQ可以留空
@@ -37,7 +37,7 @@ spring:
 
 # ****************************消费者rocketMQ配置,使用stream可以不配置****************************
 rocketmq:
-  name-server: 192.168.44.78:9876
+  name-server: guyawei.top:9876
 
 
 # ****************************服务端口****************************
@@ -48,6 +48,7 @@ server:
 logging:
   level:
     com.lanswon.*: debug
+    ::com.alibaba.nacos.*: error #使用Stream-rocketmq包时会一致打印naocs心跳日志，所以调整日志级别
   path: /log/spring-alibaba/usercnter
 
 # ****************************系统端口管理****************************

@@ -1,5 +1,6 @@
 package com.lanswon.contentcenter.service.content;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lanswon.contentcenter.dao.midusershare.MidUserShareMapper;
 import com.lanswon.contentcenter.dao.mqlog.RocketmqTransactionLogMapper;
 import com.lanswon.contentcenter.dao.share.ShareMapper;
@@ -8,6 +9,7 @@ import com.lanswon.contentcenter.domain.dto.content.ShareDTO;
 import com.lanswon.contentcenter.domain.entity.mqlog.RocketmqTransactionLog;
 import com.lanswon.contentcenter.domain.entity.share.Share;
 import com.lanswon.contentcenter.domain.enums.AuditStatusEnum;
+import com.lanswon.contentcenter.rocketmq.AddBonusTransactionListener;
 import com.lanswon.feign.domain.dto.messaging.UserAddBonusMsgDTO;
 import com.lanswon.feign.entity.user.User;
 import com.lanswon.feign.service.UserService;
@@ -23,6 +25,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -97,9 +100,12 @@ public class ShareService {
     }
 
     private void sendMessageByRocketMq(Integer id, ShareAuditDTO auditDTO){
+        AddBonusTransactionListener.flag=1;
         //发送半消息
         String transactionId = UUID.randomUUID().toString();
-        this.rocketMQTemplate.sendMessageInTransaction("tx-content-group","add-bonus",
+        this.rocketMQTemplate.sendMessageInTransaction(
+                "tx-content-group",
+                "add-bonus",
                 MessageBuilder
                         .withPayload(
                                 UserAddBonusMsgDTO
@@ -110,18 +116,16 @@ public class ShareService {
                         // header也有妙用...
                         .setHeader(RocketMQHeaders.TRANSACTION_ID,transactionId)
                         .setHeader("share_id", id)
+                        .build(),
                         //arg有大用处
-                        .build(),auditDTO);
+                        auditDTO);
+        log.debug("sendMessageByRocketMq发送数据={}",auditDTO.toString());
     }
 
     private void sendMessageByStream(Integer id, ShareAuditDTO auditDTO){
+        AddBonusTransactionListener.flag=2;
         //发送半消息
         String transactionId = UUID.randomUUID().toString();
-        MessageBuilder<UserAddBonusMsgDTO> userAddBonusMsgDTOMessageBuilder = MessageBuilder.withPayload(UserAddBonusMsgDTO.
-                builder()
-                .userId(id)
-                .bonus(50)
-                .build());
         this.source
                 .output()
                 .send(MessageBuilder
@@ -132,16 +136,20 @@ public class ShareService {
                                 .build())
                         .setHeader(RocketMQHeaders.TRANSACTION_ID,transactionId)
                         .setHeader("share_id", id)
+                        //对象在传输时会变成字符串，在使用时无法解析出对象
+                        .setHeader("dto", JSONObject.toJSONString(auditDTO))
                         .build());
+        log.debug("sendMessageByStream发送数据={}",auditDTO.toString());
     }
 
     @Transactional(rollbackFor = Exception.class)
     public void auditByIdInDB(Integer id, ShareAuditDTO auditDTO) {
         Share share = Share.builder()
-            .id(id)
-            .auditStatus(auditDTO.getAuditStatusEnum().toString())
-            .reason(auditDTO.getReason())
-            .build();
+                .id(id)
+                .auditStatus(auditDTO.getAuditStatusEnum().toString())
+                .updateTime(new Date())
+                .reason(auditDTO.getReason())
+                .build();
         this.shareMapper.updateByPrimaryKeySelective(share);
 
         // 4. 把share写到缓存 暂时不做
