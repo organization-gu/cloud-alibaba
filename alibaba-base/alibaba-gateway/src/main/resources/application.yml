@@ -5,15 +5,25 @@ server:
 spring:
   application:
     name: cloud-gateway
-
+  # *****************************链路调用*****************************
+  zipkin:
+    base-url: http://192.168.44.78:9411
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      # 采样100%
+      probability: 1.0
   # *****************************服务注册*****************************
   cloud:
     nacos:
       discovery:
         server-addr: guyawei.top:8848
-
     # *****************************网关*****************************
     gateway:
+      # 找不到service实例，默认返回503 改为404
+      loadbalancer:
+        use404: true
       discovery:
         locator:
           lower-case-service-id: true
@@ -24,9 +34,15 @@ spring:
           uri: lb://CLOUD-UUM
           predicates:
           - Path=/way/**
+          - CustomizeBetween= 上午10:00,下午5:00
           filters:
           - StripPrefix= 1
-
+        - id: content-center
+          uri: lb://content-center
+          predicates:
+            - Path=/content/**
+          filters:
+            - StripPrefix= 1
 # *****************************开启所有请求端点*****************************
 management:
   endpoints:
@@ -36,3 +52,10 @@ management:
   endpoint:
     health:
       show-details: always
+    gateway:
+      enabled: true
+
+logging:
+  level:
+    com.lanswon.*: debug
+  path: /log/spring-alibaba/gateway

@@ -10,7 +10,7 @@ import java.util.Map;
  * @Author GU-YW
  * @Date 2019/9/28 11:26
  */
-@RestController
+//@RestController
 public class FailBackController {
 
     @GetMapping("fallback")

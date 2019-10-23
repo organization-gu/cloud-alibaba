@@ -1,0 +1,14 @@
+# 以下配置必须要放置在bootstrap.yml文件否则无法在 nacos 读取配置
+spring:
+  application:
+    name: user-center
+  profiles:
+    active: dev2
+  cloud:
+    nacos:
+      config:
+        # 方便和服务发现分开,更能够体现性能
+        server-addr: guyawei.top:8848
+        file-extension: yaml
+        shared-dataids: common-user.yml
+        refreshable-dataids: common-user.yml

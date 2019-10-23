@@ -1,6 +1,4 @@
 spring:
-  application:
-    name: content-center
   # ******************************数据源******************************
   datasource:
     druid:
@@ -56,11 +54,20 @@ spring:
             producer:
               transactional: true
               group: tx-content-group
-
       bindings:
         output:
           # topic 目的地
           destination: stream-add-bonus
+  # *****************************链路调用*****************************
+  zipkin:
+    base-url: http://192.168.44.78:9411
+    sender:
+      type: web
+    discoveryClientEnabled: false
+  sleuth:
+    sampler:
+      # 采样100%
+      probability: 1.0
 
 # *****************************注解@sentinelRestTemplate功能开关****************************
 resttemplate:
@@ -110,7 +117,7 @@ feign:
 
 # ****************************服务端口****************************
 server:
-  port: 8010
+  port: 8013
 
 # ****************************系统日志****************************
 logging:
