@@ -85,10 +85,15 @@
             <groupId>io.github.openfeign</groupId>
             <artifactId>feign-httpclient</artifactId>
         </dependency>
-        <!--sentinel 服务容错-->
+        <!--sentinel 服务容错 降级-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-alibaba-sentinel</artifactId>
+        </dependency>
+        <!--sentinel规则持久化 拉模式-->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-extension</artifactId>
         </dependency>
         <!--rocketMQ依赖-->
         <dependency>

@@ -140,4 +140,3 @@ management:
 # ****************************mybatis映射****************************
 mybatis:
   mapper-locations: classpath:/mybatis-mapper/*.xml
-

@@ -168,9 +168,7 @@
     <orderEntry type="library" name="Maven: com.alibaba.cloud:spring-cloud-alibaba-sentinel:2.1.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-transport-simple-http:1.6.3" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-transport-common:1.6.3" level="project" />
-    <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-datasource-extension:1.6.3" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-annotation-aspectj:1.6.3" level="project" />
-    <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-core:1.6.3" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.9.4" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-web-servlet:1.6.3" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-spring-webflux-adapter:1.6.3" level="project" />
@@ -187,6 +185,8 @@
     <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.36.Final" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-cluster-client-default:1.6.3" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.cloud:spring-cloud-alibaba-sentinel-datasource:2.1.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-datasource-extension:1.6.3" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-core:1.6.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.rocketmq:rocketmq-spring-boot-starter:2.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.rocketmq:rocketmq-spring-boot:2.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.rocketmq:rocketmq-client:4.5.1" level="project" />
