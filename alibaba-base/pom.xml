@@ -19,6 +19,7 @@
     </description>
     <modules>
         <module>alibaba-gateway</module>
+        <module>alibaba-admin</module>
     </modules>
 
     <dependencyManagement>

@@ -1,4 +1,4 @@
-package cloudgateway.config;
+package com.lanswon.cloudgateway.config;
 
 import lombok.Data;
 

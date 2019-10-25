@@ -3,12 +3,12 @@ spring:
   application:
     name: user-center
   profiles:
-    active: dev1
+    active: dev2
   cloud:
     nacos:
       config:
         # 方便和服务发现分开,更能够体现性能
-        server-addr: guyawei.top:8848
+        server-addr: 192.168.44.78:8848
         file-extension: yaml
         shared-dataids: common-user.yml
         refreshable-dataids: common-user.yml

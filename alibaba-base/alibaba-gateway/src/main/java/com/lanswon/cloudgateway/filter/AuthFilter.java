@@ -1,4 +1,4 @@
-package cloudgateway.filter;
+package com.lanswon.cloudgateway.filter;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;

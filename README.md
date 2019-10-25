@@ -2,7 +2,7 @@
 ## 简介
 核心技术采用Fegin、Ribbon、JWT
 Token、Mybatis、TkMybatis、SpringBoot、springCloudStream、Nacos、Sentinel、
-RocketMQ、zipkin、elasticsearch、Grafana等主要框架和中间件。
+RocketMQ、zipkin、elasticsearch、Grafana、springBootAdmin等主要框架和中间件。
 ## 项目环境版本
 * SpringBoot版本 2.1.5.RELEASE
 * SpringCloud版本 Greenwich.SR2
@@ -18,6 +18,8 @@ https://github.com/organization-gu/cloud-alibaba.git
 * rocketMQ-dashboard http://192.168.44.78:17890 
 * elasticsarch http://192.168.44.78:9200
 * Grafana http://192.168.44.78:3000 账号/密码： admin/123456
+* ZipKin http://192.168.44.78:9411
+* SpringBootAdmin http://192.168.44.78:18002(自己打jar包运行)
 
 ## 功能点介绍:
 

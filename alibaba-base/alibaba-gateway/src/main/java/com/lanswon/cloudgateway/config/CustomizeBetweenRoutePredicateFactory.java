@@ -1,4 +1,4 @@
-package cloudgateway.config;
+package com.lanswon.cloudgateway.config;
 
 import org.springframework.cloud.gateway.handler.predicate.AbstractRoutePredicateFactory;
 import org.springframework.stereotype.Component;

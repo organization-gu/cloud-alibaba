@@ -1,4 +1,11 @@
 spring:
+  # ******************************Boot Admin 客户端******************************
+  boot:
+    admin:
+      client:
+        url: http://192.168.44.78:18002
+        instance:
+          service-url: http://172.1.1.244:8010
   # ******************************数据源******************************
   datasource:
     druid:
@@ -18,7 +25,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: guyawei.top:8848
+        server-addr: 192.168.44.78:8848
         #指定 namespace
         #namespace: 1b3bc369-e9c8-4208-8f2e-63993378a986
         #指定 集群名称
@@ -29,11 +36,13 @@ spring:
           version: v1
           # 允许调用的版本
           target-version: v1
+        # 多网卡指定客户端IP
+        ip: 172.1.1.244
     # *****************************服务容错限流*****************************
     sentinel:
       transport:
         # 连接sentinel控制台
-        dashboard: guyawei.top:9999
+        dashboard: 192.168.44.78:9999
         heartbeat-interval-ms: 5000
         # 指定客户端连接ip
         client-ip: 172.1.1.244
@@ -76,7 +85,7 @@ resttemplate:
 
 # ****************************生产者rocketMQ配置,使用stream可以不配置****************************
 rocketmq:
-  name-server: guyawei.top:9876
+  name-server: 192.168.44.78:9876
   producer:
     # 必须指定group
     group: content-group
