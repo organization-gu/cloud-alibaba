@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+
     <artifactId>alibaba-admin</artifactId>
     <description>
         Spring Boot Admin监控系统服务
