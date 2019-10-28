@@ -13,6 +13,7 @@
         <module>alibaba-commons</module>
         <module>alibaba-business</module>
         <module>alibaba-feign</module>
+        <module>alibaba-auth</module>
     </modules>
 
     <packaging>pom</packaging>

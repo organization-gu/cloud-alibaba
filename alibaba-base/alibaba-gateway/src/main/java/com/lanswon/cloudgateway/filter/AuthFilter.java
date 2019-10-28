@@ -1,5 +1,6 @@
 package com.lanswon.cloudgateway.filter;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
@@ -18,12 +19,14 @@ import reactor.core.publisher.Mono;
  * @Date 2019/10/23 20:00
  */
 @Component
+@Slf4j
 public class AuthFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request= exchange.getRequest();
         HttpHeaders headers = request.getHeaders();
         String token = StringUtils.join(headers.get("token"),",");
+        log.debug("token=[{}]",token);
         if(StringUtils.isBlank(token)){
             String url = "http://www.baidu.com";
             ServerHttpResponse response = exchange.getResponse();

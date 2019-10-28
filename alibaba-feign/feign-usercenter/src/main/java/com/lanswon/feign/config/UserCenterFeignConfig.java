@@ -1,6 +1,5 @@
 package com.lanswon.feign.config;
 
-import feign.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,12 +8,16 @@ import org.springframework.context.annotation.Configuration;
  * @Author GU-YW
  * @Date 2019/10/14 14:49
  */
-//@Configuration
+@Configuration
 public class UserCenterFeignConfig {
 
     //@Bean
-    public Logger.Level level(){
-        return Logger.Level.FULL;
-    }
+//    public Logger.Level level(){
+//        return Logger.Level.FULL;
+//    }
 
+    @Bean
+    public TokenRelayRequestIntecepor tokenRelayRequestIntecepor(){
+        return new TokenRelayRequestIntecepor();
+    }
 }

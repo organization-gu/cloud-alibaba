@@ -1,4 +1,4 @@
-package com.lanswon.util;
+package com.lanswon.json;
 
 import java.util.HashMap;
 import java.util.List;

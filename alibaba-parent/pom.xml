@@ -17,7 +17,7 @@
     </description>
 
     <properties>
-
+        <javax.servlet.version>3.1.0</javax.servlet.version>
         <!--dependency version-->
         <SpringBoot.version>2.1.5.RELEASE</SpringBoot.version>
         <springcloud.version>Greenwich.SR2</springcloud.version>
@@ -26,6 +26,7 @@
         <springboot.mybatis.version>2.0.1</springboot.mybatis.version>
         <springboot.druid.version>1.1.10</springboot.druid.version>
         <springfox.swagger.version>2.9.2</springfox.swagger.version>
+        <spring.social.version>1.1.6.RELEASE</spring.social.version>
 
         <apache.commons.pool2.version>2.5.0</apache.commons.pool2.version>
         <aliyun.core.version>4.0.6</aliyun.core.version>
@@ -108,13 +109,13 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
-
+            <!--通用mapper-->
             <dependency>
                 <groupId>tk.mybatis</groupId>
                 <artifactId>mapper-spring-boot-starter</artifactId>
                 <version>${tk.mybatis}</version>
             </dependency>
-
+            <!--rocketMQ-->
             <dependency>
                 <groupId>org.apache.rocketmq</groupId>
                 <artifactId>rocketmq-spring-boot-starter</artifactId>
@@ -126,7 +127,7 @@
                 <artifactId>spring-cloud-starter-stream-rocketmq</artifactId>
                 <version>${stream.rocketmq.version}</version>
             </dependency>
-
+            <!--springbootAdmin监控-->
             <dependency>
                 <groupId>de.codecentric</groupId>
                 <artifactId>spring-boot-admin-starter-server</artifactId>
@@ -137,13 +138,39 @@
                 <artifactId>spring-boot-admin-server-ui</artifactId>
                 <version>${boot.admin.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>de.codecentric</groupId>
                 <artifactId>spring-boot-admin-starter-client</artifactId>
                 <version>${boot.admin.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax.servlet.version}</version>
+            </dependency>
+
+            <!--第三方验证登录-->
+            <dependency>
+                <groupId>org.springframework.social</groupId>
+                <artifactId>spring-social-config</artifactId>
+                <version>${spring.social.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.social</groupId>
+                <artifactId>spring-social-core</artifactId>
+                <version>${spring.social.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.social</groupId>
+                <artifactId>spring-social-security</artifactId>
+                <version>${spring.social.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.social</groupId>
+                <artifactId>spring-social-web</artifactId>
+                <version>${spring.social.version}</version>
+            </dependency>
 
         </dependencies>
 

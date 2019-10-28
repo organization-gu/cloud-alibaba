@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/alibaba-base/alibaba-admin/alibaba-admin.iml" filepath="$PROJECT_DIR$/alibaba-base/alibaba-admin/alibaba-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alibaba-auth/alibaba-auth.iml" filepath="$PROJECT_DIR$/alibaba-auth/alibaba-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alibaba-auth/alibaba-authapp/alibaba-authapp.iml" filepath="$PROJECT_DIR$/alibaba-auth/alibaba-authapp/alibaba-authapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alibaba-auth/alibaba-authbrowser/alibaba-authbrowser.iml" filepath="$PROJECT_DIR$/alibaba-auth/alibaba-authbrowser/alibaba-authbrowser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alibaba-auth/alibaba-authcore/alibaba-authcore.iml" filepath="$PROJECT_DIR$/alibaba-auth/alibaba-authcore/alibaba-authcore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alibaba-auth/alibaba-authdemo/alibaba-authdemo.iml" filepath="$PROJECT_DIR$/alibaba-auth/alibaba-authdemo/alibaba-authdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alibaba-base/alibaba-base.iml" filepath="$PROJECT_DIR$/alibaba-base/alibaba-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alibaba-business/alibaba-business.iml" filepath="$PROJECT_DIR$/alibaba-business/alibaba-business.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alibaba-commons/alibaba-commons.iml" filepath="$PROJECT_DIR$/alibaba-commons/alibaba-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alibaba-feign/alibaba-feign.iml" filepath="$PROJECT_DIR$/alibaba-feign/alibaba-feign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alibaba-base/alibaba-gateway/alibaba-gateway.iml" filepath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/alibaba-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alibaba-parent/alibaba-parent.iml" filepath="$PROJECT_DIR$/alibaba-parent/alibaba-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud-alibaba.iml" filepath="$PROJECT_DIR$/cloud-alibaba.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alibaba-business/content-center/content-center.iml" filepath="$PROJECT_DIR$/alibaba-business/content-center/content-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alibaba-feign/feign-usercenter/feign-usercenter.iml" filepath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/feign-usercenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alibaba-business/user-center/user-center.iml" filepath="$PROJECT_DIR$/alibaba-business/user-center/user-center.iml" />
+    </modules>
+  </component>
+</project>

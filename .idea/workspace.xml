@@ -1,0 +1,1514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="965abd99-d0ec-42bc-9e5b-96121fd2134d" name="Default Changelist" comment=" 新增 gateway">
+      <change afterPath="$PROJECT_DIR$/alibaba-auth/alibaba-auth.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-auth/alibaba-authapp/alibaba-authapp.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-auth/alibaba-authapp/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-auth/alibaba-authapp/src/main/java/com/lanswon/authapp/CloudAuthAppApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-auth/alibaba-authbrowser/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-auth/alibaba-authbrowser/src/main/java/com/lanswon/authbrowser/CloudAuthBrowserApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-auth/alibaba-authcore/alibaba-authcore.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-auth/alibaba-authcore/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-auth/alibaba-authdemo/alibaba-authdemo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-auth/alibaba-authdemo/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-auth/alibaba-authdemo/src/main/java/com/lanswon/authdemo/CloudAuthDemoApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-auth/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-admin/target/classes/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-admin/target/classes/com/lanswon/cloudadmin/CloudAdminApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-admin/target/lanswon-cloud.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-admin/target/lanswon-cloud.jar.original" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-admin/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-admin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/com/lanswon/cloudgateway/CloudGateWayApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/com/lanswon/cloudgateway/config/CustomizeBetweenConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/com/lanswon/cloudgateway/config/CustomizeBetweenRoutePredicateFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/com/lanswon/cloudgateway/controller/FailBackController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/com/lanswon/cloudgateway/filter/AuthFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/predicate/application-1-After.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/predicate/application-10-Query2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/predicate/application-11-RemoteAddr.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/predicate/application-2-Before.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/predicate/application-3-Between.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/predicate/application-4-Cookie.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/predicate/application-5-Header.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/predicate/application-6-Host.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/predicate/application-7-Method.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/predicate/application-8-Path.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/predicate/application-9-Query1.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/META-INF/services/com.alibaba.csp.sentinel.init.InitFunc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/com/lanswon/contentcenter/sentinel/FileDataSourceInit$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/com/lanswon/contentcenter/sentinel/FileDataSourceInit$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/com/lanswon/contentcenter/sentinel/FileDataSourceInit$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/com/lanswon/contentcenter/sentinel/FileDataSourceInit$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/com/lanswon/contentcenter/sentinel/FileDataSourceInit$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/com/lanswon/contentcenter/sentinel/FileDataSourceInit.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/TestController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/UserCenterApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/controller/user/BonusController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/controller/user/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/dao/bonus/BonusEventLogMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/dao/user/UserMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/domain/dto/user/JwtTokenRespDTO$JwtTokenRespDTOBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/domain/dto/user/JwtTokenRespDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/domain/dto/user/LoginRespDTO$LoginRespDTOBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/domain/dto/user/LoginRespDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/domain/dto/user/UserAddBonseDTO$UserAddBonseDTOBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/domain/dto/user/UserAddBonseDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/domain/dto/user/UserLoginDTO$UserLoginDTOBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/domain/dto/user/UserLoginDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/domain/dto/user/UserRespDTO$UserRespDTOBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/domain/dto/user/UserRespDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/domain/entity/bonus/BonusEventLog$BonusEventLogBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/domain/entity/bonus/BonusEventLog.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/domain/entity/user/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/rocketmq/AddBonusListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/rocketmq/AddBonusStreamConsumer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/com/lanswon/usercenter/service/user/UserCenterService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/generator/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/generator/generatorConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/mybatis-mapper/BonusEventLogMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/mybatis-mapper/UserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/src/main/java/com/lanswon/feign/config/TokenRelayRequestIntecepor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/config/UserCenterFeignConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/domain/dto/messaging/UserAddBonusMsgDTO$UserAddBonusMsgDTOBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/domain/dto/messaging/UserAddBonusMsgDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/domain/dto/user/JwtTokenRespDTO$JwtTokenRespDTOBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/domain/dto/user/JwtTokenRespDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/domain/dto/user/LoginRespDTO$LoginRespDTOBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/domain/dto/user/LoginRespDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/domain/dto/user/UserAddBonseDTO$UserAddBonseDTOBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/domain/dto/user/UserAddBonseDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/domain/dto/user/UserLoginDTO$UserLoginDTOBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/domain/dto/user/UserLoginDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/domain/dto/user/UserRespDTO$UserRespDTOBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/domain/dto/user/UserRespDTO.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/domain/entity/user/User$UserBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/domain/entity/user/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/entity/user/User$UserBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/entity/user/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/service/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/service/UserServiceFallback$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/service/UserServiceFallback.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/classes/com/lanswon/feign/service/UserServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/src/main/java/com/lanswon/cloudgateway/filter/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/src/main/java/com/lanswon/cloudgateway/filter/AuthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/classes/META-INF/alibaba-gateway.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-business/content-center/content-center.iml" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-business/content-center/content-center.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-business/content-center/src/main/java/com/lanswon/contentcenter/controller/content/ShareController.java" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-business/content-center/src/main/java/com/lanswon/contentcenter/controller/content/ShareController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/application-bak.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/com/lanswon/contentcenter/ContentcenterApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/com/lanswon/contentcenter/ContentcenterApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/com/lanswon/contentcenter/controller/content/ShareController.class" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/com/lanswon/contentcenter/controller/content/ShareController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/com/lanswon/contentcenter/rocketmq/AddBonusTransactionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/com/lanswon/contentcenter/rocketmq/AddBonusTransactionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/com/lanswon/contentcenter/service/content/ShareService.class" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-business/content-center/target/classes/com/lanswon/contentcenter/service/content/ShareService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-business/content-center/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-base/alibaba-admin/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-business/content-center/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-base/alibaba-admin/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-business/user-center/src/main/java/com/lanswon/usercenter/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-business/user-center/src/main/java/com/lanswon/usercenter/controller/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-business/user-center/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-business/user-center/target/classes/application-bak.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-business/user-center/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-business/user-center/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-business/user-center/user-center.iml" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-business/user-center/user-center.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-commons/alibaba-commons.iml" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-commons/alibaba-commons.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-commons/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-commons/src/main/java/com/lanswon/json/JsonUitl.java" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-commons/src/main/java/com/lanswon/json/JsonUitl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/feign-usercenter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/feign-usercenter.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/src/main/java/com/lanswon/feign/config/UserCenterFeignConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/src/main/java/com/lanswon/feign/config/UserCenterFeignConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/src/main/java/com/lanswon/feign/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-feign/feign-usercenter/src/main/java/com/lanswon/feign/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-parent/alibaba-parent.iml" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-parent/alibaba-parent.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alibaba-parent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/alibaba-parent/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/cloud-parent/target/" />
+    <ignored path="$PROJECT_DIR$/alibaba-parent/target/" />
+    <ignored path="$PROJECT_DIR$/alibaba-base/target/" />
+    <ignored path="$PROJECT_DIR$/alibaba-commons/target/" />
+    <ignored path="$PROJECT_DIR$/alibaba-business/target/" />
+    <ignored path="$PROJECT_DIR$/alibaba-business/content-center/target/" />
+    <ignored path="$PROJECT_DIR$/alibaba-business/user-center/target/" />
+    <ignored path="$PROJECT_DIR$/alibaba-feign/target/" />
+    <ignored path="$PROJECT_DIR$/alibaba-feign/feign-usercenter/target/" />
+    <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
+    <ignored path="$PROJECT_DIR$/alibaba-base/alibaba-gateway/target/" />
+    <ignored path="$PROJECT_DIR$/alibaba-base/alibaba-admin/target/" />
+    <ignored path="$PROJECT_DIR$/alibaba-auth/target/" />
+    <ignored path="$PROJECT_DIR$/alibaba-auth/alibaba-authcore/target/" />
+    <ignored path="$PROJECT_DIR$/alibaba-auth/alibaba-authapp/target/" />
+    <ignored path="$PROJECT_DIR$/alibaba-auth/alibaba-authbrowser/target/" />
+    <ignored path="$PROJECT_DIR$/alibaba-auth/alibaba-authdemo/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="content_center: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="user_center: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/alibaba-auth/alibaba-authbrowser/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/alibaba-auth/alibaba-authdemo/src/test/java/com/lanswon/web/controller/UserControllerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1540">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/alibaba-auth/alibaba-authdemo/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="472">
+              <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/alibaba-parent/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="439">
+              <caret line="148" column="45" selection-start-line="148" selection-start-column="29" selection-end-line="148" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/alibaba-auth/alibaba-authdemo/alibaba-authdemo.iml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>SpringBootApplicationConfigurationType</find>
+      <find>RunDashboard</find>
+      <find>UserCenterA</find>
+      <find>fast</find>
+      <find>auditByIdWithRocketMqLog</find>
+      <find>maven.compiler.source</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/alibaba-business/content-center/src/main/java/com/lanswon/contentcenter/rocketmq/AddBonusTransactionListener.java" />
+        <option value="$PROJECT_DIR$/alibaba-business/content-center/src/main/java/com/lanswon/contentcenter/service/content/ShareService.java" />
+        <option value="$PROJECT_DIR$/alibaba-base/alibaba-gateway/src/main/java/cloudgateway/config/MybetweenRoutePredicateFactory.java" />
+        <option value="$PROJECT_DIR$/alibaba-base/alibaba-gateway/src/main/java/cloudgateway/config/CustomizeBetweenConfig.java" />
+        <option value="$PROJECT_DIR$/alibaba-base/alibaba-gateway/src/main/java/cloudgateway/config/CustomizeBetweenRoutePredicateFactory.java" />
+        <option value="$PROJECT_DIR$/alibaba-base/alibaba-gateway/src/main/java/cloudgateway/CloudGateWayApplication.java" />
+        <option value="$PROJECT_DIR$/alibaba-base/alibaba-gateway/src/main/java/cloudgateway/controller/FailBackController.java" />
+        <option value="$PROJECT_DIR$/alibaba-business/user-center/pom.xml" />
+        <option value="$PROJECT_DIR$/alibaba-business/content-center/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/alibaba-business/user-center/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/alibaba-business/content-center/src/main/java/ribbonConfig/CusTomizeIruleConfig.java" />
+        <option value="$PROJECT_DIR$/alibaba-business/content-center/src/main/java/com/lanswon/contentcenter/ContentcenterApplication.java" />
+        <option value="$PROJECT_DIR$/alibaba-base/alibaba-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/alibaba-base/alibaba-gateway/src/main/java/cloudgateway/filter/AuthFilter.java" />
+        <option value="$PROJECT_DIR$/alibaba-feign/feign-usercenter/src/main/java/com/lanswon/feign/entity/user/User.java" />
+        <option value="$PROJECT_DIR$/alibaba-business/content-center/src/main/java/com/lanswon/contentcenter/sentinel/FileDataSourceInit.java" />
+        <option value="$PROJECT_DIR$/alibaba-business/content-center/src/main/resources/META-INF/services/com.alibaba.csp.sentinel.init.InitFunc" />
+        <option value="$PROJECT_DIR$/alibaba-base/alibaba-admin/src/main/java/com/lanswon/cloudadmin/CloudGateWayApplication.java" />
+        <option value="$PROJECT_DIR$/alibaba-base/alibaba-admin/pom.xml" />
+        <option value="$PROJECT_DIR$/alibaba-base/alibaba-admin/src/main/java/com/lanswon/cloudadmin/CloudAdminApplication.java" />
+        <option value="$PROJECT_DIR$/alibaba-business/content-center/pom.xml" />
+        <option value="$PROJECT_DIR$/alibaba-business/content-center/src/main/resources/bootstrap.yml" />
+        <option value="$PROJECT_DIR$/alibaba-business/user-center/src/main/resources/application-bak.yml" />
+        <option value="$PROJECT_DIR$/alibaba-base/alibaba-admin/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/alibaba-business/content-center/src/main/resources/application-bak.yml" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/alibaba-business/content-center/src/main/java/com/lanswon/contentcenter/controller/content/ShareController.java" />
+        <option value="$PROJECT_DIR$/alibaba-business/user-center/src/main/java/com/lanswon/usercenter/controller/user/UserController.java" />
+        <option value="$PROJECT_DIR$/alibaba-business/user-center/src/main/resources/bootstrap.yml" />
+        <option value="$PROJECT_DIR$/alibaba-base/alibaba-gateway/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/alibaba-base/alibaba-gateway/src/main/java/com/lanswon/cloudgateway/filter/AuthFilter.java" />
+        <option value="$PROJECT_DIR$/alibaba-feign/feign-usercenter/src/main/java/com/lanswon/feign/service/UserService.java" />
+        <option value="$PROJECT_DIR$/alibaba-feign/feign-usercenter/pom.xml" />
+        <option value="$PROJECT_DIR$/alibaba-feign/feign-usercenter/src/main/java/com/lanswon/feign/config/TokenRelayRequestIntecepor.java" />
+        <option value="$PROJECT_DIR$/alibaba-feign/feign-usercenter/src/main/java/com/lanswon/feign/config/UserCenterFeignConfig.java" />
+        <option value="$PROJECT_DIR$/alibaba-business/pom.xml" />
+        <option value="$PROJECT_DIR$/alibaba-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/alibaba-auth/alibaba-authbrowser/src/main/java/authcore/CloudAuthBrowserApplication.java" />
+        <option value="$PROJECT_DIR$/alibaba-auth/alibaba-authbrowser/src/main/java/com/lanswon/authbrowser/CloudAuthBrowserApplication.java" />
+        <option value="$PROJECT_DIR$/alibaba-auth/alibaba-authcore/src/main/java/com/lanswon/authcore/CloudAuthCoreApplication.java" />
+        <option value="$PROJECT_DIR$/alibaba-auth/alibaba-authapp/src/main/java/com/lanswon/authapp/CloudAuthAppApplication.java" />
+        <option value="$PROJECT_DIR$/alibaba-auth/alibaba-authdemo/src/main/java/com/lanswon/authdemo/CloudAuthDemoApplication.java" />
+        <option value="$PROJECT_DIR$/alibaba-auth/pom.xml" />
+        <option value="$PROJECT_DIR$/alibaba-auth/alibaba-authapp/pom.xml" />
+        <option value="$PROJECT_DIR$/alibaba-auth/alibaba-authcore/pom.xml" />
+        <option value="$PROJECT_DIR$/alibaba-commons/src/main/java/com/lanswon/json/JsonUitl.java" />
+        <option value="$PROJECT_DIR$/alibaba-commons/pom.xml" />
+        <option value="$PROJECT_DIR$/alibaba-auth/alibaba-authbrowser/pom.xml" />
+        <option value="$PROJECT_DIR$/alibaba-auth/alibaba-authdemo/pom.xml" />
+        <option value="$PROJECT_DIR$/alibaba-auth/alibaba-authdemo/src/test/java/com/lanswon/web/controller/UserControllerTest.java" />
+      </list>
+    </option>
+  </component>
+  <component name="Jenkins.Settings">
+    <option name="lastSelectedView" value="all" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="F:/Maven/apache-maven-3.5.0" />
+        <option name="userSettingsFile" value="F:\Maven\apache-maven-3.5.0\conf\settings.xml" />
+        <option name="workOffline" value="true" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="alibaba-authbrowser" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="alibaba-authbrowser" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="alibaba-authdemo" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="alibaba-authdemo" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="lanswon-cloud-alibaba" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="lanswon-cloud-alibaba" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1914" />
+    <option name="y" value="202" />
+    <option name="width" value="1944" />
+    <option name="height" value="1105" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="cloud-alibaba" type="58d84e3e:PackageViewProjectNode" />
+              <item name="content-center" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="cloud-alibaba" type="58d84e3e:PackageViewProjectNode" />
+              <item name="content-center" type="616d4139:PackageViewModuleNode" />
+              <item name="com.lanswon.contentcenter" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="cloud-alibaba" type="58d84e3e:PackageViewProjectNode" />
+              <item name="content-center" type="616d4139:PackageViewModuleNode" />
+              <item name="com.lanswon.contentcenter" type="1f31426a:PackageElementNode" />
+              <item name="service.content" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="cloud-alibaba" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud-alibaba" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cloud-alibaba" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cloud-alibaba" type="462c0819:PsiDirectoryNode" />
+              <item name="alibaba-parent" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="cloud-alibaba" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="user-center" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="cloud-alibaba" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="user-center" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cloud-alibaba" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="user-center" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cloud-alibaba" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="user-center" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cloud-alibaba" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="user-center" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cloud-alibaba" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="user-center" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="lanswon" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cloud-alibaba" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="user-center" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="lanswon" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="usercenter" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="derby&#10;mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/alibaba-auth/alibaba-authdemo/src/test/java/com/lanswon/web/controller" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Git\repositories\cloud-alibaba\alibaba-business\user-center\src\main\java\com\lanswon\usercenter" />
+      <recent name="F:\Git\repositories\cloud-alibaba\alibaba-business\content-center\src\main\java\com\lanswon\contentcenter\controller" />
+      <recent name="F:\Git\repositories\cloud-alibaba\alibaba-business\content-center\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lanswon.authdemo" />
+      <recent name="com.lanswon.authapp" />
+      <recent name="com.lanswon.authcore" />
+      <recent name="authcore" />
+      <recent name="com.lanswon.cloudadmin" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Git\repositories\cloud-alibaba\alibaba-auth\alibaba-authdemo\src\test\java\com\lanswon\web\controller" />
+      <recent name="F:\Git\repositories\cloud-alibaba\alibaba-feign\feign-usercenter\src\main\java\com\lanswon\feign\config" />
+      <recent name="F:\Git\repositories\cloud-alibaba\alibaba-base\alibaba-admin\src\main\resources" />
+      <recent name="F:\Git\repositories\cloud-alibaba\alibaba-business\user-center\src\main\resources" />
+      <recent name="F:\Git\repositories\cloud-alibaba\alibaba-base\alibaba-gateway\src\main\resources\predicate" />
+    </key>
+  </component>
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8012/actuator/health" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/vnd.spring-boot.actuator.v2+json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8012/actuator/channels" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/vnd.spring-boot.actuator.v2+json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8012/actuator/bindings" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/vnd.spring-boot.actuator.v2+json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8011/actuator/bindings" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="application/vnd.spring-boot.actuator.v2+json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RestServicesNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="Found 13 services " type="fcff1e1b:RestServiceStructure$RootNode" />
+        </path>
+        <path>
+          <item name="Found 13 services " type="fcff1e1b:RestServiceStructure$RootNode" />
+          <item name="content-center" type="c588b436:RestServiceStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+    <option name="contentProportion" value="0.1889622" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.UsercenterApplication">
+    <configuration name="CustomizeBetweenRoutePredicateFactory" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cloudgateway.config.CustomizeBetweenRoutePredicateFactory" />
+      <module name="alibaba-gateway" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cloudgateway.config.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsercenterApplication#4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/UsercenterApplication.http" index="4">
+      <method v="2" />
+    </configuration>
+    <configuration name="CloudAdminApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="alibaba-admin" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lanswon.cloudadmin.CloudAdminApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CloudAuthAppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="alibaba-authapp" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lanswon.authapp.CloudAuthAppApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CloudAuthBrowserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="alibaba-authbrowser" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lanswon.authbrowser.CloudAuthBrowserApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CloudAuthCoreApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="alibaba-authcore" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lanswon.authcore.CloudAuthCoreApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CloudAuthDemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="alibaba-authdemo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lanswon.authdemo.CloudAuthDemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CloudGateWayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <module name="alibaba-gateway" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lanswon.cloudgateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lanswon.cloudgateway.CloudGateWayApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContentcenterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="content-center" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lanswon.contentcenter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lanswon.contentcenter.ContentcenterApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsercenterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" singleton="false">
+      <module name="user-center" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lanswon.usercenter.UserCenterApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.CustomizeBetweenRoutePredicateFactory" />
+      <item itemvalue="HTTP Request.UsercenterApplication#4" />
+      <item itemvalue="Spring Boot.UsercenterApplication" />
+      <item itemvalue="Spring Boot.CloudAdminApplication" />
+      <item itemvalue="Spring Boot.CloudAuthCoreApplication" />
+      <item itemvalue="Spring Boot.CloudAuthBrowserApplication" />
+      <item itemvalue="Spring Boot.CloudAuthDemoApplication" />
+      <item itemvalue="Spring Boot.CloudAuthAppApplication" />
+      <item itemvalue="Spring Boot.ContentcenterApplication" />
+      <item itemvalue="Spring Boot.CloudGateWayApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.ContentcenterApplication" />
+        <item itemvalue="Spring Boot.CloudGateWayApplication" />
+        <item itemvalue="Application.CustomizeBetweenRoutePredicateFactory" />
+        <item itemvalue="HTTP Request.UsercenterApplication#4" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="965abd99-d0ec-42bc-9e5b-96121fd2134d" name="Default Changelist" comment="" />
+      <created>1570684339310</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1570684339310</updated>
+      <workItem from="1570684341030" duration="17902000" />
+      <workItem from="1570760301143" duration="22894000" />
+      <workItem from="1570840148168" duration="579000" />
+      <workItem from="1570840756190" duration="19581000" />
+      <workItem from="1571013349752" duration="8481000" />
+      <workItem from="1571033900905" duration="50000" />
+      <workItem from="1571033963639" duration="42000" />
+      <workItem from="1571034013868" duration="2545000" />
+      <workItem from="1571036626256" duration="21706000" />
+      <workItem from="1571125074641" duration="3257000" />
+      <workItem from="1571187013342" duration="12736000" />
+      <workItem from="1571271244746" duration="10454000" />
+      <workItem from="1571292876359" duration="43384000" />
+      <workItem from="1571447207667" duration="9911000" />
+      <workItem from="1571618298558" duration="40426000" />
+      <workItem from="1571790670186" duration="23048000" />
+      <workItem from="1571877119086" duration="5283000" />
+      <workItem from="1571883983766" duration="276000" />
+      <workItem from="1571884282352" duration="16288000" />
+      <workItem from="1571963506713" duration="23229000" />
+      <workItem from="1572052612154" duration="2949000" />
+      <workItem from="1572153963012" duration="2015000" />
+      <workItem from="1572177583813" duration="5379000" />
+      <workItem from="1572222936892" duration="5062000" />
+      <workItem from="1572232166950" duration="4798000" />
+      <workItem from="1572242718902" duration="43000" />
+      <workItem from="1572242782157" duration="2849000" />
+    </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1571033106570</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571033106570</updated>
+    </task>
+    <task id="LOCAL-00002" summary="init">
+      <created>1571034149354</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1571034149354</updated>
+    </task>
+    <task id="LOCAL-00003" summary=" add sentinel">
+      <created>1571193333105</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1571193333105</updated>
+    </task>
+    <task id="LOCAL-00004" summary=" 新增 rocketmq 分布式事务">
+      <created>1571363216220</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1571363216220</updated>
+    </task>
+    <task id="LOCAL-00005" summary=" 新增 Stream 替代rocketmqTemplate作为消息中间件">
+      <created>1571377539639</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1571377539639</updated>
+    </task>
+    <task id="LOCAL-00006" summary=" 新增 gateway">
+      <created>1571385535664</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1571385535664</updated>
+    </task>
+    <task id="LOCAL-00007" summary="通过spring-cloud-stream 来处理消息事务，达到分布式事务效果">
+      <created>1571705523948</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1571705523948</updated>
+    </task>
+    <task id="LOCAL-00008" summary="增加链路调用 nacos 配置服务">
+      <created>1571829840245</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1571829840245</updated>
+    </task>
+    <task id="LOCAL-00009" summary="zipkin 整合elasticsearch 存储链路记录&#10;sentinel  增加规则持久化配置&#10;gateway 增加全局过滤器">
+      <created>1571909117078</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1571909117078</updated>
+    </task>
+    <task id="LOCAL-00010" summary="修改 README">
+      <created>1571966239628</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1571966239628</updated>
+    </task>
+    <task id="LOCAL-00011" summary=" 新增 spring boot admin">
+      <created>1571982540565</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1571982540565</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="305167000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1913" y="-3" width="1753" height="954" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22123894" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Alibaba Cloud Explorer" order="7" />
+      <window_info id="Web" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Database Console" order="0" weight="0.315" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" x="23" y="152" width="1689" height="704" id="Run" order="3" sideWeight="0.49970502" weight="0.23125" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Spring" order="8" weight="0.34625" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.9625" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.500295" side_tool="true" weight="0.38125" />
+      <window_info anchor="bottom" id="Statistic" order="12" />
+      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="bottom" id="Java Enterprise" order="15" />
+      <window_info anchor="bottom" id="Alibaba Cloud View" order="16" weight="0.8575" />
+      <window_info anchor="bottom" id="Messages" order="17" />
+      <window_info anchor="bottom" id="Run Dashboard" order="18" weight="0.31875" />
+      <window_info anchor="right" id="RestServices" order="0" weight="0.22772862" />
+      <window_info anchor="right" id="Word Book" order="1" side_tool="true" />
+      <window_info anchor="right" id="Translation Assistant" order="2" weight="0.3297935" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="3" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="4" weight="0.24955752" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.31150442" />
+      <window_info anchor="right" id="Maven" order="6" visible="true" weight="0.24070796" />
+      <window_info anchor="right" id="Palette" order="7" />
+      <window_info anchor="right" id="PlantUML" order="8" weight="0.3297935" />
+      <window_info anchor="right" id="Jenkins" order="9" weight="0.3297935" />
+      <window_info anchor="right" id="Capture Analysis" order="10" />
+      <window_info anchor="right" id="Alibaba Function Compute" order="11" weight="0.3297935" />
+      <window_info anchor="right" id="Palette&#9;" order="12" />
+      <window_info anchor="right" id="Theme Preview" order="13" />
+      <window_info anchor="right" id="Alibaba Log Console" order="14" />
+      <window_info anchor="right" id="Bean Validation" order="15" weight="0.3297935" />
+      <window_info anchor="right" id="Database" order="16" weight="0.21592921" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24896756" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Alibaba Cloud Explorer" order="7" />
+      <window_info id="Web" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Database Console" order="0" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" x="23" y="152" width="1689" height="704" id="Run" order="3" weight="0.18875" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Spring" order="8" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.9625" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Statistic" order="12" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" />
+      <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="15" />
+      <window_info anchor="bottom" id="Alibaba Cloud View" order="16" />
+      <window_info anchor="bottom" id="Messages" order="17" />
+      <window_info anchor="bottom" id="Run Dashboard" order="18" weight="0.81875" />
+      <window_info anchor="right" id="RestServices" order="0" visible="true" weight="0.3297935" />
+      <window_info anchor="right" id="Word Book" order="1" side_tool="true" />
+      <window_info anchor="right" id="Translation Assistant" order="2" weight="0.3297935" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="3" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="4" weight="0.24955752" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="6" weight="0.18289086" />
+      <window_info anchor="right" id="Palette" order="7" />
+      <window_info anchor="right" id="PlantUML" order="8" weight="0.3297935" />
+      <window_info anchor="right" id="Jenkins" order="9" weight="0.3297935" />
+      <window_info anchor="right" id="Capture Analysis" order="10" />
+      <window_info anchor="right" id="Alibaba Function Compute" order="11" weight="0.3297935" />
+      <window_info anchor="right" id="Palette&#9;" order="12" />
+      <window_info anchor="right" id="Theme Preview" order="13" />
+      <window_info anchor="right" id="Alibaba Log Console" order="14" />
+      <window_info anchor="right" id="Bean Validation" order="15" weight="0.3297935" />
+      <window_info anchor="right" id="Database" order="16" weight="0.21592921" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="init" />
+    <MESSAGE value=" add sentinel" />
+    <MESSAGE value=" 新增 rocketmq 分布式事务" />
+    <MESSAGE value=" 新增 Stream 替代rocketmqTemplate作为消息中间件" />
+    <MESSAGE value=" 新增 gateway" />
+    <MESSAGE value="通过spring-cloud-stream 来处理消息事务，达到分布式事务效果" />
+    <MESSAGE value="增加链路调用 nacos 配置服务" />
+    <MESSAGE value="zipkin 整合elasticsearch 存储链路记录&#10;sentinel  增加规则持久化配置&#10;gateway 增加全局过滤器" />
+    <MESSAGE value="修改 README" />
+    <MESSAGE value=" 新增 spring boot admin" />
+    <option name="LAST_COMMIT_MESSAGE" value=" 新增 spring boot admin" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/alibaba-business/user-center/src/main/resources/application-bak.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="988">
+          <caret line="52" column="28" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="209">
+            <caret line="11" selection-start-line="11" selection-end-line="11" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-business/user-center/src/main/resources/bootstrap.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-base/alibaba-gateway/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-business/user-center/src/main/java/com/lanswon/usercenter/controller/user/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-business/content-center/src/main/java/com/lanswon/contentcenter/controller/content/ShareController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+          <folding>
+            <element signature="e#646#647#0" expanded="true" />
+            <element signature="e#699#700#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Maven/MavenRepository/repository/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE.jar!/org/springframework/http/HttpStatus.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-487">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-base/alibaba-gateway/src/main/java/com/lanswon/cloudgateway/filter/AuthFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="33" column="55" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Maven/MavenRepository/repository/org/springframework/spring-core/5.1.7.RELEASE/spring-core-5.1.7.RELEASE.jar!/org/springframework/util/StringUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+          <folding>
+            <element signature="e#1051#1052#0" expanded="true" />
+            <element signature="e#1103#1104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-feign/feign-usercenter/src/main/java/com/lanswon/feign/config/UserCenterFeignConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-feign/feign-usercenter/src/main/java/com/lanswon/feign/config/TokenRelayRequestIntecepor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-feign/feign-usercenter/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="54" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Maven/MavenRepository/repository/io/github/openfeign/feign-core/10.2.3/feign-core-10.2.3.jar!/feign/auth/BasicAuthRequestInterceptor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-feign/feign-usercenter/src/main/java/com/lanswon/feign/service/UserServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-feign/feign-usercenter/src/main/java/com/lanswon/feign/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="9" column="78" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Maven/MavenRepository/repository/org/springframework/cloud/spring-cloud-openfeign-core/2.1.2.RELEASE/spring-cloud-openfeign-core-2.1.2.RELEASE.jar!/org/springframework/cloud/openfeign/encoding/BaseRequestInterceptor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Maven/MavenRepository/repository/org/springframework/cloud/spring-cloud-openfeign-core/2.1.2.RELEASE/spring-cloud-openfeign-core-2.1.2.RELEASE.jar!/org/springframework/cloud/openfeign/encoding/FeignClientEncodingProperties.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/Maven/MavenRepository/repository/io/github/openfeign/feign-core/10.2.3/feign-core-10.2.3.jar!/feign/RequestInterceptor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-business/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-business/user-center/user-center.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://F:/Maven/MavenRepository/repository/org/springframework/security/oauth/spring-security-oauth2/2.3.4.RELEASE/spring-security-oauth2-2.3.4.RELEASE.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="156" column="24" selection-start-line="156" selection-start-column="24" selection-end-line="156" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Maven/MavenRepository/repository/org/springframework/security/spring-security-rsa/1.0.7.RELEASE/spring-security-rsa-1.0.7.RELEASE.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="44" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Maven/MavenRepository/repository/org/springframework/security/spring-security-jwt/1.0.9.RELEASE/spring-security-jwt-1.0.9.RELEASE.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://MAVEN/com.lanswon:alibaba-authcore:1.0.0.SNAPSHOT">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>MAVEN</ID>
+          <OriginalElement>com.lanswon:alibaba-authcore:1.0.0.SNAPSHOT</OriginalElement>
+          <nodes>
+            <node x="" y="">com.lanswon:alibaba-authcore:1.0.0.SNAPSHOT</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter-security:jar:2.1.3.RELEASE</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter-security:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter:jar:2.1.2.RELEASE</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter-security:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter:jar:2.1.2.RELEASE/org.springframework.cloud:spring-cloud-context:jar:2.1.2.RELEASE</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter-security:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter:jar:2.1.2.RELEASE/org.springframework.cloud:spring-cloud-context:jar:2.1.2.RELEASE/org.springframework.security:spring-security-crypto:jar:5.1.5.RELEASE</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter-security:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter:jar:2.1.2.RELEASE/org.springframework.cloud:spring-cloud-commons:jar:2.1.2.RELEASE</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter-security:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter:jar:2.1.2.RELEASE/org.springframework.security:spring-security-rsa:jar:1.0.7.RELEASE</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter-security:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter:jar:2.1.2.RELEASE/org.springframework.security:spring-security-rsa:jar:1.0.7.RELEASE/org.bouncycastle:bcpkix-jdk15on:jar:1.60</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter-security:jar:2.1.3.RELEASE/org.springframework.boot:spring-boot-starter-actuator:jar:2.1.5.RELEASE</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter-security:jar:2.1.3.RELEASE/org.springframework.boot:spring-boot-starter-actuator:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-actuator-autoconfigure:jar:2.1.5.RELEASE</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter-security:jar:2.1.3.RELEASE/org.springframework.boot:spring-boot-starter-actuator:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-actuator-autoconfigure:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-actuator:jar:2.1.5.RELEASE</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter-security:jar:2.1.3.RELEASE/org.springframework.boot:spring-boot-starter-actuator:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-actuator-autoconfigure:jar:2.1.5.RELEASE/com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.8</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter-security:jar:2.1.3.RELEASE/org.springframework.boot:spring-boot-starter-actuator:jar:2.1.5.RELEASE/io.micrometer:micrometer-core:jar:1.1.4</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter-security:jar:2.1.3.RELEASE/org.springframework.boot:spring-boot-starter-actuator:jar:2.1.5.RELEASE/io.micrometer:micrometer-core:jar:1.1.4/org.hdrhistogram:HdrHistogram:jar:2.1.9</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter-security:jar:2.1.3.RELEASE/org.springframework.boot:spring-boot-starter-actuator:jar:2.1.5.RELEASE/io.micrometer:micrometer-core:jar:1.1.4/org.latencyutils:LatencyUtils:jar:2.0.3</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter-security:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-security:jar:2.1.3.RELEASE</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-starter-security:jar:2.1.3.RELEASE/org.springframework.cloud:spring-cloud-security:jar:2.1.3.RELEASE/org.springframework.boot:spring-boot-starter-security:jar:2.1.5.RELEASE</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:jar:2.1.2.RELEASE</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:jar:2.1.2.RELEASE/com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:jar:2.1.2.RELEASE/com.fasterxml.jackson.core:jackson-databind:jar:2.9.8</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:jar:2.1.2.RELEASE/com.fasterxml.jackson.core:jackson-databind:jar:2.9.8/com.fasterxml.jackson.core:jackson-core:jar:2.9.8</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:jar:2.1.2.RELEASE/com.sun.xml.bind:jaxb-core:jar:2.3.0.1</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:jar:2.1.2.RELEASE/com.sun.xml.bind:jaxb-impl:jar:2.3.0.1</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:jar:2.1.2.RELEASE/org.springframework.boot:spring-boot:jar:2.1.5.RELEASE</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:jar:2.1.2.RELEASE/org.springframework.security.oauth:spring-security-oauth2:jar:2.3.4.RELEASE</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:jar:2.1.2.RELEASE/org.springframework.security.oauth:spring-security-oauth2:jar:2.3.4.RELEASE/org.springframework.security:spring-security-config:jar:5.1.5.RELEASE</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:jar:2.1.2.RELEASE/org.springframework.security.oauth:spring-security-oauth2:jar:2.3.4.RELEASE/commons-codec:commons-codec:jar:1.11</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:jar:2.1.2.RELEASE/org.springframework.security.oauth:spring-security-oauth2:jar:2.3.4.RELEASE/org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:jar:2.1.2.RELEASE/org.springframework.security.oauth:spring-security-oauth2:jar:2.3.4.RELEASE/org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13/org.codehaus.jackson:jackson-core-asl:jar:1.9.13</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:jar:2.1.2.RELEASE/org.springframework.security:spring-security-jwt:jar:1.0.9.RELEASE</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:jar:2.1.2.RELEASE/org.springframework.security:spring-security-jwt:jar:1.0.9.RELEASE/org.bouncycastle:bcpkix-jdk15on:jar:1.56</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:jar:2.1.2.RELEASE/org.springframework.security:spring-security-jwt:jar:1.0.9.RELEASE/org.bouncycastle:bcpkix-jdk15on:jar:1.56/org.bouncycastle:bcprov-jdk15on:jar:1.56</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/javax.activation:javax.activation-api:jar:1.2.0</node>
+            <node x="" y="">org.springframework.cloud:spring-cloud-starter-oauth2:jar:2.1.3.RELEASE/javax.xml.bind:jaxb-api:jar:2.3.1</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.5.RELEASE</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:2.1.5.RELEASE</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:2.1.5.RELEASE/ch.qos.logback:logback-classic:jar:1.2.3</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:2.1.5.RELEASE/ch.qos.logback:logback-classic:jar:1.2.3/ch.qos.logback:logback-core:jar:1.2.3</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:2.1.5.RELEASE/org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:2.1.5.RELEASE/org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2/org.apache.logging.log4j:log4j-api:jar:2.11.2</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:2.1.5.RELEASE/org.slf4j:jul-to-slf4j:jar:1.7.26</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.5.RELEASE/javax.annotation:javax.annotation-api:jar:1.3.2</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.5.RELEASE/org.springframework:spring-core:jar:5.1.7.RELEASE</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.5.RELEASE/org.springframework:spring-core:jar:5.1.7.RELEASE/org.springframework:spring-jcl:jar:5.1.7.RELEASE</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.boot:spring-boot-starter:jar:2.1.5.RELEASE/org.yaml:snakeyaml:jar:1.23</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.data:spring-data-redis:jar:2.1.8.RELEASE</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.data:spring-data-redis:jar:2.1.8.RELEASE/org.springframework.data:spring-data-keyvalue:jar:2.1.8.RELEASE</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.data:spring-data-redis:jar:2.1.8.RELEASE/org.springframework.data:spring-data-keyvalue:jar:2.1.8.RELEASE/org.springframework.data:spring-data-commons:jar:2.1.8.RELEASE</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.data:spring-data-redis:jar:2.1.8.RELEASE/org.springframework:spring-tx:jar:5.1.7.RELEASE</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.data:spring-data-redis:jar:2.1.8.RELEASE/org.springframework:spring-oxm:jar:5.1.7.RELEASE</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.data:spring-data-redis:jar:2.1.8.RELEASE/org.springframework:spring-aop:jar:5.1.7.RELEASE</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/org.springframework.data:spring-data-redis:jar:2.1.8.RELEASE/org.springframework:spring-context-support:jar:5.1.7.RELEASE</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/io.lettuce:lettuce-core:jar:5.1.6.RELEASE</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/io.lettuce:lettuce-core:jar:5.1.6.RELEASE/io.netty:netty-common:jar:4.1.36.Final</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/io.lettuce:lettuce-core:jar:5.1.6.RELEASE/io.netty:netty-handler:jar:4.1.36.Final</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/io.lettuce:lettuce-core:jar:5.1.6.RELEASE/io.netty:netty-handler:jar:4.1.36.Final/io.netty:netty-buffer:jar:4.1.36.Final</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/io.lettuce:lettuce-core:jar:5.1.6.RELEASE/io.netty:netty-handler:jar:4.1.36.Final/io.netty:netty-codec:jar:4.1.36.Final</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/io.lettuce:lettuce-core:jar:5.1.6.RELEASE/io.netty:netty-transport:jar:4.1.36.Final</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/io.lettuce:lettuce-core:jar:5.1.6.RELEASE/io.netty:netty-transport:jar:4.1.36.Final/io.netty:netty-resolver:jar:4.1.36.Final</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/io.lettuce:lettuce-core:jar:5.1.6.RELEASE/io.projectreactor:reactor-core:jar:3.2.9.RELEASE</node>
+            <node x="" y="">org.springframework.boot:spring-boot-starter-data-redis:jar:2.1.5.RELEASE/io.lettuce:lettuce-core:jar:5.1.6.RELEASE/io.projectreactor:reactor-core:jar:3.2.9.RELEASE/org.reactivestreams:reactive-streams:jar:1.0.2</node>
+            <node x="" y="">mysql:mysql-connector-java:jar:8.0.16</node>
+            <node x="" y="">com.alibaba:druid-spring-boot-starter:jar:1.1.10</node>
+            <node x="" y="">com.alibaba:druid-spring-boot-starter:jar:1.1.10/com.alibaba:druid:jar:1.1.10</node>
+            <node x="" y="">com.alibaba:druid-spring-boot-starter:jar:1.1.10/org.slf4j:slf4j-api:jar:1.7.26</node>
+            <node x="" y="">com.alibaba:druid-spring-boot-starter:jar:1.1.10/org.springframework.boot:spring-boot-autoconfigure:jar:2.1.5.RELEASE</node>
+            <node x="" y="">org.springframework.social:spring-social-config:jar:1.1.6.RELEASE</node>
+            <node x="" y="">org.springframework.social:spring-social-core:jar:1.1.6.RELEASE</node>
+            <node x="" y="">org.springframework.social:spring-social-core:jar:1.1.6.RELEASE/org.springframework:spring-web:jar:5.1.7.RELEASE</node>
+            <node x="" y="">org.springframework.social:spring-social-core:jar:1.1.6.RELEASE/org.springframework:spring-web:jar:5.1.7.RELEASE/org.springframework:spring-beans:jar:5.1.7.RELEASE</node>
+            <node x="" y="">org.springframework.social:spring-social-security:jar:1.1.6.RELEASE</node>
+            <node x="" y="">org.springframework.social:spring-social-security:jar:1.1.6.RELEASE/org.springframework:spring-webmvc:jar:5.1.7.RELEASE</node>
+            <node x="" y="">org.springframework.social:spring-social-security:jar:1.1.6.RELEASE/org.springframework:spring-webmvc:jar:5.1.7.RELEASE/org.springframework:spring-context:jar:5.1.7.RELEASE</node>
+            <node x="" y="">org.springframework.social:spring-social-security:jar:1.1.6.RELEASE/org.springframework:spring-webmvc:jar:5.1.7.RELEASE/org.springframework:spring-expression:jar:5.1.7.RELEASE</node>
+            <node x="" y="">org.springframework.social:spring-social-security:jar:1.1.6.RELEASE/org.springframework.security:spring-security-web:jar:5.1.5.RELEASE</node>
+            <node x="" y="">org.springframework.social:spring-social-security:jar:1.1.6.RELEASE/org.springframework.security:spring-security-web:jar:5.1.5.RELEASE/org.springframework.security:spring-security-core:jar:5.1.5.RELEASE</node>
+            <node x="" y="">org.springframework.social:spring-social-web:jar:1.1.6.RELEASE</node>
+            <node x="" y="">org.springframework.social:spring-social-web:jar:1.1.6.RELEASE/javax.inject:javax.inject:jar:1</node>
+            <node x="" y="">commons-lang:commons-lang:jar:2.6</node>
+            <node x="" y="">commons-beanutils:commons-beanutils:jar:1.9.3</node>
+            <node x="" y="">commons-beanutils:commons-beanutils:jar:1.9.3/commons-logging:commons-logging:jar:1.2</node>
+            <node x="" y="">commons-collections:commons-collections:jar:3.2.2</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0439834024896266" x="474.0" y="966.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>All</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Maven/MavenRepository/repository/org/springframework/cloud/spring-cloud-starter-oauth2/2.1.3.RELEASE/spring-cloud-starter-oauth2-2.1.3.RELEASE.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="52" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Maven/MavenRepository/repository/org/springframework/social/spring-social-security/1.1.6.RELEASE/spring-social-security-1.1.6.RELEASE.pom">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://F:/Maven/MavenRepository/repository/org/springframework/boot/spring-boot-dependencies/2.1.5.RELEASE/spring-boot-dependencies-2.1.5.RELEASE.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12369">
+          <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Maven/MavenRepository/repository/org/springframework/boot/spring-boot-starter-parent/2.1.5.RELEASE/spring-boot-starter-parent-2.1.5.RELEASE.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-business/user-center/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-auth/alibaba-authbrowser/src/main/java/com/lanswon/authbrowser/CloudAuthBrowserApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="10" column="40" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-parent/alibaba-parent.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-auth/alibaba-authcore/src/main/java/com/lanswon/authcore/CloudAuthCoreApplication.java" />
+    <entry file="file://$PROJECT_DIR$/alibaba-auth/alibaba-authapp/src/main/java/com/lanswon/authapp/CloudAuthAppApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="13" column="53" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-auth/alibaba-authdemo/src/main/java/com/lanswon/authdemo/CloudAuthDemoApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="13" column="54" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-base/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1197">
+          <caret line="63" column="29" selection-start-line="57" selection-start-column="16" selection-end-line="63" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://MODULES/mdl-cloud-alibaba">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>MODULES</ID>
+          <OriginalElement>mdl-cloud-alibaba</OriginalElement>
+          <nodes>
+            <node x="" y="">mdl-cloud-alibaba</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.4000000000000001" x="74.0" y="-53.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-auth/alibaba-authbrowser/alibaba-authbrowser.iml" />
+    <entry file="file://$PROJECT_DIR$/alibaba-auth/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-auth/alibaba-authapp/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-business/content-center/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-commons/src/main/java/com/lanswon/json/JsonUitl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-base/alibaba-admin/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-auth/alibaba-authcore/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-commons/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-auth/alibaba-authcore/alibaba-authcore.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1577" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-auth/alibaba-authbrowser/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-auth/alibaba-authdemo/alibaba-authdemo.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-parent/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="148" column="45" selection-start-line="148" selection-start-column="29" selection-end-line="148" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-auth/alibaba-authdemo/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alibaba-auth/alibaba-authdemo/src/test/java/com/lanswon/web/controller/UserControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1540">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>alibaba-authdemo</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+  <component name="mavenExecuteGoalHistory">
+    <option value="$PROJECT_DIR$" />
+    <option value="-e clean install" />
+  </component>
+</project>

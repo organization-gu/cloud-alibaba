@@ -19,7 +19,7 @@ public class ShareController {
     private final ShareService shareService;
 
     @GetMapping("/{id}")
-    public ShareDTO findById(@PathVariable Integer id) {
+    public ShareDTO findById(@PathVariable("id") Integer id) {
         return this.shareService.findById(id);
     }
 

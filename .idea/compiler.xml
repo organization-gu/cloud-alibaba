@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="feign-usercenter" />
+        <module name="alibaba-authdemo" />
+        <module name="alibaba-admin" />
+        <module name="content-center" />
+        <module name="user-center" />
+        <module name="alibaba-authapp" />
+        <module name="alibaba-commons" />
+        <module name="alibaba-authcore" />
+        <module name="alibaba-gateway" />
+        <module name="alibaba-authbrowser" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="alibaba-admin" target="1.8" />
+      <module name="alibaba-auth" target="1.8" />
+      <module name="alibaba-authapp" target="1.8" />
+      <module name="alibaba-authbrowser" target="1.8" />
+      <module name="alibaba-authcore" target="1.8" />
+      <module name="alibaba-authdemo" target="1.8" />
+      <module name="alibaba-base" target="1.8" />
+      <module name="alibaba-business" target="1.8" />
+      <module name="alibaba-commons" target="1.8" />
+      <module name="alibaba-feign" target="1.8" />
+      <module name="alibaba-gateway" target="1.8" />
+      <module name="alibaba-parent" target="1.8" />
+      <module name="cloud-alibaba" target="1.8" />
+      <module name="content-center" target="1.8" />
+      <module name="feign-usercenter" target="1.8" />
+      <module name="user-center" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

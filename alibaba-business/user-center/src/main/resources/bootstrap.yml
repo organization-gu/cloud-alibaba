@@ -3,7 +3,7 @@ spring:
   application:
     name: user-center
   profiles:
-    active: dev2
+    active: dev1
   cloud:
     nacos:
       config:
