@@ -1,0 +1,65 @@
+spring:
+  session:
+    store-type: none
+  # ******************************数据源******************************
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/cloud_security?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
+      username: root
+      password: 123456
+      max-active: 10
+      initial-size: 5
+      min-idle: 2
+      max-wait: 60000
+      pool-prepared-statements: true
+      web-stat-filter:
+        enabled: true
+        url-pattern: /druid
+  security:
+    user:
+      name: user
+      password: 123456
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+  resources:
+    static-locations: classpath:/static/
+
+
+server:
+  port: 8060
+
+# ****************************系统日志****************************
+logging:
+  level:
+    com.lanswon.*: debug
+  path: /log/spring-alibaba/auth-demo
+
+# ****************************系统端口管理****************************
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+# ****************************mybatis映射****************************
+mybatis:
+  mapper-locations: classpath:/mybatis-mapper/*.xml
+
+lanswon:
+  security:
+    #browser:
+      #loginPage: /demo-signIn.html
+    code:
+      image:
+        #length: 6
+        width: 100
+        #url: /user
+
+
+
