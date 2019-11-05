@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.lanswon.authbrowser.support.SimpleResponse;
+import com.lanswon.authbrowser.support.SocialUserInfo;
 import com.lanswon.authcore.properties.SecurityProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
@@ -20,9 +21,13 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.RequestCache;
 import org.springframework.security.web.savedrequest.SavedRequest;
+import org.springframework.social.connect.Connection;
+import org.springframework.social.connect.web.ProviderSignInUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.ServletWebRequest;
 
 /**
  * 浏览器身份认证
@@ -33,8 +38,11 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class BrowserSecurityController {
 
-	@Autowired(required = false)
+	@Resource
 	private SecurityProperties securityProperties;
+
+	@Resource
+	private ProviderSignInUtils providerSignInUtils;
 
 	private RequestCache requestCache = new HttpSessionRequestCache();
 
@@ -68,15 +76,20 @@ public class BrowserSecurityController {
 		return new SimpleResponse("访问的服务需要身份认证，请引导用户到登录页");
 	}
 
-//	@GetMapping("/social/user")
-//	public SocialUserInfo getSocialUserInfo(HttpServletRequest request) {
-//		SocialUserInfo userInfo = new SocialUserInfo();
-//		Connection<?> connection = providerSignInUtils.getConnectionFromSession(new ServletWebRequest(request));
-//		userInfo.setProviderId(connection.getKey().getProviderId());
-//		userInfo.setProviderUserId(connection.getKey().getProviderUserId());
-//		userInfo.setNickname(connection.getDisplayName());
-//		userInfo.setHeadimg(connection.getImageUrl());
-//		return userInfo;
-//	}
+	/**
+	 * 第三方登录获取个人信息
+	 * @param request
+	 * @return
+	 */
+	@GetMapping("/social/user")
+	public SocialUserInfo getSocialUserInfo(HttpServletRequest request) {
+		SocialUserInfo userInfo = new SocialUserInfo();
+		Connection<?> connection = providerSignInUtils.getConnectionFromSession(new ServletWebRequest(request));
+		userInfo.setProviderId(connection.getKey().getProviderId());
+		userInfo.setProviderUserId(connection.getKey().getProviderUserId());
+		userInfo.setNickname(connection.getDisplayName());
+		userInfo.setHeadimg(connection.getImageUrl());
+		return userInfo;
+	}
 
 }

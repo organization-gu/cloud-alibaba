@@ -3,7 +3,7 @@
  */
 package com.lanswon.authcore.properties;
 
-
+import com.lanswon.authcore.social.configutils.SocialProperties;
 import lombok.*;
 
 /**
@@ -11,10 +11,13 @@ import lombok.*;
  * @author GU-YW
  *
  */
-@Data
+@Setter
 @ToString
-public class QQProperties  {
-	
+@Getter
+public class QQProperties extends SocialProperties {
+
+	//提供默认的providerId
+
 	private String providerId = "qq";
 
 }

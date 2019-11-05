@@ -3,6 +3,7 @@
  */
 package com.lanswon.authcore.properties;
 
+import com.lanswon.authcore.social.configutils.SocialProperties;
 import lombok.*;
 
 /**
@@ -12,7 +13,7 @@ import lombok.*;
  */
 @Data
 @ToString
-public class WeixinProperties  {
+public class WeixinProperties extends SocialProperties {
 	
 	/**
 	 * 第三方id，用来决定发起第三方登录的url，默认是 weixin。

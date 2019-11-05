@@ -42,7 +42,11 @@ import io.swagger.annotations.ApiParam;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-	
+
+
+	/**
+	 * 注册页保存个人信息
+	 */
 	@Autowired(required = false)
 	private ProviderSignInUtils providerSignInUtils;
 	

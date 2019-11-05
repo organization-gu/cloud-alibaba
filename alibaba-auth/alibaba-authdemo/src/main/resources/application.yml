@@ -27,14 +27,17 @@ spring:
   resources:
     static-locations: classpath:/static/
 
-
 server:
   port: 8060
+  servlet:
+    session:
+      timeout: 10
 
 # ****************************系统日志****************************
 logging:
   level:
     com.lanswon.*: debug
+    org.springframework.security.*: info
   path: /log/spring-alibaba/auth-demo
 
 # ****************************系统端口管理****************************
@@ -57,9 +60,23 @@ lanswon:
       #loginPage: /demo-signIn.html
     code:
       image:
-        #length: 6
+        length: 4
         width: 100
         #url: /user
+    browser:
+      #loginPage: /nrsc-login.html
+      loginType: JSON
+      signUpUrl: /demo-signUp.html
+      #signOutUrl: /nrsc-logout.html
+    social:
+      qq:
+        app-id: 100550231
+        app-secret: 69b6ab57b22f3c2fe6a6149274e3295e
+        providerId: callback.do
+      weixin:
+        app-id: wxd99431bbff8305a0
+        app-secret: 60f78681d063590a469f1b297feff3c4
 
+      filterProcessesUrl: /qqLogin
 
 

@@ -18,7 +18,7 @@ import reactor.core.publisher.Mono;
  * @Author GU-YW
  * @Date 2019/10/23 20:00
  */
-@Component
+//@Component
 @Slf4j
 public class AuthFilter implements GlobalFilter, Ordered {
     @Override

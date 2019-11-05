@@ -9,6 +9,7 @@ import com.lanswon.authcore.properties.SecurityProperties;
 import com.lanswon.authcore.validatecode.ValidateCode;
 import com.lanswon.authcore.validatecode.ValidateCodeGenerator;
 import com.lanswon.authcore.validatecode.ValidateCodeProcessor;
+import com.lanswon.authcore.validatecode.ValidateCodeProcessorHolder;
 import com.lanswon.authcore.validatecode.image.ImageCode;
 import com.lanswon.authcore.validatecode.sms.SmsCodeSender;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class ValidateCodeController {
 
 //	private SessionStrategy sessionStrategy=new HttpSessionSessionStrategy();
 //
-	public static final  String SESSION_KEY = "SESSION_KEY_IMAGE_CODE";
+//	public static final  String SESSION_KEY = "SESSION_KEY_IMAGE_CODE";
 //
 //	@Resource(name = "imageValidateCodeGenerator")
 //	ValidateCodeGenerator imageCodeGenerator;
@@ -89,9 +90,8 @@ public class ValidateCodeController {
 
 	//=============================代码重构后============================================================================
 
-//	@Autowired(required = false)
 	@Resource
-	private Map<String, ValidateCodeProcessor> validateCodeProcessors;
+	private ValidateCodeProcessorHolder validateCodeProcessorHolder;
 
 	/**
 	 * 创建验证码，根据验证码类型不同，调用不同的 {@link ValidateCodeProcessor}接口实现
@@ -104,8 +104,7 @@ public class ValidateCodeController {
 	@GetMapping(SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/{type}")
 	public void createCode(HttpServletRequest request, HttpServletResponse response, @PathVariable String type)
 			throws Exception {
-		validateCodeProcessors.get(type+"CodeProcessor").create(new ServletWebRequest(request,response));
-//		validateCodeProcessorHolder.findValidateCodeProcessor(type).create(new ServletWebRequest(request, response));
+		validateCodeProcessorHolder.findValidateCodeProcessor(type).create(new ServletWebRequest(request, response));
 	}
 
 

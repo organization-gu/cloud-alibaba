@@ -7,20 +7,21 @@ import java.io.IOException;
 import java.util.*;
 
 
-import com.lanswon.authcore.controller.ValidateCodeController;
+import com.lanswon.authcore.contants.SecurityConstants;
+import com.lanswon.authcore.contants.ValidateCodeType;
 import com.lanswon.authcore.properties.SecurityProperties;
 import com.lanswon.authcore.validatecode.ValidateCodeException;
-import com.lanswon.authcore.validatecode.image.ImageCode;
+import com.lanswon.authcore.validatecode.ValidateCodeProcessorHolder;
 import lombok.Data;
-import org.apache.commons.collections.CollectionUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.social.connect.web.HttpSessionSessionStrategy;
 import org.springframework.social.connect.web.SessionStrategy;
+import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
-import org.springframework.web.bind.ServletRequestBindingException;
-import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -35,6 +36,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  */
 @Data
+@Slf4j
+@Component
 public class ValidateCodeFilter extends OncePerRequestFilter implements InitializingBean {
 
 	/**
@@ -45,46 +48,73 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 	/**
 	 * 验证码校验失败处理器
 	 */
+	@Autowired
 	private AuthenticationFailureHandler authenticationFailureHandler;
 
-	private Set<String> urls = new HashSet<>();
+	/**
+	 * 存放所有需要校验验证码的url
+	 */
+	private Map<String, ValidateCodeType> urlMap = new HashMap<>();
 
+	@Autowired
 	private SecurityProperties securityProperties;
+
+	@Autowired
+	private ValidateCodeProcessorHolder validateCodeProcessorHolder;
 
 	/**
 	 * 路径匹配的工具类
 	 */
 	private AntPathMatcher pathMatcher = new AntPathMatcher();
 
+	/**
+	 * 系统中的校验码处理器
+	 */
+	private static final String REQUEST_METHOD="get";
+
+	/**
+	 * 初始化要拦截的url配置信息
+	 */
 	@Override
 	public void afterPropertiesSet() throws ServletException {
 		super.afterPropertiesSet();
-		String [] confgUrls = StringUtils.splitByWholeSeparatorPreserveAllTokens(securityProperties.getCode().getImage().getUrl(),
-				",");
-		if(confgUrls!=null&&confgUrls.length>0){
-			CollectionUtils.addAll(urls,confgUrls);
+		urlMap.put(SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM, ValidateCodeType.IMAGE);
+		addUrlToMap(securityProperties.getCode().getImage().getUrl(), ValidateCodeType.IMAGE);
+
+		urlMap.put(SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE, ValidateCodeType.SMS);
+		addUrlToMap(securityProperties.getCode().getSms().getUrl(), ValidateCodeType.SMS);
+	}
+
+	/**
+	 * 讲系统中配置的需要校验验证码的URL根据校验的类型放入map
+	 *
+	 * @param urlString
+	 * @param type
+	 */
+	protected void addUrlToMap(String urlString, ValidateCodeType type) {
+		if (StringUtils.isNotBlank(urlString)) {
+			String[] urls = StringUtils.splitByWholeSeparatorPreserveAllTokens(urlString, ",");
+			for (String url : urls) {
+				urlMap.put(url, type);
+			}
 		}
-		urls.add("/authentication/form");
 	}
 
 
 	@Override
 	protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain)
 			throws ServletException, IOException {
-		boolean action =false;
-		for(String url:urls){
-			if(pathMatcher.match(url,httpServletRequest.getRequestURI())){
-				action = true;
-			}
-		}
-		if(action){
+		ValidateCodeType type = getValidateCodeType(httpServletRequest);
+		if(type != null){
+			log.info("校验请求(" + httpServletRequest.getRequestURI() + ")中的验证码,验证码类型" + type);
 			try{
 				//执行校验
-				validate(new ServletWebRequest(httpServletRequest));
+				validateCodeProcessorHolder.findValidateCodeProcessor(type)
+						.validate(new ServletWebRequest(httpServletRequest, httpServletResponse));
+				logger.info("验证码校验通过");
+			}catch (ValidateCodeException ex){
 
-			}catch (ValidateCodeException e){
-
-				authenticationFailureHandler.onAuthenticationFailure(httpServletRequest,httpServletResponse,e);
+				authenticationFailureHandler.onAuthenticationFailure(httpServletRequest,httpServletResponse,ex);
 				return;
 			}
 
@@ -92,35 +122,23 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 		filterChain.doFilter(httpServletRequest,httpServletResponse);
 	}
 
-	private void validate(ServletWebRequest request){
-		ImageCode codeInSession = (ImageCode) sessionStrategy.getAttribute(request, ValidateCodeController.SESSION_KEY);
-
-		String codeInRequest;
-		try {
-			//获取请求中的参数值
-			codeInRequest = ServletRequestUtils.getStringParameter(request.getRequest(),
-					"imageCode");
-		} catch (ServletRequestBindingException e) {
-			throw new ValidateCodeException("获取验证码的值失败");
+	/**
+	 * 获取校验码的类型，如果当前请求不需要校验，则返回null
+	 *
+	 * @param request
+	 * @return
+	 */
+	private ValidateCodeType getValidateCodeType(HttpServletRequest request) {
+		ValidateCodeType result = null;
+		if (!StringUtils.equalsIgnoreCase(request.getMethod(), REQUEST_METHOD)) {
+			Set<String> urls = urlMap.keySet();
+			for (String url : urls) {
+				if (pathMatcher.match(url, request.getRequestURI())) {
+					result = urlMap.get(url);
+				}
+			}
 		}
-
-		if (StringUtils.isBlank(codeInRequest)) {
-			throw new ValidateCodeException(/*processorType +*/ "验证码的值不能为空");
-		}
-
-		if (codeInSession == null) {
-			throw new ValidateCodeException(/*processorType +*/ "验证码不存在");
-		}
-
-		if (codeInSession.isExpried()) {
-			sessionStrategy.removeAttribute(request, ValidateCodeController.SESSION_KEY);
-			throw new ValidateCodeException(/*processorType + */"验证码已过期");
-		}
-
-		if (!StringUtils.equals(codeInSession.getCode(), codeInRequest)) {
-			throw new ValidateCodeException(/*processorType +*/ "验证码不匹配");
-		}
-
-		sessionStrategy.removeAttribute(request, ValidateCodeController.SESSION_KEY);
+		return result;
 	}
+
 }

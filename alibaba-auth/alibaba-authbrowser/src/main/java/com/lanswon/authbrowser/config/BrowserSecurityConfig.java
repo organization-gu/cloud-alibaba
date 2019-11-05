@@ -1,21 +1,25 @@
 package com.lanswon.authbrowser.config;
 
-import com.lanswon.authbrowser.authentication.CustomAuthenticationFailureHandler;
-import com.lanswon.authbrowser.authentication.CustomAuthenticationSuccessHandler;
+import com.lanswon.authbrowser.session.MyExpiredSessionStrategy;
+import com.lanswon.authcore.config.autentication.FormAuthenticationSecurityConfig;
+import com.lanswon.authcore.config.autentication.SmsCodeAuthenticationSecurityConfig;
+import com.lanswon.authcore.config.security.ValidateCodeSecurityConfig;
+import com.lanswon.authcore.contants.SecurityConstants;
 import com.lanswon.authcore.properties.SecurityProperties;
-import com.lanswon.authcore.filter.ValidateCodeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.session.InvalidSessionStrategy;
+import org.springframework.security.web.session.SessionInformationExpiredStrategy;
+import org.springframework.social.security.SpringSocialConfigurer;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 /**
@@ -24,16 +28,10 @@ import javax.sql.DataSource;
  * @Date 2019/10/29 8:18
  */
 @Configuration
-public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
+public class BrowserSecurityConfig extends FormAuthenticationSecurityConfig {
 
-    @Autowired(required = false)
+    @Resource
     SecurityProperties securityProperties;
-
-    @Autowired
-    CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
-
-    @Autowired
-    CustomAuthenticationFailureHandler customAuthenticationFailureHandler;
 
     @Autowired
     DataSource dataSource;
@@ -41,11 +39,32 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserDetailsService userDetailsService;
 
+    @Resource
+    SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
+
+    @Resource
+    ValidateCodeSecurityConfig validateCodeSecurityConfig;
+
+    @Resource
+    SpringSocialConfigurer springSocialConfigurer;
+
+    @Autowired
+    private SessionInformationExpiredStrategy sessionInformationExpiredStrategy;
+
+    @Autowired
+    private InvalidSessionStrategy invalidSessionStrategy;
+
+
+
     @Bean
     public PasswordEncoder passwordEncoder(){
         return  new BCryptPasswordEncoder();
     }
 
+    /**
+     * remember-me 设置数据库基本信息
+     * @return
+     */
     @Bean
     public PersistentTokenRepository persistentTokenRepository(){
         //存储token
@@ -65,42 +84,55 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .anyRequest()
 //                .authenticated();
 
-        ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
-        validateCodeFilter.setAuthenticationFailureHandler(customAuthenticationFailureHandler);
-        validateCodeFilter.setSecurityProperties(securityProperties);
-        validateCodeFilter.afterPropertiesSet();
 
-        http.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)
-                //表单登录-------------------------------------------------------------------------------
-                .formLogin()
-                //.loginPage("/imooc-signIn.html")
-                .loginPage("/authentication/require")
-                //替换默认的login登录请求
-                .loginProcessingUrl("/authentication/form")
-                //加入自定义认证成功处理（默认时跳转上一个请求）
-                .successHandler(customAuthenticationSuccessHandler)
-                //加入自定义认证失败处理
-                .failureHandler(customAuthenticationFailureHandler)
+        //表单登录-------------------------------------------------------------------------------
+
+        applyPasswordAuthenticationConfig(http);
+        //过滤器配置
+        http.apply(validateCodeSecurityConfig)
                 .and()
-
-                //rememberMe配置-------------------------------------------------------------------------------
-                .rememberMe()
+            .apply(springSocialConfigurer)
+                .and()
+            //加入自定义配置
+            .apply(smsCodeAuthenticationSecurityConfig)
+                .and()
+            //手机验证码认证配置---------------------------------------------------------------------------
+            .apply(smsCodeAuthenticationSecurityConfig)
+                .and()
+            //session管理----------------------------------------------------------------------------------
+            .sessionManagement()
+                //session 失效跳转地址
+                .invalidSessionStrategy(invalidSessionStrategy)
+                //单个用户只能一个session有效
+                .maximumSessions(securityProperties.getBrowser().getSession().getMaximumSessions())
+                //当由session登录后，就不允许再登录
+                .maxSessionsPreventsLogin(securityProperties.getBrowser().getSession().isMaxSessionsPreventsLogin())
+                .expiredSessionStrategy(sessionInformationExpiredStrategy)
+                .and()
+                .and()
+            //rememberMe配置-------------------------------------------------------------------------------
+            .rememberMe()
                 .tokenRepository(persistentTokenRepository())
                 .userDetailsService(userDetailsService)
                 .tokenValiditySeconds(securityProperties.getBrowser().getRememberMeSeconds())
                 .and()
-
-                //权限配置-------------------------------------------------------------------------------
-                .authorizeRequests()
-                //将指定路径排除授权认证
-                .antMatchers("/code/*","/authentication/require",securityProperties.getBrowser().getLoginPage()).permitAll()
-                //.antMatchers("").permitAll()
+            //权限配置---------------------------------------------------------------------------------------
+            .authorizeRequests()
+            //将指定路径排除授权认证
+                .antMatchers(SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX+"/*",
+                        SecurityConstants.DEFAULT_UNAUTHENTICATION_URL,
+                        SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE,
+                        securityProperties.getBrowser().getSignUpUrl(),
+                        "/user/regist",
+                        securityProperties.getBrowser().getSession().getSessionInvalidUrl(),
+//                        securityProperties.getBrowser().getSession().getSessionInvalidUrl()+".json",
+//                        securityProperties.getBrowser().getSession().getSessionInvalidUrl()+".html",
+                        securityProperties.getBrowser().getLoginPage()).permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
-
-                //暂时关闭跨域
-                .csrf().disable();
+            //暂时关闭跨域
+            .csrf().disable();
     }
 
 
