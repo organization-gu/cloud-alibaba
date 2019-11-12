@@ -14,8 +14,8 @@ import org.springframework.social.oauth2.OAuth2Template;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-/**
- * @author zhailiang
+/** 重写OAuth2Template
+ * @author GU-YW
  *
  */
 public class QQOAuth2Template extends OAuth2Template {

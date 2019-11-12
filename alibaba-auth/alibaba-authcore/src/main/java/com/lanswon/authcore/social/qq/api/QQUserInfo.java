@@ -6,7 +6,7 @@ package com.lanswon.authcore.social.qq.api;
 import lombok.Data;
 
 /**
- * @author zhailiang
+ * @author GU-YW
  *
  */
 @Data

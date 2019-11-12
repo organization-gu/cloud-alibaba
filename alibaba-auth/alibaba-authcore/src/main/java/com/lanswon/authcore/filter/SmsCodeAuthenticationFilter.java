@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  * 手机验证码过滤器 主要作用是封装手机验证码登录请求参数生成Token 类似UsernamePasswordAuthenticationFilter
  * @Author GU-YW
  * @Date 2019/10/31 20:28
+ * Description 用于处理校验mobile校验的Filter
  */
 public class SmsCodeAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
 

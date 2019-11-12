@@ -6,7 +6,7 @@ package com.lanswon.authcore.social.weixin.api;
 /**
  * 微信用户信息
  * 
- * @author zhailiang
+ * @author GU-YW
  */
 public class WeixinUserInfo {
 	

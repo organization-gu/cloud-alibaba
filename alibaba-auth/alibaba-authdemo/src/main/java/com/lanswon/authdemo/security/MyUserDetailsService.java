@@ -3,7 +3,6 @@ package com.lanswon.authdemo.security;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -28,17 +27,11 @@ public class MyUserDetailsService implements UserDetailsService, SocialUserDetai
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		log.info("表单登录用户名:" + username);
 		return buildUser(username);
-//		User user = new User(username,passwordEncoder.encode("123456"),
-//				AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
-//		User user=new User(username,passwordEncoder.encode("123456"),true,false,
-//				true,true,AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
-//		return  user;
 	}
 
-//
 	@Override
 	public SocialUserDetails loadUserByUserId(String userId) throws UsernameNotFoundException {
-		log.info("设计登录用户Id:" + userId);
+		log.info("第三方登录用户Id:" + userId);
 		return buildUser(userId);
 	}
 
@@ -50,7 +43,7 @@ public class MyUserDetailsService implements UserDetailsService, SocialUserDetai
 		log.info("数据库密码是:"+password);
 		return new SocialUser(userId, password,
 				true, true, true, true,
-				AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
+				AuthorityUtils.commaSeparatedStringToAuthorityList("admin,ROLE_USER"));
 	}
 
 }

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.lanswon.authbrowser.support;
+package com.lanswon.authcore.support;
 
 /**
  * @author GU-YW

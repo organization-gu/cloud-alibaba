@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  * 提供执行手机验证码登录的provider 类似表单认证中的AbstractUserDetailsAuthenticationProvider
  * @Author GU-YW
  * @Date 2019/10/31 20:38
+ * Description：真正去校验手机验证码封装的SmsCodeAuthenticationToken的类
  */
 public class SmsCodeAuthenticationProvider implements AuthenticationProvider {
 

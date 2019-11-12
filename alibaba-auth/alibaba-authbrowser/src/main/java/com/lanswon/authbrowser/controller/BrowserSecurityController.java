@@ -9,12 +9,12 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.lanswon.authbrowser.support.SimpleResponse;
-import com.lanswon.authbrowser.support.SocialUserInfo;
+import com.lanswon.authcore.support.SocialUserInfo;
+import com.lanswon.authcore.contants.SecurityConstants;
 import com.lanswon.authcore.properties.SecurityProperties;
+import com.lanswon.authcore.support.SimpleResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
@@ -56,9 +56,7 @@ public class BrowserSecurityController {
 	 * @return
 	 * @throws IOException
 	 */
-//	@RequestMapping(SecurityConstants.DEFAULT_UNAUTHENTICATION_URL)
-
-	@RequestMapping("/authentication/require")
+	@RequestMapping(SecurityConstants.DEFAULT_UNAUTHENTICATION_URL)
 	@ResponseStatus(code = HttpStatus.UNAUTHORIZED)
 	public SimpleResponse requireAuthentication(HttpServletRequest request, HttpServletResponse response)
 			throws IOException {

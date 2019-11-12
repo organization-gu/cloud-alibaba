@@ -48,6 +48,13 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.session</groupId>
+                <artifactId>spring-session-bom</artifactId>
+                <version>Bean-SR8</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!--SpringBoot-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -72,6 +79,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
             <!--springboot-mybatis-->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>

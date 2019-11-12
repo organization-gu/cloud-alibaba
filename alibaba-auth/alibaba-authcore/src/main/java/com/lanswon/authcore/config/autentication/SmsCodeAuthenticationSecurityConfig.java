@@ -19,6 +19,7 @@ import javax.annotation.Resource;
 /** 手机验证码登录配置
  * @Author GU-YW
  * @Date 2019/11/1 11:28
+ * Description：校验手机验证码登录的配置类---》将校验规则等配置到spring-security过滤器链中
  */
 @Configuration
 public class SmsCodeAuthenticationSecurityConfig extends SecurityConfigurerAdapter<DefaultSecurityFilterChain,HttpSecurity> {

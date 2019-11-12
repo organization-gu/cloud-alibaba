@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.session.InvalidSessionStrategy;
@@ -31,35 +32,33 @@ import javax.sql.DataSource;
 public class BrowserSecurityConfig extends FormAuthenticationSecurityConfig {
 
     @Resource
-    SecurityProperties securityProperties;
-
-    @Autowired
-    DataSource dataSource;
-
-    @Autowired
-    UserDetailsService userDetailsService;
+    private SecurityProperties securityProperties;
 
     @Resource
-    SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
+    private DataSource dataSource;
 
     @Resource
-    ValidateCodeSecurityConfig validateCodeSecurityConfig;
+    private UserDetailsService userDetailsService;
 
     @Resource
-    SpringSocialConfigurer springSocialConfigurer;
+    private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
 
-    @Autowired
+    @Resource
+    private ValidateCodeSecurityConfig validateCodeSecurityConfig;
+
+    @Resource
+    private SpringSocialConfigurer springSocialConfigurer;
+
+    @Resource
     private SessionInformationExpiredStrategy sessionInformationExpiredStrategy;
 
-    @Autowired
+    @Resource
     private InvalidSessionStrategy invalidSessionStrategy;
 
+    @Resource
+    private LogoutSuccessHandler logoutSuccessHandler;
 
 
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return  new BCryptPasswordEncoder();
-    }
 
     /**
      * remember-me 设置数据库基本信息
@@ -93,10 +92,7 @@ public class BrowserSecurityConfig extends FormAuthenticationSecurityConfig {
                 .and()
             .apply(springSocialConfigurer)
                 .and()
-            //加入自定义配置
-            .apply(smsCodeAuthenticationSecurityConfig)
-                .and()
-            //手机验证码认证配置---------------------------------------------------------------------------
+            //加入自定义配置手机验证码认证配置---------------------------------------------------------------------------
             .apply(smsCodeAuthenticationSecurityConfig)
                 .and()
             //session管理----------------------------------------------------------------------------------
@@ -116,6 +112,14 @@ public class BrowserSecurityConfig extends FormAuthenticationSecurityConfig {
                 .userDetailsService(userDetailsService)
                 .tokenValiditySeconds(securityProperties.getBrowser().getRememberMeSeconds())
                 .and()
+            //退出配置-------------------------------------------------------------------------------
+            .logout()
+                .logoutUrl("/signOut")
+                //退出成功处理与logoutSuccessHandler互斥
+                //.logoutSuccessUrl(securityProperties.getBrowser().getLoginPage())
+                .logoutSuccessHandler(logoutSuccessHandler)
+                .deleteCookies("JSESSIONID")
+                .and()
             //权限配置---------------------------------------------------------------------------------------
             .authorizeRequests()
             //将指定路径排除授权认证
@@ -125,6 +129,7 @@ public class BrowserSecurityConfig extends FormAuthenticationSecurityConfig {
                         securityProperties.getBrowser().getSignUpUrl(),
                         "/user/regist",
                         securityProperties.getBrowser().getSession().getSessionInvalidUrl(),
+//                        securityProperties.getBrowser().getSignOutSuccessUrl(),
 //                        securityProperties.getBrowser().getSession().getSessionInvalidUrl()+".json",
 //                        securityProperties.getBrowser().getSession().getSessionInvalidUrl()+".html",
                         securityProperties.getBrowser().getLoginPage()).permitAll()

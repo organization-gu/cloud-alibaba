@@ -7,10 +7,7 @@ import java.util.Map;
 
 import com.lanswon.authcore.contants.ValidateCodeType;
 import com.lanswon.authcore.controller.ValidateCodeController;
-import com.lanswon.authcore.validatecode.ValidateCode;
-import com.lanswon.authcore.validatecode.ValidateCodeException;
-import com.lanswon.authcore.validatecode.ValidateCodeGenerator;
-import com.lanswon.authcore.validatecode.ValidateCodeProcessor;
+import com.lanswon.authcore.validatecode.*;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
@@ -20,6 +17,8 @@ import org.springframework.social.connect.web.SessionStrategy;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
+
+import javax.annotation.Resource;
 
 
 /**
@@ -40,6 +39,9 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
 	 */
 	@Autowired
 	private Map<String, ValidateCodeGenerator> validateCodeGenerators;
+
+	@Resource
+	private ValidateCodeRepository validateCodeRepository;
 
 
 	@Override
@@ -74,8 +76,14 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
 	 * @param validateCode
 	 */
 	private void save(ServletWebRequest request, C validateCode) {
-		ValidateCode code=new ValidateCode(validateCode.getCode(),validateCode.getExpireTime());
-		sessionStrategy.setAttribute(request, getSessionKey(), validateCode);
+		//由于存放到redis里的对象必须是序列化的，---->对象里面的属性也必须是序列化的
+		// 而ImageCode中的BufferedImage对象没有实现Serializable接口，即不可序列化
+		// 因此不做如下处理还是会报序列化错误
+		// 实际业务中我们只需要把生成的验证码和过期时间存到session（redis）里就可以了，因此完全可以按照如下的方式去做
+		ValidateCode code = new ValidateCode(validateCode.getCode(), validateCode.getExpireTime());
+		log.debug("保存的验证码是[{}]",code.getCode());
+		//使用validateCodeRepository接口方法保存验证码
+		validateCodeRepository.save(request, code, getValidateCodeType());
 	}
 
 	/**
@@ -113,9 +121,8 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
 	public void validate(ServletWebRequest request) {
 
 		ValidateCodeType processorType = getValidateCodeType();
-		String sessionKey = getSessionKey();
 
-		C codeInSession = (C) sessionStrategy.getAttribute(request, sessionKey);
+		C codeInSession = (C) validateCodeRepository.get(request, processorType);
 
 		String codeInRequest;
 		try {
@@ -134,7 +141,7 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
 		}
 
 		if (codeInSession.isExpried()) {
-			sessionStrategy.removeAttribute(request, sessionKey);
+			validateCodeRepository.remove(request, processorType);
 			throw new ValidateCodeException(processorType + "验证码已过期");
 		}
 
@@ -142,7 +149,7 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
 			throw new ValidateCodeException(processorType + "验证码不匹配");
 		}
 
-		sessionStrategy.removeAttribute(request, sessionKey);
+		validateCodeRepository.remove(request, processorType);
 	}
 
 }

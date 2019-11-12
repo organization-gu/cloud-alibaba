@@ -9,9 +9,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.lanswon.authbrowser.support.SimpleResponse;
 import com.lanswon.authcore.contants.LoginResponseType;
 import com.lanswon.authcore.properties.SecurityProperties;
+import com.lanswon.authcore.support.SimpleResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

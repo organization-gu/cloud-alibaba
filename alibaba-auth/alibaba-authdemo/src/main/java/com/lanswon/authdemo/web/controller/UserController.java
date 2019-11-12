@@ -9,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import com.lanswon.authapp.social.utils.AppSignUpHandle;
 import com.lanswon.authdemo.dto.User;
 import com.lanswon.authdemo.dto.UserQueryCondition;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
@@ -49,13 +50,18 @@ public class UserController {
 	 */
 	@Autowired(required = false)
 	private ProviderSignInUtils providerSignInUtils;
+
+	private AppSignUpHandle appSignUpHandle;
 	
 	@PostMapping("/regist")
 	public void regist(User user, HttpServletRequest request) {
 		
 		//不管是注册用户还是绑定用户，都会拿到一个用户唯一标识。
 		String userId = user.getUsername();
-		providerSignInUtils.doPostSignUp(userId, new ServletWebRequest(request));
+//		providerSignInUtils.doPostSignUp(userId, new ServletWebRequest(request));
+
+		//使用基于app注册认证
+		appSignUpHandle.doPostSignUp(new ServletWebRequest(request),userId);
 	}
 	
 	@GetMapping("/me")
