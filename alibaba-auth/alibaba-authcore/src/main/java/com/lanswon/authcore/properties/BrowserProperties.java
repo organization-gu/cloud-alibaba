@@ -20,7 +20,10 @@ public class BrowserProperties {
 	
 	private String signUpUrl = "/imooc-signUp.html";
 
-	private String signOutSuccessUrl = "" ;
+	/**
+	 * 当设置为空时会报错，应该是路径，不是路径则直接返回JSON
+	 */
+	private String signOutSuccessUrl = "JSON" ;
 	
 	private String loginPage = SecurityConstants.DEFAULT_LOGIN_PAGE_URL;
 	

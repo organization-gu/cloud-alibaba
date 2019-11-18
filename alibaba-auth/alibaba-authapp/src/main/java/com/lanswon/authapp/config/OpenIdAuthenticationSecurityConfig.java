@@ -32,7 +32,7 @@ public class OpenIdAuthenticationSecurityConfig extends SecurityConfigurerAdapte
     private SocialUserDetailsService NRSCDetailsService;
 
     @Autowired
-    private UsersConnectionRepository nrscJdbcUsersConnectionRepository;
+    private UsersConnectionRepository JdbcUsersConnectionRepository;
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
@@ -44,7 +44,7 @@ public class OpenIdAuthenticationSecurityConfig extends SecurityConfigurerAdapte
 
         OpenIdAuthenticationProvider OpenIdAuthenticationProvider = new OpenIdAuthenticationProvider();
         OpenIdAuthenticationProvider.setUserDetailsService(NRSCDetailsService);
-        OpenIdAuthenticationProvider.setUsersConnectionRepository(nrscJdbcUsersConnectionRepository);
+        OpenIdAuthenticationProvider.setUsersConnectionRepository(JdbcUsersConnectionRepository);
 
         http.authenticationProvider(OpenIdAuthenticationProvider)
                 .addFilterAfter(OpenIdAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

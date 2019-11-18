@@ -5,8 +5,8 @@ package com.lanswon.authcore.social.weixin.config;
 
 import com.lanswon.authcore.properties.SecurityProperties;
 import com.lanswon.authcore.properties.WeixinProperties;
-import com.lanswon.authcore.social.ConnectView;
 import com.lanswon.authcore.social.configutils.SocialAutoConfigurerAdapter;
+import com.lanswon.authcore.social.ConnectView;
 import com.lanswon.authcore.social.weixin.connect.WeixinConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

@@ -3,8 +3,8 @@
  */
 package com.lanswon.authcore.config;
 
-import com.lanswon.authcore.properties.SecurityProperties;
 import com.lanswon.authcore.validatecode.ValidateCodeGenerator;
+import com.lanswon.authcore.properties.SecurityProperties;
 import com.lanswon.authcore.validatecode.image.ImageCodeGenerator;
 import com.lanswon.authcore.validatecode.sms.DefaultSmsCodeSender;
 import com.lanswon.authcore.validatecode.sms.SmsCodeGenerator;

@@ -16,6 +16,7 @@
     </description>
     <modules>
         <module>feign-usercenter</module>
+        <module>feign-uum</module>
     </modules>
 
     <dependencyManagement>

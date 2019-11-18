@@ -4,10 +4,8 @@
 package com.lanswon.authcore.config.security;
 
 import javax.annotation.Resource;
-import javax.servlet.Filter;
 
 import com.lanswon.authcore.filter.ValidateCodeFilter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.DefaultSecurityFilterChain;

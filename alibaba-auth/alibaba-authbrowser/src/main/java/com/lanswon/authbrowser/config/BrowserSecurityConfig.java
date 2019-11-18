@@ -1,18 +1,14 @@
 package com.lanswon.authbrowser.config;
 
-import com.lanswon.authbrowser.session.MyExpiredSessionStrategy;
+import com.lanswon.authcore.authorize.AuthorizeConfigProviderManger;
 import com.lanswon.authcore.config.autentication.FormAuthenticationSecurityConfig;
 import com.lanswon.authcore.config.autentication.SmsCodeAuthenticationSecurityConfig;
 import com.lanswon.authcore.config.security.ValidateCodeSecurityConfig;
-import com.lanswon.authcore.contants.SecurityConstants;
 import com.lanswon.authcore.properties.SecurityProperties;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
@@ -58,6 +54,9 @@ public class BrowserSecurityConfig extends FormAuthenticationSecurityConfig {
     @Resource
     private LogoutSuccessHandler logoutSuccessHandler;
 
+    @Resource
+    private AuthorizeConfigProviderManger authorizeConfigProviderManger;
+
 
 
     /**
@@ -82,11 +81,10 @@ public class BrowserSecurityConfig extends FormAuthenticationSecurityConfig {
 //                .authorizeRequests()
 //                .anyRequest()
 //                .authenticated();
-
-
         //表单登录-------------------------------------------------------------------------------
 
         applyPasswordAuthenticationConfig(http);
+        
         //过滤器配置
         http.apply(validateCodeSecurityConfig)
                 .and()
@@ -121,23 +119,26 @@ public class BrowserSecurityConfig extends FormAuthenticationSecurityConfig {
                 .deleteCookies("JSESSIONID")
                 .and()
             //权限配置---------------------------------------------------------------------------------------
-            .authorizeRequests()
-            //将指定路径排除授权认证
-                .antMatchers(SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX+"/*",
-                        SecurityConstants.DEFAULT_UNAUTHENTICATION_URL,
-                        SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE,
-                        securityProperties.getBrowser().getSignUpUrl(),
-                        "/user/regist",
-                        securityProperties.getBrowser().getSession().getSessionInvalidUrl(),
+//            .authorizeRequests()
+//            //将指定路径排除授权认证
+//                .antMatchers(SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX+"/*",
+//                        SecurityConstants.DEFAULT_UNAUTHENTICATION_URL,
+//                        SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE,
+//                        securityProperties.getBrowser().getSignUpUrl(),
+//                        "/user/regist",
+//                        securityProperties.getBrowser().getSession().getSessionInvalidUrl(),
 //                        securityProperties.getBrowser().getSignOutSuccessUrl(),
-//                        securityProperties.getBrowser().getSession().getSessionInvalidUrl()+".json",
-//                        securityProperties.getBrowser().getSession().getSessionInvalidUrl()+".html",
-                        securityProperties.getBrowser().getLoginPage()).permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
+////                        securityProperties.getBrowser().getSession().getSessionInvalidUrl()+".json",
+////                        securityProperties.getBrowser().getSession().getSessionInvalidUrl()+".html",
+//                        securityProperties.getBrowser().getLoginPage())
+//                    .permitAll()
+//                .anyRequest()
+//                .authenticated()
+//                .and()
             //暂时关闭跨域
             .csrf().disable();
+
+        authorizeConfigProviderManger.config(http.authorizeRequests());
     }
 
 

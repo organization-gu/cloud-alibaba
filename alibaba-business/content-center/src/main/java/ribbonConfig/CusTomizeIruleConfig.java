@@ -1,8 +1,6 @@
 package ribbonConfig;
 
 import com.alibaba.cloud.sentinel.annotation.SentinelRestTemplate;
-import com.lanswon.contentcenter.config.irule.CusTomizeRule;
-import com.lanswon.contentcenter.config.irule.NacosClusterRule;
 import com.lanswon.contentcenter.config.irule.NacosMetadataRule;
 import com.netflix.loadbalancer.IRule;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;

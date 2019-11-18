@@ -6,9 +6,7 @@ package com.lanswon.authcore.validatecode.impl;
 import java.util.Map;
 
 import com.lanswon.authcore.contants.ValidateCodeType;
-import com.lanswon.authcore.controller.ValidateCodeController;
 import com.lanswon.authcore.validatecode.*;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

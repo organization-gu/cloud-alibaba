@@ -1,10 +1,10 @@
 package com.lanswon.usercenter.rocketmq;
 
-import com.lanswon.feign.domain.dto.messaging.UserAddBonusMsgDTO;
 import com.lanswon.usercenter.dao.bonus.BonusEventLogMapper;
 import com.lanswon.usercenter.dao.user.UserMapper;
 import com.lanswon.usercenter.domain.entity.bonus.BonusEventLog;
 import com.lanswon.usercenter.domain.entity.user.User;
+import com.lanswon.userfeign.domain.dto.messaging.UserAddBonusMsgDTO;
 import lombok.RequiredArgsConstructor;
 import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.core.RocketMQListener;

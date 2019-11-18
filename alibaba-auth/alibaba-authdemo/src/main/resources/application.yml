@@ -77,7 +77,6 @@ lanswon:
         width: 100
         #url: /user
     browser:
-      #loginPage: /nrsc-login.html
       loginType: JSON
       signUpUrl: /demo-signUp.html
       #signOutUrl: /nrsc-logout.html
@@ -89,13 +88,17 @@ lanswon:
       weixin:
         app-id: wx67c700ed4fe84c30
         app-secret: 3fa174915df42b21309efaa99255b39c
-
       filterProcessesUrl: /qqLogin
+    oauth2:
+      clients:
+        - clientId: lanswon
+          clientSecret: 123456
+          accessTokenValiditySeconds: 3600
 
 
-security:
-  oauth2:
-    client:
-      client-id: lanswon
-      client-secret: 123456
-      registered-redirect-uri: http://example.com
+#security:
+#  oauth2:
+#    client:
+#      client-id: lanswon
+#      client-secret: 123456
+#      registered-redirect-uri: http://example.com

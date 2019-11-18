@@ -20,7 +20,7 @@ spring:
       discovery:
         server-addr: 192.168.44.78:8848
         # 多网卡指定客户端IP
-        ip: 172.1.1.244
+        ip: 172.1.1.239
     # *****************************网关*****************************
     gateway:
       # 找不到service实例，默认返回503 改为404
@@ -35,14 +35,20 @@ spring:
         - id: CLOUD-UUM
           uri: lb://CLOUD-UUM
           predicates:
-          - Path=/way/**
+          - Path=/uum/**
           - CustomizeBetween= 上午10:00,下午5:00
           filters:
           - StripPrefix= 1
-        - id: content-center
-          uri: lb://content-center
+        - id: ESTATE-MANAGE
+          uri: lb://ESTATE-MANAGE
           predicates:
-            - Path=/content/**
+            - Path=/estate/**
+          filters:
+#            - StripPrefix= 1
+        - id: cloud-authserver
+          uri: lb://cloud-authserver
+          predicates:
+            - Path=/auth/**
           filters:
             - StripPrefix= 1
 # *****************************开启所有请求端点*****************************
@@ -60,4 +66,6 @@ management:
 logging:
   level:
     com.lanswon.*: debug
+    org.springframework.cloud.gateway.*: debug
+
   path: /log/spring-alibaba/gateway

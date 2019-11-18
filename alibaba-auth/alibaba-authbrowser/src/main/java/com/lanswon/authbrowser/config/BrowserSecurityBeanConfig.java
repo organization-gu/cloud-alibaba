@@ -4,8 +4,8 @@
 package com.lanswon.authbrowser.config;
 
 import com.lanswon.authbrowser.logout.MyLogoutSuccessHandler;
-import com.lanswon.authbrowser.session.MyExpiredSessionStrategy;
 import com.lanswon.authbrowser.session.MyInvalidSessionStrategy;
+import com.lanswon.authbrowser.session.MyExpiredSessionStrategy;
 import com.lanswon.authcore.properties.SecurityProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;

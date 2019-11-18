@@ -9,12 +9,10 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
+import com.lanswon.authcore.validatecode.ValidateCodeGenerator;
 import com.lanswon.authcore.properties.SecurityProperties;
 import com.lanswon.authcore.validatecode.ValidateCode;
-import com.lanswon.authcore.validatecode.ValidateCodeGenerator;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
 

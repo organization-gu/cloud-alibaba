@@ -7,10 +7,10 @@ import java.util.Date;
 
 import javax.validation.constraints.Past;
 
+import com.lanswon.authdemo.validator.MyConstraint;
 import org.hibernate.validator.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.lanswon.authdemo.validator.MyConstraint;
 
 import io.swagger.annotations.ApiModelProperty;
 

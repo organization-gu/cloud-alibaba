@@ -5,14 +5,12 @@ package com.lanswon.authapp.authentication;
 
 import java.util.Base64;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lanswon.authcore.contants.LoginResponseType;
-import com.lanswon.authcore.properties.SecurityProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.common.exceptions.UnapprovedClientAuthenticationException;
 import org.springframework.security.oauth2.provider.*;
@@ -44,6 +42,9 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 	@Autowired
 	private ClientDetailsService clientDetailsService;
 
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
@@ -66,10 +67,11 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 		// 现在配置在了yml文件里，真实项目中应该放在数据库里
 		ClientDetails clientDetails = clientDetailsService.loadClientByClientId(clientId);
 
+		log.debug("系统内部的clientSecret=[{}]",passwordEncoder.matches(clientSecret,clientDetails.getClientSecret()));
 		// 对获取到的clientDetails进行校验
 		if (clientDetails == null) {
 			throw new UnapprovedClientAuthenticationException("clientId对应的配置信息不存在:" + clientId);
-		} else if (!StringUtils.equals(clientDetails.getClientSecret(), clientSecret)) {
+		} else if (!passwordEncoder.matches(clientSecret,clientDetails.getClientSecret())) {
 			throw new UnapprovedClientAuthenticationException("clientSecret不匹配:" + clientId);
 		}
 

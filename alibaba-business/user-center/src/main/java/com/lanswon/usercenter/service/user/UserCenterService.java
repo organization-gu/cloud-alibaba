@@ -1,10 +1,10 @@
 package com.lanswon.usercenter.service.user;
 
-import com.lanswon.feign.domain.dto.messaging.UserAddBonusMsgDTO;
-import com.lanswon.usercenter.dao.bonus.BonusEventLogMapper;
 import com.lanswon.usercenter.dao.user.UserMapper;
-import com.lanswon.usercenter.domain.entity.bonus.BonusEventLog;
 import com.lanswon.usercenter.domain.entity.user.User;
+import com.lanswon.userfeign.domain.dto.messaging.UserAddBonusMsgDTO;
+import com.lanswon.usercenter.dao.bonus.BonusEventLogMapper;
+import com.lanswon.usercenter.domain.entity.bonus.BonusEventLog;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

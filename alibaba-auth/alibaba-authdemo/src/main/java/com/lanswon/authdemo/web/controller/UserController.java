@@ -3,6 +3,7 @@
  */
 package com.lanswon.authdemo.web.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,15 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import com.lanswon.authapp.social.utils.AppSignUpHandle;
+import com.lanswon.authcore.properties.SecurityProperties;
 import com.lanswon.authdemo.dto.User;
 import com.lanswon.authdemo.dto.UserQueryCondition;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.Authentication;
 import org.springframework.social.connect.web.ProviderSignInUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -52,6 +56,9 @@ public class UserController {
 	private ProviderSignInUtils providerSignInUtils;
 
 	private AppSignUpHandle appSignUpHandle;
+
+	@Autowired
+	private SecurityProperties securityProperties;
 	
 	@PostMapping("/regist")
 	public void regist(User user, HttpServletRequest request) {
@@ -63,9 +70,22 @@ public class UserController {
 		//使用基于app注册认证
 		appSignUpHandle.doPostSignUp(new ServletWebRequest(request),userId);
 	}
-	
-	@GetMapping("/me")
-	public Object getCurrentUser(@AuthenticationPrincipal UserDetails user) {
+
+	/**
+	 * 当使用token来获取信息时，不支持@AuthenticationPrincipal注解
+	 * 可以加入io.jsonwebtoken依赖来解析token里面的信息
+	 * @param user
+	 * @return
+	 */
+	@GetMapping("/me")  //@AuthenticationPrincipal  UserDetails
+	public Object getCurrentUser(Authentication user,HttpServletRequest request) throws UnsupportedEncodingException {
+		String header = request.getHeader("Authorization");
+		String token = StringUtils.substringAfter(header,"bearer ");
+		Claims claims=Jwts.parser()
+						.setSigningKey(securityProperties.getOauth2().getJwtSigningKey().getBytes("UTF-8"))
+						.parseClaimsJws(token).getBody();
+		String clientId = (String) claims.get("client_id");
+		System.out.println("clientId="+clientId);
 		return user;
 	}
 
@@ -103,7 +123,7 @@ public class UserController {
 	@JsonView(User.UserSimpleView.class)
 	@ApiOperation(value = "用户查询服务")
 	public List<User> query(UserQueryCondition condition,
-							@PageableDefault(page = 2, size = 17, sort = "username,asc") Pageable pageable) {
+                            @PageableDefault(page = 2, size = 17, sort = "username,asc") Pageable pageable) {
 
 		System.out.println(ReflectionToStringBuilder.toString(condition, ToStringStyle.MULTI_LINE_STYLE));
 

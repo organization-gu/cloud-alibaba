@@ -1,6 +1,6 @@
 package com.lanswon.usercenter.rocketmq;
 
-import com.lanswon.feign.domain.dto.messaging.UserAddBonusMsgDTO;
+import com.lanswon.userfeign.domain.dto.messaging.UserAddBonusMsgDTO;
 import com.lanswon.usercenter.service.user.UserCenterService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

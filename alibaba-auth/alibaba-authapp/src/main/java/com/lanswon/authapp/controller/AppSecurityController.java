@@ -4,31 +4,18 @@
 package com.lanswon.authapp.controller;
 
 import com.lanswon.authapp.social.utils.AppSignUpHandle;
-import com.lanswon.authcore.contants.SecurityConstants;
-import com.lanswon.authcore.properties.SecurityProperties;
-import com.lanswon.authcore.support.SimpleResponse;
 import com.lanswon.authcore.support.SocialUserInfo;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.web.DefaultRedirectStrategy;
-import org.springframework.security.web.RedirectStrategy;
-import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
-import org.springframework.security.web.savedrequest.RequestCache;
-import org.springframework.security.web.savedrequest.SavedRequest;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.web.ProviderSignInUtils;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.ServletWebRequest;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * @Author GU-YW
@@ -52,6 +39,8 @@ public class AppSecurityController {
 	@GetMapping("/social/signUp")
 	@ResponseStatus(HttpStatus.UNAUTHORIZED)
 	public SocialUserInfo getSocialUserInfo(HttpServletRequest request) {
+		//从session中取出已经认证的社交账户信息（Connection对象）
+		//-->本接口的执行和微信、QQ的等服务提供商拿着授权码回调我们的项目在一个session里，因此这里可以从session里取出社交账户信
 		SocialUserInfo userInfo = new SocialUserInfo();
 		Connection<?> connection = providerSignInUtils.getConnectionFromSession(new ServletWebRequest(request));
 		userInfo.setProviderId(connection.getKey().getProviderId());

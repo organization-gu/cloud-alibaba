@@ -4,7 +4,6 @@ import com.lanswon.authcore.properties.SecurityProperties;
 import com.lanswon.authcore.support.SimpleResponse;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
@@ -23,6 +22,8 @@ import java.io.IOException;
 @Data
 public class MyLogoutSuccessHandler implements LogoutSuccessHandler {
 
+    private static final String logOutType = "JSON";
+
     private SecurityProperties securityProperties;
 
     private ObjectMapper objectMapper = new ObjectMapper();
@@ -30,7 +31,7 @@ public class MyLogoutSuccessHandler implements LogoutSuccessHandler {
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         log.info("系统退出成功处理…………");
         String signOutUrl = securityProperties.getBrowser().getSignOutSuccessUrl();
-        if(StringUtils.isBlank(signOutUrl)){
+        if(signOutUrl.equals(logOutType)){
             response.setContentType("application/json;charset=UTF-8");
             response.setStatus(HttpStatus.OK.value());
             response.getWriter().write(objectMapper.writeValueAsString(new SimpleResponse("退出成功")));

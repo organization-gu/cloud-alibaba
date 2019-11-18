@@ -19,6 +19,7 @@
         <module>alibaba-authbrowser</module>
         <module>alibaba-authapp</module>
         <module>alibaba-authdemo</module>
+        <module>alibaba-authserver</module>
     </modules>
 
     <dependencyManagement>

@@ -5,7 +5,6 @@ package com.lanswon.authdemo.code;
 
 import com.lanswon.authcore.validatecode.ValidateCodeGenerator;
 import com.lanswon.authcore.validatecode.image.ImageCode;
-import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.ServletWebRequest;
 
 /**
