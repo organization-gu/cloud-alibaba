@@ -17,6 +17,7 @@
     <modules>
         <module>content-center</module>
         <module>user-center</module>
+        <module>jiingle-management</module>
     </modules>
 
     <dependencyManagement>

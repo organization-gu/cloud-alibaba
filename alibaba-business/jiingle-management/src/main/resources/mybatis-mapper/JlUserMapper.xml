@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanswon.management.dao.user.JlUserMapper">
+  <resultMap id="BaseResultMap" type="com.lanswon.management.domain.entity.user.JlUser">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="wxid" jdbcType="VARCHAR" property="wxid" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="created_by" jdbcType="BIGINT" property="createdBy" />
+    <result column="updated_by" jdbcType="BIGINT" property="updatedBy" />
+    <result column="account_enable" jdbcType="BIT" property="accountEnable" />
+    <result column="account_non_expired" jdbcType="BIT" property="accountNonExpired" />
+    <result column="credential_non_expired" jdbcType="BIT" property="credentialNonExpired" />
+    <result column="account_non_lock" jdbcType="BIT" property="accountNonLock" />
+    <result column="dep_id" jdbcType="INTEGER" property="depId" />
+  </resultMap>
+</mapper>

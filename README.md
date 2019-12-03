@@ -19,7 +19,7 @@ https://github.com/organization-gu/cloud-alibaba.git
 * elasticsarch http://192.168.44.78:9200
 * Grafana http://192.168.44.78:3000 账号/密码： admin/123456
 * ZipKin http://192.168.44.78:9411
-* SpringBootAdmin http://192.168.44.78:18002(自己打jar包运行)
+* SpringBootAdmin http://192.168.44.78:18002 (自己打jar包运行)
 
 ## 功能点介绍:
 
@@ -28,7 +28,10 @@ https://github.com/organization-gu/cloud-alibaba.git
     Feign 我们可以做到使用HTTP请求远程服务时能与调用本地方法一样的编码体验，
     开发者完全感知不到这是远程方法，更感知不到这是个HTTP请求
 ### 服务鉴权
-    通过JWT的方式来加强服务之间调度的权限验证，保证内部服务的安全性
+    通过JWT的方式来加强服务之间调度的权限验证，保证内部服务的安全性,整合了
+    springSecurity和OAuth2认证协议，分别组件化了基于session和Token机制的
+    密码登录、手机验证码登录、QQ 微信第三方登录，简单配置开箱即用，详见auth
+    模块说明
 ### 负载均衡
     将服务保留的rest请求由网关控制，SpringCloud系列的gateway整合了rebbion，
     可以帮我们进行正常的网关负载均衡。其中扩展可以自定义负载均衡策略来满足
@@ -38,8 +41,8 @@ https://github.com/organization-gu/cloud-alibaba.git
     熔断器和限流，sentinel可以提供多种限流和熔断策略，避免了服务之间的“雪崩”。
 ### 监控
     利用Spring Boot Admin 来监控各个独立Service的运行状态；
-    利用turbine来实时查看接口的运行状态和调用频率(待实现)；
-    通过Zipkin来查看各个服务之间的调用链等。
+    通过Zipkin来查看各个服务之间的接口调用状态和耗时等信息，利用elasticsearch
+    实现调用日志持久化。
     利用Grafana来监控服务器状态（待完善）
 ### 代码生成器
     基于Mybatis-generator插件和TKMybatis自动生成关于持久层的基础增、删、

@@ -18,6 +18,7 @@ public class SpreadAuthorizeConfigProvider implements AuthorizeConfigProvider {
     public boolean config(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry config) {
         config.antMatchers(
                 "/actuator/**",
+                "/favicon.ico",
                 "/oauth/checkToken")
                 .permitAll()
                 .anyRequest()

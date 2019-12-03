@@ -55,15 +55,5 @@ public class CheckTokenController {
 
     }
 
-    @GetMapping("/test")
-    public void ssss(){
-        String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NzM5MDY4MzksInVzZXJfbmFtZSI6InVzZXIiLCJhdXRob3JpdGllcyI6WyJST0xFX2FkbWluIiwiUk9MRV9VU0VSIl0sImp0aSI6IjMxZGYxODNiLWNjMGQtNGVhYi1iOTFhLTNjZGU0MDYyNWMwMiIsImNsaWVudF9pZCI6ImxhbnN3b24iLCJzY29wZSI6WyJhbGwiLCJyZWFkIiwid3JpdGUiXX0.8NL8LDicD0Gk9FDlANid0R-2bxvnE8aaWb-ZzkSyHWI";
-        String uri = "http://127.0.0.1:"+port+"/oauth/checkToken?token="+token;
-        log.debug("授权服务ID=[{}]",uri);
-        Map<String,Object> result=null;
-//        try{
-        result = restTemplate.getForObject(uri,Map.class);
-        System.out.println("dddddddddddddddddddddddddddddd=="+result);
-    }
 
 }

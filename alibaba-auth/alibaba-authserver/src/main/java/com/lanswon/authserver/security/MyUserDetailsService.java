@@ -51,6 +51,9 @@ public class MyUserDetailsService implements UserDetailsService, SocialUserDetai
 
 	private SocialUserDetails buildUser(String userId) {
 		// 根据用户名查找用户信息
+		if(StringUtils.isBlank(userId)){
+			throw new UsernameNotFoundException("用户不能为空");
+		}
 		DataRtnDTO<AuthUser> user = uumService.getUserInfoByUsername(userId);
 		//根据查找到的用户信息判断用户是否被冻结
 		if(Objects.isNull(user.getData())){

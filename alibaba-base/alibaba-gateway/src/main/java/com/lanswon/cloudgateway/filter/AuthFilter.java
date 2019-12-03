@@ -1,9 +1,13 @@
 package com.lanswon.cloudgateway.filter;
 
+import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
+import com.alibaba.nacos.api.exception.NacosException;
+import com.alibaba.nacos.api.naming.pojo.Instance;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -34,10 +38,15 @@ import java.util.Map;
 public class AuthFilter implements GlobalFilter, Ordered {
 
     @Autowired
+    private NacosDiscoveryProperties discoveryProperties;
+
+    @Autowired
     private DiscoveryClient discoveryClient;
 
     @Autowired
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
+
+    private String name = "CLOUD-AUTHSERVER";
 
     private AntPathMatcher antPathMatcher = new AntPathMatcher();
 
@@ -48,35 +57,44 @@ public class AuthFilter implements GlobalFilter, Ordered {
         String requestUri = request.getURI().getPath();
         //请求的方法
         String requestMethod = request.getMethod().name();
-
-        log.debug("网关请求信息=[{}]",requestUri);
+        Instance serviceInstance = null;
+        log.debug("网关拦截的请求地址=[{}],请求方法[{}]",requestUri,requestMethod);
         //访问授权服务不拦截
         if(!requestUri.contains("auth")){
             HttpHeaders headers = request.getHeaders();
             ServerHttpResponse response = exchange.getResponse();
+            //获取服务实例
+            try {
+                serviceInstance = discoveryProperties.namingServiceInstance().selectOneHealthyInstance(name);
+            } catch (NacosException e) {
+                e.printStackTrace();
+                response.setStatusCode(HttpStatus.BAD_GATEWAY);
+                response.getHeaders().set("info","无鉴权服务");
+                return response.setComplete();
+            }
+//            String loginUri = "http://"+serviceInstance.toInetAddr()+"/authentication/require";
             String token = StringUtils.substringAfter(StringUtils.join(headers.get("Authorization"),","),"bearer ");
             log.debug("token=[{}]",token);
             if(StringUtils.isBlank(token)){
                 response.setStatusCode(HttpStatus.UNAUTHORIZED);
                 response.getHeaders().set("info","Token为空");
+//                response.setStatusCode(HttpStatus.SEE_OTHER);
+//                response.getHeaders().set(HttpHeaders.LOCATION, loginUri);
+
                 return response.setComplete();
             }
-            //获取服务实例
-            List<ServiceInstance> serviceInstances=discoveryClient.getInstances("cloud-authserver");
-            if(serviceInstances.size()==0){
-                response.setStatusCode(HttpStatus.BAD_GATEWAY);
-                response.getHeaders().set("info","无鉴权服务");
-                return response.setComplete();
-            }
-            ServiceInstance serviceInstance = selectOneInstance(serviceInstances);
-            String uri = serviceInstance.getUri().toString()+"/oauth/checkToken?token="+token;
+
+            String uri = "http://"+serviceInstance.toInetAddr()+"/oauth/checkToken?token="+token;
             log.debug("授权服务ID=[{}]",uri);
             Map<String,Object> result=null;
+            //restTemplate性能最好
             result = restTemplate.getForObject(uri,Map.class);
             log.debug("验证token结果=[{}]",result);
             if(!result.get("code").equals(HttpStatus.OK.getReasonPhrase())){
                 response.setStatusCode(HttpStatus.UNAUTHORIZED);
                 response.getHeaders().set("info","TOKEN Invalid");
+//                response.setStatusCode(HttpStatus.SEE_OTHER);
+//                response.getHeaders().set(HttpHeaders.LOCATION, loginUri);
                 return response.setComplete();
             }
             List<String> sourceUrl = (List<String>) result.get("authorities");
@@ -103,6 +121,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
         }
         int size = serviceInstances.size();
         int index = RandomUtils.nextInt(0,size);
+        ServiceInstance serviceInstance = serviceInstances.get(index);
         return serviceInstances.get(index);
     }
 

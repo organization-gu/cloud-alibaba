@@ -4,7 +4,7 @@ server:
 
 spring:
   application:
-    name: cloud-gateway
+    name: CLOUD-GATEWAY
   # *****************************链路调用*****************************
   zipkin:
     base-url: http://192.168.44.78:9411
@@ -14,13 +14,25 @@ spring:
     sampler:
       # 采样100%
       probability: 1.0
+  # ******************************redis******************************
+  redis:
+    timeout: 5000
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: -1
+    sentinel:
+      master: mymaster
+      nodes: 192.168.44.78:16379   #192.168.254.129:16379
   # *****************************服务注册*****************************
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.44.78:8848
+        server-addr: 192.168.44.78:8848 #192.168.254.129:8848
         # 多网卡指定客户端IP
-        ip: 172.1.1.239
+        #ip: 172.1.1.239
     # *****************************网关*****************************
     gateway:
       # 找不到service实例，默认返回503 改为404
@@ -36,21 +48,29 @@ spring:
           uri: lb://CLOUD-UUM
           predicates:
           - Path=/uum/**
-          - CustomizeBetween= 上午10:00,下午5:00
+#          - CustomizeBetween= 上午10:00,下午5:00
           filters:
-          - StripPrefix= 1
+#          - StripPrefix= 1
         - id: ESTATE-MANAGE
           uri: lb://ESTATE-MANAGE
           predicates:
             - Path=/estate/**
           filters:
 #            - StripPrefix= 1
-        - id: cloud-authserver
-          uri: lb://cloud-authserver
+        - id: CLOUD-AUTHSERVER
+          uri: lb://CLOUD-AUTHSERVER
           predicates:
             - Path=/auth/**
           filters:
             - StripPrefix= 1
+#            - name: RequestRateLimiter
+#              args:
+#                # 令牌桶每秒填充平均速率
+#                redis-rate-limiter.replenishRate: 1
+#                # 令牌桶的上限
+#                redis-rate-limiter.burstCapacity: 2
+#                # 使用SpEL表达式从Spring容器中获取Bean对象
+#                key-resolver: "#{@pathKeyResolver}"
 # *****************************开启所有请求端点*****************************
 management:
   endpoints:
@@ -66,6 +86,6 @@ management:
 logging:
   level:
     com.lanswon.*: debug
-    org.springframework.cloud.gateway.*: debug
+    org.springframework.cloud.gateway.*: info
 
   path: /log/spring-alibaba/gateway
