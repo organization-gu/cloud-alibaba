@@ -1,0 +1,13 @@
+# 以下配置必须要放置在bootstrap.yml文件否则无法在 nacos 读取配置
+spring:
+  application:
+    name: CLOUD-GATEWAY
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        # 方便和服务发现分开,更能够体现性能
+        server-addr: 192.168.44.78:8848
+        file-extension: yaml
+        refreshable-dataids: CLOUD-GATEWAY-dev.yaml

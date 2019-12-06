@@ -9,7 +9,7 @@ spring:
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/content_center?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
+      url: jdbc:mysql://localhost:3306/jingle_manage?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
       username: root
       password: 123456
       max-active: 10
@@ -38,7 +38,7 @@ spring:
       discovery:
         server-addr: 192.168.44.78:8848 #192.168.254.129:8848
         # 多网卡指定客户端IP
-        ip: 172.1.1.239
+        #ip: 172.1.1.239
 # *****************************开启所有请求端点*****************************
 management:
   health:

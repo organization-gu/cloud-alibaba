@@ -18,6 +18,12 @@
         <dependency>
             <groupId>com.lanswon</groupId>
             <artifactId>alibaba-authapp</artifactId>
+            <exclusions>
+               <exclusion>
+                   <groupId>org.springframework.session</groupId>
+                   <artifactId>spring-session-data-redis</artifactId>
+               </exclusion>
+            </exclusions>
             <version>1.0.0.SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -50,6 +56,10 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-alibaba-nacos-discovery</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-nacos-config</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.lanswon</groupId>
@@ -57,10 +67,10 @@
             <version>1.0.0.SNAPSHOT</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-sleuth-zipkin</artifactId>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

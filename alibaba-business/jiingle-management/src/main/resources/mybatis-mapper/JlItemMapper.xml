@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanswon.management.dao.item.JlItemMapper">
-  <resultMap id="BaseResultMap" type="com.lanswon.management.domain.entity.item.JlItem">
+<mapper namespace="com.lanswon.management.dao.JlItemMapper">
+  <resultMap id="BaseResultMap" type="com.lanswon.management.domain.entity.JlItem">
     <!--
       WARNING - @mbg.generated
     -->
@@ -13,4 +13,53 @@
     <result column="crt_date" jdbcType="TIMESTAMP" property="crtDate" />
     <result column="last_date" jdbcType="TIMESTAMP" property="lastDate" />
   </resultMap>
+
+  <sql id="itemVo_Column_List" >
+     i.id AS id,
+      i.`item_type_id` AS itemTypeId,
+      t.`type_name` AS itemTypeName,
+      i.`name` AS itemName,
+      i.`price` AS price,
+      i.`num` AS num,
+      i.`crt_date` AS crtDate,
+      i.`last_date` AS last_date
+  </sql>
+
+  <select id="selectByKey" parameterType="int" resultType="com.lanswon.management.domain.vo.ItemVo">
+    SELECT
+    <include refid="itemVo_Column_List" />
+    FROM jl_item AS i
+    JOIN jl_item_type AS t
+      ON t.`type_code` = i.`item_type_id`
+  WHERE i.`id` = #{itemID,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectList" parameterType="com.lanswon.management.domain.dto.ItemDto" resultType="com.lanswon.management.domain.vo.ItemVo">
+    SELECT
+      <include refid="itemVo_Column_List" />
+    FROM
+      jl_item AS i
+      JOIN jl_item_type AS t
+        ON t.`type_code` = i.`item_type_id`
+    <where>
+        <if test="itemTypeId !=0">
+            i.`item_type_id`=#{itemTypeId,jdbcType=INTEGER}
+        </if>
+    </where>
+    LIMIT #{startLine,jdbcType=INTEGER},#{limit,jdbcType=INTEGER}
+  </select>
+
+  <select id="count" parameterType="com.lanswon.management.domain.dto.ItemDto" resultType="int">
+      SELECT
+        COUNT(*)
+      FROM
+      jl_item AS i
+      JOIN jl_item_type AS t
+      ON t.`type_code` = i.`item_type_id`
+      <where>
+          <if test="itemTypeId !=0">
+              i.`item_type_id`=#{itemTypeId,jdbcType=INTEGER}
+          </if>
+      </where>
+  </select>
 </mapper>

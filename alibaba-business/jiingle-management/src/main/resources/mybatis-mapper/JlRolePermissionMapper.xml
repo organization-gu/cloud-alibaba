@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanswon.management.dao.role_permission.JlRolePermissionMapper">
-  <resultMap id="BaseResultMap" type="com.lanswon.management.domain.entity.role_permission.JlRolePermission">
+<mapper namespace="com.lanswon.management.dao.JlRolePermissionMapper">
+  <resultMap id="BaseResultMap" type="com.lanswon.management.domain.entity.JlRolePermission">
     <!--
       WARNING - @mbg.generated
     -->

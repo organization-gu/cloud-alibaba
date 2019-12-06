@@ -78,8 +78,6 @@ public class AuthFilter implements GlobalFilter, Ordered {
             if(StringUtils.isBlank(token)){
                 response.setStatusCode(HttpStatus.UNAUTHORIZED);
                 response.getHeaders().set("info","Token为空");
-//                response.setStatusCode(HttpStatus.SEE_OTHER);
-//                response.getHeaders().set(HttpHeaders.LOCATION, loginUri);
 
                 return response.setComplete();
             }
@@ -93,8 +91,6 @@ public class AuthFilter implements GlobalFilter, Ordered {
             if(!result.get("code").equals(HttpStatus.OK.getReasonPhrase())){
                 response.setStatusCode(HttpStatus.UNAUTHORIZED);
                 response.getHeaders().set("info","TOKEN Invalid");
-//                response.setStatusCode(HttpStatus.SEE_OTHER);
-//                response.getHeaders().set(HttpHeaders.LOCATION, loginUri);
                 return response.setComplete();
             }
             List<String> sourceUrl = (List<String>) result.get("authorities");

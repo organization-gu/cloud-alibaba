@@ -61,7 +61,7 @@ public class AuthSecurityController {
 //		if (savedRequest != null) {
 			String targetUrl = request.getRequestURI();
 			log.info("引发跳转的请求是:" + targetUrl);
-			redirectStrategy.sendRedirect(request, response, securityProperties.getBrowser().getLoginPage());
+//			redirectStrategy.sendRedirect(request, response, securityProperties.getBrowser().getLoginPage());
 //		}
 
 		return new SimpleResponse("访问的服务需要身份认证，请先登录");

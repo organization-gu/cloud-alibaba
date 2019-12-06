@@ -25,7 +25,7 @@
 
         <springboot.mybatis.version>2.0.1</springboot.mybatis.version>
         <springboot.druid.version>1.1.10</springboot.druid.version>
-        <springfox.swagger.version>2.9.2</springfox.swagger.version>
+        <springfox.swagger.version>2.9.1</springfox.swagger.version>
         <spring.social.version>1.1.6.RELEASE</spring.social.version>
 
         <apache.commons.pool2.version>2.5.0</apache.commons.pool2.version>
@@ -46,6 +46,7 @@
         <boot.admin.version>2.1.5</boot.admin.version>
         <spring.jjwt.version>0.7.0</spring.jjwt.version>
         <binarywang.version>3.6.0</binarywang.version>
+        <hutool.version>4.5.10</hutool.version>
     </properties>
 
     <dependencyManagement>
@@ -192,6 +193,12 @@
                 <groupId>com.github.binarywang</groupId>
                 <artifactId>wx-java-mp-spring-boot-starter</artifactId>
                 <version>${binarywang.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
 
         </dependencies>

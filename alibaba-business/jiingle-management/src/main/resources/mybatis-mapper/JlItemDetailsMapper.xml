@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanswon.management.dao.details.JlItemDetailsMapper">
-  <resultMap id="BaseResultMap" type="com.lanswon.management.domain.entity.details.JlItemDetails">
+<mapper namespace="com.lanswon.management.dao.JlItemDetailsMapper">
+  <resultMap id="BaseResultMap" type="com.lanswon.management.domain.entity.JlItemDetails">
     <!--
       WARNING - @mbg.generated
     -->
@@ -13,6 +13,6 @@
     <result column="crt_date" jdbcType="TIMESTAMP" property="crtDate" />
     <result column="last_month_num" jdbcType="INTEGER" property="lastMonthNum" />
     <result column="handle_dep" jdbcType="INTEGER" property="handleDep" />
-    <result column="handele_user_name" jdbcType="VARCHAR" property="handeleUserName" />
+    <result column="handle_user_name" jdbcType="VARCHAR" property="handleUserName" />
   </resultMap>
 </mapper>

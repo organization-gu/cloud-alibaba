@@ -1,6 +1,5 @@
 package com.lanswon.authserver.security;
 
-import com.lanswon.authserver.entity.Admin;
 import com.lanswon.uumfeign.domain.dto.DataRtnDTO;
 import com.lanswon.uumfeign.domain.entity.AuthUrl;
 import com.lanswon.uumfeign.domain.entity.AuthUser;
@@ -17,7 +16,6 @@ import org.springframework.social.security.SocialUser;
 import org.springframework.social.security.SocialUserDetails;
 import org.springframework.social.security.SocialUserDetailsService;
 import org.springframework.stereotype.Component;
-import org.springframework.util.AntPathMatcher;
 
 import javax.annotation.Resource;
 import java.util.Objects;

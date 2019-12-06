@@ -68,20 +68,7 @@ public class RouteConfig {
         };
     }
 
-    /**
-     * 按照Path限流
-     *
-     * @return key
-     */
 
-    @Bean
-    public KeyResolver pathKeyResolver() {
-        return exchange -> Mono.just(
-                exchange.getRequest()
-                        .getPath()
-                        .toString()
-        );
-    }
 
     /**
      * 自定义异常处理[@@]注册Bean时依赖的Bean，会从容器中直接获取，所以直接注入即可
@@ -102,4 +89,19 @@ public class RouteConfig {
         log.debug("Init Json Exception Handler Instead Default ErrorWebExceptionHandler Success");
         return jsonExceptionHandler;
     }
+
+    /**
+     * 按照Path限流
+     *
+     * @return key
+     */
+
+//    @Bean
+//    public KeyResolver pathKeyResolver() {
+//        return exchange -> Mono.just(
+//                exchange.getRequest()
+//                        .getPath()
+//                        .toString()
+//        );
+//    }
 }

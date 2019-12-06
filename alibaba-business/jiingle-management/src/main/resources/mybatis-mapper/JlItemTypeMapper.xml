@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanswon.management.dao.type.JlItemTypeMapper">
-  <resultMap id="BaseResultMap" type="com.lanswon.management.domain.entity.type.JlItemType">
+<mapper namespace="com.lanswon.management.dao.JlItemTypeMapper">
+  <resultMap id="BaseResultMap" type="com.lanswon.management.domain.entity.JlItemType">
     <!--
       WARNING - @mbg.generated
     -->
     <id column="type_code" jdbcType="INTEGER" property="typeCode" />
     <result column="type_name" jdbcType="VARCHAR" property="typeName" />
   </resultMap>
+
+  <select id="selectList" parameterType="com.lanswon.management.domain.dto.ItemTypeDto" resultMap="BaseResultMap">
+        SELECT * FROM jl_item_type LIMIT #{startLine,jdbcType=INTEGER},#{limit,jdbcType=INTEGER}
+  </select>
+
+  <select id="count" resultType="int">
+        SELECT COUNT(*) FROM jl_item_type
+  </select>
 </mapper>
