@@ -35,4 +35,6 @@ public class ItemServiceTest {
         item.setName("草纸3");
         itemService.updateItem(item);
     }
+
+
 }

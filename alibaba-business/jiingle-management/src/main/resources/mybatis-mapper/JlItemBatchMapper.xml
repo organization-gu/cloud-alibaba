@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanswon.management.dao.item_batch.JlItemBatchMapper">
+  <resultMap id="BaseResultMap" type="com.lanswon.management.domain.entity.JlItemBatch">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="batch_id" jdbcType="BIGINT" property="batchId" />
+    <result column="item_id" jdbcType="INTEGER" property="itemId" />
+    <result column="item_num" jdbcType="INTEGER" property="itemNum" />
+    <result column="item_price" jdbcType="DECIMAL" property="itemPrice" />
+    <result column="item_cost" jdbcType="DECIMAL" property="itemCost" />
+    <result column="batch_into_name" jdbcType="VARCHAR" property="batchIntoName" />
+    <result column="crt_date" jdbcType="TIMESTAMP" property="crtDate" />
+    <result column="last_date" jdbcType="TIMESTAMP" property="lastDate" />
+    <result column="use_status" jdbcType="INTEGER" property="useStatus" />
+  </resultMap>
+</mapper>

@@ -37,7 +37,7 @@ public class ApplicationExceptionHandler {
             }
             simpleResponse.setDescription(sb.toString());
         }else if(ex instanceof Exception){
-            simpleResponse.setDescription("系统出现异常，请查看详细信息");
+            simpleResponse.setDescription("系统出现异常=["+ex.getMessage()+"]");
         }
         return simpleResponse;
     }

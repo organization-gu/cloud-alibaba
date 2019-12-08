@@ -33,11 +33,12 @@ public class ItemController {
         return itemService.items(itemDto);
     }
 
-    @GetMapping("/{itemId}")
-    @ApiOperation(value="查询指定物资信息")
-    public SimpleResponse item(@PathVariable int itemId){
-        return itemService.item(itemId);
-    }
+    //暂时不需要，后期删除
+//    @GetMapping("/{itemId}")
+//    @ApiOperation(value="查询指定物资信息")
+//    public SimpleResponse item(@PathVariable int itemId){
+//        return itemService.item(itemId);
+//    }
 
     @PostMapping("/add")
     @ApiOperation(value="新增物资")

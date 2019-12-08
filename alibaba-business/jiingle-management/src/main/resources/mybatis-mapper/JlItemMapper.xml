@@ -8,21 +8,40 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="item_type_id" jdbcType="INTEGER" property="itemTypeId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="price" jdbcType="DECIMAL" property="price" />
-    <result column="num" jdbcType="INTEGER" property="num" />
     <result column="crt_date" jdbcType="TIMESTAMP" property="crtDate" />
     <result column="last_date" jdbcType="TIMESTAMP" property="lastDate" />
   </resultMap>
 
+  <resultMap id="itemVoResultMap" type="com.lanswon.management.domain.vo.ItemVo">
+      <id column="id" jdbcType="INTEGER" property="id" />
+      <result column="itemTypeId" jdbcType="INTEGER" property="itemTypeId" />
+      <result column="itemTypeName" jdbcType="VARCHAR" property="itemTypeName" />
+      <result column="itemName" jdbcType="VARCHAR" property="itemName" />
+      <result column="sumNum" jdbcType="INTEGER" property="sumNum" />
+      <result column="crtDate" jdbcType="TIMESTAMP" property="crtDate" />
+      <result column="lastDate" jdbcType="TIMESTAMP" property="lastDate" />
+      <collection property="itemBatchList" ofType="com.lanswon.management.domain.entity.JlItemBatch">
+          <id column="batch_id" jdbcType="BIGINT" property="batchId" />
+          <result column="item_id" jdbcType="INTEGER" property="itemId" />
+          <result column="item_num" jdbcType="INTEGER" property="itemNum" />
+          <result column="item_price" jdbcType="DECIMAL" property="itemPrice" />
+          <result column="item_cost" jdbcType="DECIMAL" property="itemCost" />
+          <result column="batch_into_name" jdbcType="VARCHAR" property="batchIntoName" />
+          <result column="crt_date" jdbcType="TIMESTAMP" property="crtDate" />
+          <result column="last_date" jdbcType="TIMESTAMP" property="lastDate" />
+          <result column="use_status" jdbcType="INTEGER" property="useStatus" />
+      </collection>
+  </resultMap>
+
   <sql id="itemVo_Column_List" >
-     i.id AS id,
+      i.id AS id,
       i.`item_type_id` AS itemTypeId,
       t.`type_name` AS itemTypeName,
       i.`name` AS itemName,
-      i.`price` AS price,
-      i.`num` AS num,
+      IFNULL(SUM(b.item_num),0) AS sumNum,
       i.`crt_date` AS crtDate,
-      i.`last_date` AS last_date
+      i.`last_date` AS lastDate,
+      b.*
   </sql>
 
   <select id="selectByKey" parameterType="int" resultType="com.lanswon.management.domain.vo.ItemVo">
@@ -31,6 +50,8 @@
     FROM jl_item AS i
     JOIN jl_item_type AS t
       ON t.`type_code` = i.`item_type_id`
+    LEFT JOIN jl_item_batch AS b
+      ON b.`item_id`=i.`id`
   WHERE i.`id` = #{itemID,jdbcType=INTEGER}
   </select>
 
@@ -41,6 +62,8 @@
       jl_item AS i
       JOIN jl_item_type AS t
         ON t.`type_code` = i.`item_type_id`
+      LEFT JOIN jl_item_batch AS b
+      ON b.`item_id`=i.`id`
     <where>
         <if test="itemTypeId !=0">
             i.`item_type_id`=#{itemTypeId,jdbcType=INTEGER}
@@ -56,6 +79,8 @@
       jl_item AS i
       JOIN jl_item_type AS t
       ON t.`type_code` = i.`item_type_id`
+      LEFT JOIN jl_item_batch AS b
+      ON b.`item_id`=i.`id`
       <where>
           <if test="itemTypeId !=0">
               i.`item_type_id`=#{itemTypeId,jdbcType=INTEGER}

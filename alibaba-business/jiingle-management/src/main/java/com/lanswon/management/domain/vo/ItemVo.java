@@ -1,10 +1,12 @@
 package com.lanswon.management.domain.vo;
 
+import com.lanswon.management.domain.entity.JlItemBatch;
 import lombok.Builder;
 import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 /** 物资Vo
  * @Description:
@@ -36,14 +38,9 @@ public class ItemVo {
     private String itemName;
 
     /**
-     * 物资单价
+     * 物资总数
      */
-    private BigDecimal price;
-
-    /**
-     * 物资实际数量
-     */
-    private Integer num;
+    private Integer sumNum;
 
     /**
      * 创建时间
@@ -54,4 +51,9 @@ public class ItemVo {
      * 最后修改时间
      */
     private Date lastDate;
+
+    /**
+     * 未用完的进库批次
+     */
+    private List<JlItemBatch> itemBatchList;
 }

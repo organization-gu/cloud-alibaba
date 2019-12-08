@@ -6,7 +6,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.44.78:8848
+        server-addr: jaswine.top:18848
 # *****************************开启所有请求端点*****************************
 management:
   endpoints:
