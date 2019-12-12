@@ -14,7 +14,6 @@
         <module>alibaba-business</module>
         <module>alibaba-feign</module>
         <module>alibaba-auth</module>
-        <module>alibaba-wx</module>
     </modules>
 
     <packaging>pom</packaging>

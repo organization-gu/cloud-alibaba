@@ -5,7 +5,7 @@
     <parent>
         <artifactId>cloud-alibaba</artifactId>
         <groupId>com.lanswon</groupId>
-        <version>${lanswon.cloud.version}</version>
+        <version>1.0.0.SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -47,6 +47,10 @@
         <spring.jjwt.version>0.7.0</spring.jjwt.version>
         <binarywang.version>3.6.0</binarywang.version>
         <hutool.version>4.5.10</hutool.version>
+        <commons.lang>2.6</commons.lang>
+        <commons.beanutils>1.9.3</commons.beanutils>
+        <commons.collections>3.2.2</commons.collections>
+        <commons.io>2.1</commons.io>
     </properties>
 
     <dependencyManagement>
@@ -178,6 +182,11 @@
                 <version>${spring.social.version}</version>
             </dependency>
             <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.46</version>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework.social</groupId>
                 <artifactId>spring-social-web</artifactId>
                 <version>${spring.social.version}</version>
@@ -199,6 +208,27 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons.lang}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons.beanutils}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons.collections}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io}</version>
             </dependency>
 
         </dependencies>
