@@ -69,24 +69,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .and()
                 .apply(openIdAuthenticationSecurityConfig)
                 .and()
-//                .authorizeRequests()
-//                .antMatchers(
-//                        SecurityConstants.DEFAULT_UNAUTHENTICATION_URL,
-//                        SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_MOBILE,
-//                        securityProperties.getBrowser().getLoginPage(),
-//                        SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX+"/*",
-//                        securityProperties.getBrowser().getSignUpUrl(),
-//                        securityProperties.getBrowser().getSession().getSessionInvalidUrl(),
-//                        securityProperties.getBrowser().getSignOutSuccessUrl(),
-//                        "/user/register","/social/signUp")
-//                    .permitAll()
-//                //系统配置鉴权
-//                // -->配置多种权限.access("hasRole('ADMIN') and hasIpAddress('192.168.11.22')")
-//                .antMatchers(HttpMethod.GET,"/user/*")
-//                    .hasRole("admin")
-//                .anyRequest()
-//                .authenticated()
-//                .and()
             .csrf().disable();
 
         authorizeConfigProviderManger.config(http.authorizeRequests());

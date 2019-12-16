@@ -19,6 +19,14 @@ public class SpreadAuthorizeConfigProvider implements AuthorizeConfigProvider {
         config.antMatchers(
                 "/actuator/**",
                 "/favicon.ico",
+                "/*swagger*/**",
+                "/webjars/**",
+                "/v2/**",
+                "/sys/**",
+                "/login.html",
+                "/js/**",
+                "/css/**",
+                "/images/**",
                 "/oauth/checkToken")
                 .permitAll()
                 .anyRequest()

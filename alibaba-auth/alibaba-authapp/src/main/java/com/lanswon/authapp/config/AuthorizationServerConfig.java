@@ -4,22 +4,27 @@ import com.lanswon.authcore.properties.OAuth2ClientProperties;
 import com.lanswon.authcore.properties.SecurityProperties;
 import org.apache.commons.lang.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.builders.InMemoryClientDetailsServiceBuilder;
+import org.springframework.security.oauth2.config.annotation.builders.JdbcClientDetailsServiceBuilder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.ClientDetailsService;
+import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 
 import javax.annotation.Resource;
+import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -54,6 +59,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     PasswordEncoder passwordEncoder;
 
+    @Autowired
+    DataSource dataSource;
+
 
     /***
      * 入口点相关配置  ---  token的生成，存储方式等在这里配置
@@ -81,7 +89,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
             enhancers.add(jwtTokenEnhancer);
             enhancerChain.setTokenEnhancers(enhancers);
             endpoints.tokenEnhancer(enhancerChain);
-//                   // .accessTokenConverter(jwtAccessTokenConverter);
+//                    .accessTokenConverter(jwtAccessTokenConverter);
 
 
         }
@@ -95,23 +103,29 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        InMemoryClientDetailsServiceBuilder builder=clients.inMemory();
-
-        if(ArrayUtils.isNotEmpty(securityProperties.getOauth2().getClients())){
-            for(OAuth2ClientProperties auth2Client:securityProperties.getOauth2().getClients()){
-                builder.withClient(auth2Client.getClientId())
-                        .secret(passwordEncoder.encode(auth2Client.getClientSecret()))
-                        .accessTokenValiditySeconds(auth2Client.getAccessTokenValiditySeconds())
-                        .refreshTokenValiditySeconds(3600*24*7)
-                        .authorizedGrantTypes("refresh_token","password")
-                        .scopes("all","read","write");
-            }
-        }
-
+//        InMemoryClientDetailsServiceBuilder builder=clients.inMemory();
+//
+//        if(ArrayUtils.isNotEmpty(securityProperties.getOauth2().getClients())){
+//            for(OAuth2ClientProperties auth2Client:securityProperties.getOauth2().getClients()){
+//                builder.withClient(auth2Client.getClientId())
+//                        .secret(passwordEncoder.encode(auth2Client.getClientSecret()))
+//                        .accessTokenValiditySeconds(auth2Client.getAccessTokenValiditySeconds())
+//                        .refreshTokenValiditySeconds(3600*24*7)
+//                        .authorizedGrantTypes("refresh_token","password")
+//                        .scopes("all","read","write");
+//            }
+//        }
+        clients.withClientDetails(clientDetails());
     }
 
+    @Bean
+    public JdbcClientDetailsService clientDetails() {
+        return new JdbcClientDetailsService(dataSource);
+    }
+
+
     @Override
-    public void configure(AuthorizationServerSecurityConfigurer authorizationServerSecurityConfigurer) throws Exception {
+    public void configure(AuthorizationServerSecurityConfigurer authorizationServerSecurityConfigurer) {
         authorizationServerSecurityConfigurer.checkTokenAccess("permitAll()");
     }
 }

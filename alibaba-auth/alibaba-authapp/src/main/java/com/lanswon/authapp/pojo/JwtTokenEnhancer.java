@@ -1,6 +1,7 @@
 package com.lanswon.authapp.pojo;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
@@ -21,7 +22,10 @@ public class JwtTokenEnhancer implements TokenEnhancer {
         //在jwt里加入一个clientId信息,加什么自己定义
         Map<String,Object> info = new HashMap<>();
         log.debug("token加入clientId=[{}]",authentication.getOAuth2Request().getClientId());
-        info.put("clientId",authentication.getOAuth2Request().getClientId());
+        log.debug("url=[{}]",authentication.getOAuth2Request().getRedirectUri());
+        info.put("client_id",authentication.getOAuth2Request().getClientId());
+        info.put("url",authentication.getOAuth2Request().getRedirectUri());
+        info.put("name",authentication.getUserAuthentication().getName());
 
         ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(info);
         return accessToken;

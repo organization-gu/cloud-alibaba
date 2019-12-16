@@ -1,0 +1,29 @@
+.login-Top {
+    padding: 20px 100px;
+    overflow: hidden;
+    height: 65px;
+}
+
+.login-mid {
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    height: 759px;
+    background-image: url("../images/login.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.login-mid {
+    overflow: hidden;
+}
+
+.login-div {
+    margin: 0 auto;;
+    width: 296px;
+    text-align: center;
+    background: #191919d4;
+    padding: 30px 70px;
+    border-radius: 23px;
+}

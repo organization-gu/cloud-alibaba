@@ -54,16 +54,11 @@ public class AuthSecurityController {
 	 */
 	@RequestMapping(SecurityConstants.DEFAULT_UNAUTHENTICATION_URL)
 	@ResponseStatus(code = HttpStatus.UNAUTHORIZED)
-	public SimpleResponse requireAuthentication(HttpServletRequest request, HttpServletResponse response)
-			throws IOException {
+	public SimpleResponse requireAuthentication(HttpServletRequest request, HttpServletResponse response) {
 
 		SavedRequest savedRequest = requestCache.getRequest(request, response);
-//		if (savedRequest != null) {
-			String targetUrl = request.getRequestURI();
-			log.info("引发跳转的请求是:" + targetUrl);
-//			redirectStrategy.sendRedirect(request, response, securityProperties.getBrowser().getLoginPage());
-//		}
-
+		String targetUrl = request.getRequestURI();
+		log.info("引发跳转的请求是:" + targetUrl);
 		return new SimpleResponse("访问的服务需要身份认证，请先登录");
 	}
 

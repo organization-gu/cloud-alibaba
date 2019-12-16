@@ -2,7 +2,6 @@
 server:
   port: 8060
 
-
 spring:
   # *****************************链路调用*****************************
 #  zipkin:
@@ -17,10 +16,10 @@ spring:
   # ******************************数据源******************************
   datasource:
     druid:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/cloud_security?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://guyw.top:3306/cloud_security?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC&useSSL=false
       username: root
-      password: 123456
+      password: root
       max-active: 10
       initial-size: 5
       min-idle: 2
@@ -38,18 +37,17 @@ spring:
         max-idle: 8
         min-idle: 0
         max-wait: 0
-    port: 6379
-    host: 192.168.44.78
-#      sentinel:
+    port: 16379
+    host: guyw.top
+    password: 123456
+  #      sentinel:
 #      master: mymaster
 #      nodes: 192.168.44.78:16379  #192.168.254.129:16379
-#  application:
-#    name: CLOUD-AUTHSERVER
   # *****************************服务注册*****************************
   cloud:
     nacos:
       discovery:
-        server-addr: jaswine.top:18848
+        server-addr: guyw.top:8848
         # 多网卡指定客户端IP
 #        ip: 172.1.1.239
   # *****************************mvc配置*****************************
@@ -58,7 +56,7 @@ spring:
       prefix: /
       suffix: .html
     resources:
-      static-locations: classpath:/static/
+      static-locations: classpath:/static/**
 # *****************************开启所有请求端点*****************************
 management:
   endpoints:
@@ -98,8 +96,7 @@ feign:
       response:
         enabled: true
 
-
-
+#*********认证服务配置*************************
 lanswon:
   security:
     code:

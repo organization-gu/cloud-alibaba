@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanswon.authserver.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.lanswon.authserver.entity.User">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="wxid" jdbcType="VARCHAR" property="wxid" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="created_by" jdbcType="BIGINT" property="createdBy" />
+    <result column="updated_by" jdbcType="BIGINT" property="updatedBy" />
+    <result column="account_enable" jdbcType="BIT" property="accountEnable" />
+    <result column="account_non_expired" jdbcType="BIT" property="accountNonExpired" />
+    <result column="credential_non_expired" jdbcType="BIT" property="credentialNonExpired" />
+    <result column="account_non_lock" jdbcType="BIT" property="accountNonLock" />
+    <result column="dep_id" jdbcType="INTEGER" property="depId" />
+  </resultMap>
+  
+  <select id="selectOneByName" resultMap="BaseResultMap" parameterType="String">
+        select * from ${tableName} where username=#{name,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectOneByPhone" resultMap="BaseResultMap" parameterType="String">
+        select * from ${tableName} where phone=#{phone,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectOneByEmail" resultMap="BaseResultMap" parameterType="String">
+        select * from ${tableName} where email=#{email,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insertUser" parameterType="com.lanswon.authserver.entity.User">
+        insert into ${tableName} (username,password,nickname,phone,email,created_time,updated_time,pic,wxid,
+        location,sex,created_by,updated_by,account_enable,account_non_expired,credential_non_expired
+        ,account_non_lock,dep_id)
+        values (#{username,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{nickname,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},
+        #{email,jdbcType=VARCHAR},#{createdTime,jdbcType=TIMESTAMP},#{updatedTime,jdbcType=TIMESTAMP},#{pic,jdbcType=VARCHAR},
+        #{wxid,jdbcType=VARCHAR},#{location,jdbcType=VARCHAR},#{sex,jdbcType=INTEGER},#{createdBy,jdbcType=BIGINT},
+        #{updatedBy,jdbcType=BIGINT},#{accountEnable,jdbcType=BIT},#{accountNonExpired,jdbcType=BIT},#{credentialNonExpired,jdbcType=BIT},
+        #{accountNonLock,jdbcType=BIT},#{depId,jdbcType=INTEGER})
+  </insert>
+
+  <update id="updateUser"  parameterType="com.lanswon.authserver.entity.User">
+    UPDATE ${tableName}
+    <set >
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null" >
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pic != null" >
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="wxid != null" >
+        wxid = #{wxid,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedBy != null" >
+        updated_by = #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="accountEnable != null" >
+        account_enable = #{accountEnable,jdbcType=BIT},
+      </if>
+      <if test="accountNonExpired != null" >
+        account_non_expired = #{accountNonExpired,jdbcType=BIT},
+      </if>
+      <if test="credentialNonExpired != null" >
+        credential_non_expired = #{credentialNonExpired,jdbcType=BIT},
+      </if>
+      <if test="accountNonLock != null" >
+        account_non_lock = #{accountNonLock,jdbcType=BIT},
+      </if>
+      <if test="depId != null" >
+        dep_id = #{depId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where username =#{username,jdbcType=VARCHAR}
+  </update>
+</mapper>

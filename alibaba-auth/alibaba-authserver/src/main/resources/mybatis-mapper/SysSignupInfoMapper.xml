@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanswon.authserver.dao.SysSignupInfoMapper">
+  <resultMap id="BaseResultMap" type="com.lanswon.authserver.entity.SysSignupInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="sys_client_id" jdbcType="VARCHAR" property="sysClientId" />
+    <result column="sys_name" jdbcType="VARCHAR" property="sysName" />
+    <result column="sys_index" jdbcType="VARCHAR" property="sysIndex" />
+    <result column="sys_password" jdbcType="VARCHAR" property="sysPassword" />
+  </resultMap>
+
+  <update id="createTable" parameterType="String">
+    DROP TABLE IF EXISTS ${tableName};
+    CREATE TABLE ${tableName} (
+      username VARCHAR(50) NOT NULL ,
+      password VARCHAR(64) NOT NULL  ,
+      nickname VARCHAR(50) DEFAULT NULL ,
+      phone VARCHAR(20) DEFAULT NULL ,
+      email VARCHAR(50) DEFAULT NULL ,
+      created_time DATETIME NOT NULL,
+      updated_time DATETIME NOT NULL,
+      pic VARCHAR(100) DEFAULT NULL,
+      wxid VARCHAR(100) DEFAULT NULL,
+      location VARCHAR(255) DEFAULT NULL,
+      sex INT(11) DEFAULT NULL,
+      created_by BIGINT(20) DEFAULT NULL,
+      updated_by BIGINT(20) DEFAULT NULL,
+      account_enable TINYINT(1) DEFAULT NULL  ,
+      account_non_expired TINYINT(1) DEFAULT NULL  ,
+      credential_non_expired TINYINT(1) DEFAULT NULL  ,
+      account_non_lock TINYINT(1) DEFAULT NULL  ,
+      dep_id INT(11) DEFAULT NULL ,
+      PRIMARY KEY (username),
+      UNIQUE KEY phone (phone) USING BTREE,
+      UNIQUE KEY email (email) USING BTREE
+    ) ENGINE=INNODB DEFAULT CHARSET=utf8
+  </update>
+</mapper>

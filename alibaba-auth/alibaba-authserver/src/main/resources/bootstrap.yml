@@ -3,11 +3,13 @@ spring:
   application:
     name: CLOUD-AUTHSERVER
   profiles:
-    active: pro
+    active: dev
   cloud:
     nacos:
       config:
         # 方便和服务发现分开,更能够体现性能
-        server-addr:   192.168.2.7:8848  # jaswine.top:18848
+        server-addr: guyw.top:8848
         file-extension: yaml
-        refreshable-dataids: CLOUD-AUTHSERVER-pro.yaml
+        refreshable-dataids: CLOUD-AUTHSERVER-dev.yaml
+        group: 943c173b-e406-4318-812d-4d1492d126e9
+        namespace: 943c173b-e406-4318-812d-4d1492d126e9

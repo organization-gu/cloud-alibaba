@@ -4,10 +4,15 @@
 package com.lanswon.authapp.authentication;
 
 import java.util.Base64;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lanswon.authcore.contants.ValidateCodeType;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,12 +22,14 @@ import org.springframework.security.oauth2.provider.*;
 import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.request.ServletWebRequest;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 自定义认证成功处理
@@ -44,6 +51,9 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+
+	@Autowired
+	private RedisTemplate<Object, Object> redisTemplate;
 
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
@@ -67,7 +77,7 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 		// 现在配置在了yml文件里，真实项目中应该放在数据库里
 		ClientDetails clientDetails = clientDetailsService.loadClientByClientId(clientId);
 
-		log.debug("系统内部的clientSecret=[{}]",passwordEncoder.matches(clientSecret,clientDetails.getClientSecret()));
+		log.debug("系统内部的clientSecret=[{}]",clientDetails.getClientSecret());
 		// 对获取到的clientDetails进行校验
 		if (clientDetails == null) {
 			throw new UnapprovedClientAuthenticationException("clientId对应的配置信息不存在:" + clientId);
@@ -81,7 +91,7 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 		//第三个参数为scope即请求的权限 ---》这里的策略是获得的ClientDetails对象里配了什么权限就给什么权限 //todo
 		//第四个参数为指定什么模式 比如密码模式为password，授权码模式为authorization_code，
 		// 这里我们写一个自定义模式custom
-		TokenRequest tokenRequest = new TokenRequest(MapUtils.EMPTY_MAP, clientId, clientDetails.getScope(), "custom");
+		EnhanceTokenRequest tokenRequest = new EnhanceTokenRequest(MapUtils.EMPTY_MAP, clientId, clientDetails.getScope(), "custom");
 
 		//获取OAuth2Request对象
 		//源码中是这么写的 --- todo 有兴趣的可以看一下
@@ -95,9 +105,14 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 		//生成token
 		OAuth2AccessToken token = authorizationServerTokenServices.createAccessToken(oAuth2Authentication);
 
+		String token_string=objectMapper.writeValueAsString(token);
+		storeToken(clientDetails,authentication,token_string);
+
 		//将生成的token返回
 		response.setContentType("application/json;charset=UTF-8");
-		response.getWriter().write(objectMapper.writeValueAsString(token));
+		response.getWriter().write(token_string);
+
+//		response.sendRedirect("http://www.baidu.com");
 
 	}
 
@@ -129,6 +144,16 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 			throw new BadCredentialsException("Invalid basic authentication token");
 		}
 		return new String[] { token.substring(0, delim), token.substring(delim + 1) };
+	}
+
+	private String buildKey(ClientDetails clientDetails,Authentication authentication){
+		String s = clientDetails.getClientId()+":"+authentication.getName();
+		return s;
+	}
+
+	@Async
+	public void storeToken(ClientDetails clientDetails,Authentication authentication,String token){
+		redisTemplate.opsForValue().set(buildKey(clientDetails,authentication), token);
 	}
 
 }

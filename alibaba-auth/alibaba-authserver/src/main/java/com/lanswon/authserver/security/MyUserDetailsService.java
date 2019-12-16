@@ -1,12 +1,12 @@
 package com.lanswon.authserver.security;
 
-import com.lanswon.uumfeign.domain.dto.DataRtnDTO;
-import com.lanswon.uumfeign.domain.entity.AuthUrl;
-import com.lanswon.uumfeign.domain.entity.AuthUser;
-import com.lanswon.uumfeign.service.UumService;
+
+import com.lanswon.authserver.dao.UserMapper;
+import com.lanswon.authserver.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,8 +18,6 @@ import org.springframework.social.security.SocialUserDetailsService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.util.Objects;
-import java.util.Set;
 
 /**
  * @Author 处理用户信息
@@ -33,7 +31,8 @@ public class MyUserDetailsService implements UserDetailsService, SocialUserDetai
 	PasswordEncoder passwordEncoder;
 
 	@Resource
-	UumService uumService;
+	UserMapper userMapper;
+
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -48,33 +47,32 @@ public class MyUserDetailsService implements UserDetailsService, SocialUserDetai
 	}
 
 	private SocialUserDetails buildUser(String userId) {
-		// 根据用户名查找用户信息
+
 		if(StringUtils.isBlank(userId)){
-			throw new UsernameNotFoundException("用户不能为空");
+			throw new UsernameNotFoundException("用户名不能为空");
 		}
-		DataRtnDTO<AuthUser> user = uumService.getUserInfoByUsername(userId);
+
+		// 根据用户名查找用户信息
+		String tableName = StringUtils.split(userId,"&")[0]+"_user";
+
+		String username = StringUtils.split(userId,"&")[1];
+
+		User user = userMapper.selectOneByName(tableName,username);
+
+		if(user== null){
+			new InternalAuthenticationServiceException(
+					"用户不存在");
+		}
 		//根据查找到的用户信息判断用户是否被冻结
-		if(Objects.isNull(user.getData())){
-			throw new UsernameNotFoundException("用户不存在");
-		}
+
 		//此密码是数据库密码，由spring来调用mach()来验证密码是否匹配
-		AuthUser authUser = user.getData();
-		String password = authUser.getPassword();
-		String urls = getAuthorityString(authUser.getUrls());
-		log.info("权限信息[{}]",urls);
-		return new SocialUser(userId, password,
-				authUser.isAccountEnable(), authUser.isAccountExpired(),
-				authUser.isAccountExpired(), authUser.isAccountLock(),
+		String password = user.getPassword();
+		String urls = "";
+		return new SocialUser(username, password,
+				user.getAccountEnable(), user.getAccountNonExpired(),
+				user.getCredentialNonExpired(), user.getAccountNonLock(),
 				AuthorityUtils.commaSeparatedStringToAuthorityList(urls));
 	}
 
-	private String getAuthorityString(Set<AuthUrl> urls){
-		StringBuffer stringBuffer = new StringBuffer();
-		for(AuthUrl authUrl :urls){
-			stringBuffer.append(authUrl.getUrl()).append("|").append(authUrl.getMethod()).append(",");
-		}
-
-		return  StringUtils.substring(stringBuffer.toString(),0,stringBuffer.length()-1);
-	}
 
 }
