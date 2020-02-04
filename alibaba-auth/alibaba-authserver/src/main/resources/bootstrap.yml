@@ -11,5 +11,4 @@ spring:
         server-addr: guyw.top:8848
         file-extension: yaml
         refreshable-dataids: CLOUD-AUTHSERVER-dev.yaml
-        group: 943c173b-e406-4318-812d-4d1492d126e9
-        namespace: 943c173b-e406-4318-812d-4d1492d126e9
+        namespace: f96a1264-e19e-44bc-9f7a-8534975ce3bc

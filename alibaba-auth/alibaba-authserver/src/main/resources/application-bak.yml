@@ -125,3 +125,6 @@ lanswon:
           clientSecret: 123456
           accessTokenValiditySeconds: 21600
 
+# ****************************mybatis映射****************************
+mybatis:
+  mapper-locations: classpath:/mybatis-mapper/*.xml

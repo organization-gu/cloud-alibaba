@@ -24,9 +24,11 @@ public class SpreadAuthorizeConfigProvider implements AuthorizeConfigProvider {
                 "/v2/**",
                 "/sys/**",
                 "/login.html",
+                "/signUp.html",
                 "/js/**",
                 "/css/**",
                 "/images/**",
+                "/font/**",
                 "/oauth/checkToken")
                 .permitAll()
                 .anyRequest()

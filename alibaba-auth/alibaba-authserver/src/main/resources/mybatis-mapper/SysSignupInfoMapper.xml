@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lanswon.authserver.dao.SysSignupInfoMapper">
-  <resultMap id="BaseResultMap" type="com.lanswon.authserver.entity.SysSignupInfo">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="sys_client_id" jdbcType="VARCHAR" property="sysClientId" />
-    <result column="sys_name" jdbcType="VARCHAR" property="sysName" />
-    <result column="sys_index" jdbcType="VARCHAR" property="sysIndex" />
-    <result column="sys_password" jdbcType="VARCHAR" property="sysPassword" />
-  </resultMap>
+<!--  <resultMap id="BaseResultMap" type="com.lanswon.authserver.entity.SysSignupInfo">-->
+<!--    &lt;!&ndash;-->
+<!--      WARNING - @mbg.generated-->
+<!--    &ndash;&gt;-->
+<!--    <id column="sys_client_id" jdbcType="VARCHAR" property="sysClientId" />-->
+<!--    <result column="sys_name" jdbcType="VARCHAR" property="sysName" />-->
+<!--    <result column="sys_index" jdbcType="VARCHAR" property="sysIndex" />-->
+<!--    <result column="sys_password" jdbcType="VARCHAR" property="sysPassword" />-->
+<!--  </resultMap>-->
 
   <update id="createTable" parameterType="String">
     DROP TABLE IF EXISTS ${tableName};

@@ -13,11 +13,11 @@ spring:
         max-wait: -1
 #    sentinel:
 #      master: mymaster
-#      nodes: 192.168.44.78::w:16379
+#      nodes: 192.168.44.78:16379
   # ******************************数据源******************************
   datasource:
     druid:
-      driver-class-name: com.mysql.cj.jdbc.Driver
+      driver-class-name: com.mysql.jdbc.Driver
       url: jdbc:mysql://localhost:3306/cloud_security?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
       username: root
       password: 123456

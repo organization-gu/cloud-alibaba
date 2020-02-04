@@ -85,10 +85,11 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 			throw new UnapprovedClientAuthenticationException("clientSecret不匹配:" + clientId);
 		}
 
+		//todo
 		//第一个参数为请求参数的一个Map集合，
 		// 在Spring Security OAuth的源码里要用这个Map里的用户名+密码或授权码来生成Authentication对象,
 		// 但我们已经获取到了Authentication对象，所以这里可以直接传一个空的Map
-		//第三个参数为scope即请求的权限 ---》这里的策略是获得的ClientDetails对象里配了什么权限就给什么权限 //todo
+		//第三个参数为scope即请求的权限 ---》这里的策略是获得的ClientDetails对象里配了什么权限就给什么权限
 		//第四个参数为指定什么模式 比如密码模式为password，授权码模式为authorization_code，
 		// 这里我们写一个自定义模式custom
 		EnhanceTokenRequest tokenRequest = new EnhanceTokenRequest(MapUtils.EMPTY_MAP, clientId, clientDetails.getScope(), "custom");

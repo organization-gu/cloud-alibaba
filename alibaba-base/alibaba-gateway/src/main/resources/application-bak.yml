@@ -15,17 +15,16 @@ spring:
 #      # 采样100%
 #      probability: 1.0
   # ******************************redis******************************
-#  redis:
-#    timeout: 5000
-#    jedis:
-#      pool:
-#        max-active: 8
-#        max-idle: 8
-#        min-idle: 0
-#        max-wait: -1
-#    sentinel:
-#      master: mymaster
-#      nodes: 192.168.44.78:16379   #192.168.254.129:16379
+  redis:
+    timeout: 5000
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: -1
+    host: guyw.top
+    port: 16379
   # *****************************服务注册*****************************
   cloud:
     nacos:
@@ -63,14 +62,14 @@ spring:
             - Path=/auth/**
           filters:
             - StripPrefix= 1
-#            - name: RequestRateLimiter
-#              args:
-#                # 令牌桶每秒填充平均速率
-#                redis-rate-limiter.replenishRate: 1
-#                # 令牌桶的上限
-#                redis-rate-limiter.burstCapacity: 2
-#                # 使用SpEL表达式从Spring容器中获取Bean对象
-#                key-resolver: "#{@pathKeyResolver}"
+            - name: RequestRateLimiter
+              args:
+                # 令牌桶每秒填充平均速率
+                redis-rate-limiter.replenishRate: 1
+                # 令牌桶的上限
+                redis-rate-limiter.burstCapacity: 2
+                # 使用SpEL表达式从Spring容器中获取Bean对象
+                key-resolver: "#{@pathKeyResolver}"
 # *****************************开启所有请求端点*****************************
 management:
   endpoints:

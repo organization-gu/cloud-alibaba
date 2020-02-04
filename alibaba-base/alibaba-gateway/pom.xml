@@ -50,10 +50,10 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <!--网关限流 令牌桶算法-->
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
-        </dependency>-->
+        </dependency>
 
     </dependencies>
 

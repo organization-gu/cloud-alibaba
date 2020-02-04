@@ -28,6 +28,7 @@ $(function () {
             crossDomain: true,
             // headers: {"Authorization": "Basic amM6anM="},
             beforeSend: function (request) {
+                console.log(getUrlParam("client"))
                 request.setRequestHeader("Authorization", "Basic "+getUrlParam("client"));
             },
             data: {
