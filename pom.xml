@@ -29,10 +29,15 @@
 
     <distributionManagement>
         <repository>
-            <id>lanswon_project</id>
-            <name>Lanswon Project</name>
-            <url>http://192.168.10.56:9081/nexus/content/repositories/lanswon_project/</url>
+            <id>nexus</id>
+            <name>Releases</name>
+            <url>http://guyw.top:18081/repository/maven-releases</url>
         </repository>
+        <snapshotRepository>
+            <id>nexus</id>
+            <name>Snapshot</name>
+            <url>http://guyw.top:18081/repository/maven-snapshots</url>
+        </snapshotRepository>
     </distributionManagement>
 
 </project>
