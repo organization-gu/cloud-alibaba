@@ -13,13 +13,13 @@ RocketMQ、zipkin、elasticsearch、Grafana、springBootAdmin等主要框架和�
 https://github.com/organization-gu/cloud-alibaba.git 
 
 ## 内部服务组件地址
-* nacos: http://192.168.44.78:8848/nacos 账号/密码： nacos/nacos 
+* nacos: http://192.168.44.78/nacos 账号/密码： nacos/nacos nginx负载均衡
 * sentinel—dashboard http://192.168.44.78:9999 账号/密码： admin/123456
 * rocketMQ-dashboard http://192.168.44.78:17890 
 * elasticsarch http://192.168.44.78:9200
 * Grafana http://192.168.44.78:3000 账号/密码： admin/123456
 * ZipKin http://192.168.44.78:9411
-* SpringBootAdmin http://192.168.44.78:18002 (自己打jar包运行)
+* SpringBootAdmin http://192.168.10.55:18002 (自己打jar包运行)
 
 ## 功能点介绍:
 

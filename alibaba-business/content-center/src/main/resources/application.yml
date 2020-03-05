@@ -1,11 +1,12 @@
 spring:
   # ******************************Boot Admin 客户端******************************
-  boot:
-    admin:
-      client:
-        url: http://192.168.44.78:18002
-        instance:
-          service-url: http://172.1.1.244:8010
+  #注册Nacos后开放所有端口可以不用注册到bootAdmin
+#  boot:
+#    admin:
+#      client:
+#        url: http://192.168.44.78:18002
+#        instance:
+#          service-url: http://172.1.1.244:8010
   # ******************************数据源******************************
   datasource:
     druid:
@@ -25,7 +26,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.44.78:8848
+        server-addr: 192.168.44.78
         #指定 namespace
         #namespace: 1b3bc369-e9c8-4208-8f2e-63993378a986
         #指定 集群名称
@@ -56,7 +57,7 @@ spring:
     stream:
       rocketmq:
         binder:
-          name-server: guyawei.top:9876
+          name-server: 192.168.44.78:9876
         # stream 配置事务消息 需要注意
         bindings:
           output:
