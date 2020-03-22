@@ -65,10 +65,10 @@
             <artifactId>spring-cloud-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <dependency>
+      <!--  <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-alibaba-nacos-config</artifactId>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>com.lanswon</groupId>

@@ -27,7 +27,7 @@ import java.io.IOException;
 public class MyUrlBlockHandler implements UrlBlockHandler {
     @Override
     public void blocked(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, BlockException e) throws IOException {
-        ErrorMsg msg = null;
+        ErrorMsg msg = new ErrorMsg();
         if (e instanceof FlowException) {
             msg = ErrorMsg.builder()
                     .status(100)

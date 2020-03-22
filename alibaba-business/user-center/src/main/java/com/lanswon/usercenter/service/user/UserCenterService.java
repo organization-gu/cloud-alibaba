@@ -22,6 +22,7 @@ public class UserCenterService {
 
     public User findById(Integer id) {
         // select * from user where id = #{id}
+        log.debug("被请求了……………………");
         return this.userMapper.selectByPrimaryKey(id);
     }
 

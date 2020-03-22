@@ -1,16 +1,18 @@
 spring:
+  application:
+    name: content-center
   # ******************************Boot Admin 客户端******************************
   #注册Nacos后开放所有端口可以不用注册到bootAdmin
 #  boot:
 #    admin:
 #      client:
-#        url: http://192.168.44.78:18002
+#        url: http://192.168.10.55:18002
 #        instance:
-#          service-url: http://172.1.1.244:8010
+#          service-url: http://172.1.1.239:8013
   # ******************************数据源******************************
   datasource:
     druid:
-      driver-class-name: com.mysql.cj.jdbc.Driver
+      driver-class-name: com.mysql.jdbc.Driver
       url: jdbc:mysql://localhost:3306/content_center?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
       username: root
       password: 123456
@@ -38,7 +40,7 @@ spring:
           # 允许调用的版本
           target-version: v1
         # 多网卡指定客户端IP
-        ip: 172.1.1.244
+        ip: 172.1.1.239
     # *****************************服务容错限流*****************************
     sentinel:
       transport:
@@ -46,7 +48,7 @@ spring:
         dashboard: 192.168.44.78:9999
         heartbeat-interval-ms: 5000
         # 指定客户端连接ip
-        client-ip: 172.1.1.244
+        client-ip: 172.1.1.239
         # 指定客户端连接端口
         port: 8720
       log:
@@ -127,7 +129,7 @@ feign:
 
 # ****************************服务端口****************************
 server:
-  port: 8013
+  port: 8015
 
 # ****************************系统日志****************************
 logging:

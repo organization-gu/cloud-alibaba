@@ -19,7 +19,6 @@ import tk.mybatis.spring.annotation.MapperScan;
  */
 @SpringBootApplication
 @MapperScan("com.lanswon.contentcenter.dao")
-@RibbonClient(name = "user-center",configuration = CusTomizeIruleConfig.class)
 @ComponentScan(basePackages={"com.lanswon.contentcenter","ribbonConfig", "com.lanswon.userfeign"})
 @EnableFeignClients(basePackages = "com.lanswon.userfeign")
 @EnableTransactionManagement

@@ -1,13 +1,18 @@
 spring:
+  application:
+    name: user-center
   # ******************************Boot Admin 客户端******************************
+    #注册Nacos后开放所有端口可以不用注册到bootAdmin
 #  boot:
 #    admin:
 #      client:
 #        url: http://192.168.10.55:18002
+#        instance:
+#          service-url: http://172.1.1.239:8012
   # ****************************数据源*****************************
   datasource:
     druid:
-      driver-class-name: com.mysql.cj.jdbc.Driver
+      driver-class-name: com.mysql.jdbc.Driver
       url: jdbc:mysql://localhost:3306/user_center?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
       username: root
       password: 123456
@@ -28,6 +33,7 @@ spring:
         cluster-name: lanswon
         metadata:
           version: v1
+        ip: 172.1.1.239
     # *****************************消费者配置stream-rocketMQ*****************************
     stream:
       rocketmq:
