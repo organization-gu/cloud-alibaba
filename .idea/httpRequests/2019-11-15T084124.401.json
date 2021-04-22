@@ -1,0 +1,7 @@
+{
+  "timestamp": "2019-11-15T12:41:23.949+0000",
+  "status": 401,
+  "error": "Unauthorized",
+  "message": "Unauthorized",
+  "path": "/oauth/check_token"
+}

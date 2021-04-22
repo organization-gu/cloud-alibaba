@@ -12,7 +12,6 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import io.swagger.annotations.ApiModelProperty;
 
 /**
  * @author zhailiang
@@ -26,7 +25,6 @@ public class User {
 	private String id;
 	
 	@MyConstraint(message = "这是一个测试")
-	@ApiModelProperty(value = "用户名")
 	private String username;
 	
 	@NotBlank(message = "密码不能为空")

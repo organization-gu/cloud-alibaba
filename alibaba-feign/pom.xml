@@ -22,9 +22,9 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.lanswon</groupId>
-                <artifactId>alibaba-parent</artifactId>
-                <version>${lanswon.cloud.version}</version>
+                <groupId>com.lanswon.cloud</groupId>
+                <artifactId>platform-version</artifactId>
+                <version>V-1.1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

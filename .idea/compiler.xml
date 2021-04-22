@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -10,10 +11,12 @@
         <module name="alibaba-authdemo" />
         <module name="alibaba-admin" />
         <module name="content-center" />
-        <module name="user-center" />
-        <module name="alibaba-authapp" />
+        <module name="alibaba-authserver" />
+        <module name="feign-uum" />
         <module name="alibaba-commons" />
+        <module name="alibaba-authapp" />
         <module name="alibaba-authcore" />
+        <module name="user-center" />
         <module name="alibaba-gateway" />
         <module name="alibaba-authbrowser" />
       </profile>
@@ -25,15 +28,21 @@
       <module name="alibaba-authbrowser" target="1.8" />
       <module name="alibaba-authcore" target="1.8" />
       <module name="alibaba-authdemo" target="1.8" />
+      <module name="alibaba-authjwt" target="1.8" />
+      <module name="alibaba-authserver" target="1.8" />
       <module name="alibaba-base" target="1.8" />
       <module name="alibaba-business" target="1.8" />
       <module name="alibaba-commons" target="1.8" />
       <module name="alibaba-feign" target="1.8" />
       <module name="alibaba-gateway" target="1.8" />
       <module name="alibaba-parent" target="1.8" />
+      <module name="alibaba-wx" target="1.8" />
+      <module name="alibaba-wxmp" target="1.8" />
       <module name="cloud-alibaba" target="1.8" />
       <module name="content-center" target="1.8" />
       <module name="feign-usercenter" target="1.8" />
+      <module name="feign-uum" target="1.8" />
+      <module name="jiingle-management" target="1.8" />
       <module name="user-center" target="1.8" />
     </bytecodeTargetLevel>
   </component>

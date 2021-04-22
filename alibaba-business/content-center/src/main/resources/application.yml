@@ -65,7 +65,7 @@ spring:
           output:
             producer:
               transactional: true
-              group: tx-content-group
+              group: 1
       bindings:
         output:
           # topic 目的地

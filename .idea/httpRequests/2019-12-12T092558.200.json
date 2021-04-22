@@ -1,0 +1,13 @@
+{
+  "status": 200,
+  "simpleResponse": {
+    "content": {
+      "sysClientId": "7527ed6001114a52929b6c77807d632f",
+      "sysName": null,
+      "sysIndex": null,
+      "sysPassword": "123456",
+      "crtDate": "2019-12-12T13:25:58.548+0000",
+      "sysNote": null
+    }
+  }
+}
