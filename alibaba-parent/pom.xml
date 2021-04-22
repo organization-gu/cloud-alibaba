@@ -48,7 +48,7 @@
         <binarywang.version>3.6.0</binarywang.version>
         <hutool.version>4.5.10</hutool.version>
         <commons.lang>2.6</commons.lang>
-        <commons.beanutils>1.9.3</commons.beanutils>
+        <commons.beanutils>1.9.4</commons.beanutils>
         <commons.collections>3.2.2</commons.collections>
         <commons.io>2.1</commons.io>
     </properties>
