@@ -50,7 +50,7 @@
         <commons.lang>2.6</commons.lang>
         <commons.beanutils>1.9.3</commons.beanutils>
         <commons.collections>3.2.2</commons.collections>
-        <commons.io>2.1</commons.io>
+        <commons.io>2.7</commons.io>
     </properties>
 
     <dependencyManagement>
